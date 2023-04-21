@@ -1,0 +1,36 @@
+[
+    {
+        "myint": 1,
+        "myfloat": 3.1415,
+        "glossary": {
+            "title": "example glossary",
+            "keywords": [
+                "a",
+                "b"
+            ],
+            "list": [
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    4,
+                    5,
+                    6
+                ]
+            ]
+        }
+    },
+    {
+        "myint": 71,
+        "myfloat": 73.1415,
+        "glossary": {
+            "title": "7example glossary",
+            "keywords": [
+                "7a",
+                "7b"
+            ]
+        }
+    }
+]

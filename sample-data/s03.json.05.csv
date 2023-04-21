@@ -1,0 +1,5 @@
+,coffee/country/id,coffee/country/company,brewing/country/id,brewing/country/company,coffee/region.id,coffee/region.name,brewing/region.id,brewing/region.name
+0,2,ACME,2,ACME,1,John Doe,1,John Doe
+1,2,ACME,2,ACME,1,John Doe,2,Don Joeh
+2,2,ACME,2,ACME,2,Don Joeh,1,John Doe
+3,2,ACME,2,ACME,2,Don Joeh,2,Don Joeh

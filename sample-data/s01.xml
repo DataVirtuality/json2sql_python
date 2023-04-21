@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <root>
+        <myint xsi:type="decimal">1</myint>
+        <myfloat xsi:type="decimal">3.1415</myfloat>
+        <glossary>
+            <title>example glossary</title>
+            <keywords>a</keywords>
+            <keywords>b</keywords>
+            <list>
+                <list xsi:type="decimal">1</list>
+                <list xsi:type="decimal">2</list>
+                <list xsi:type="decimal">3</list>
+            </list>
+            <list>
+                <list xsi:type="decimal">4</list>
+                <list xsi:type="decimal">5</list>
+                <list xsi:type="decimal">6</list>
+            </list>
+        </glossary>
+    </root>
+    <root>
+        <myint xsi:type="decimal">1</myint>
+        <myfloat xsi:type="decimal">3.1415</myfloat>
+        <glossary>
+            <title>example glossary</title>
+            <keywords>a</keywords>
+            <keywords>b</keywords>
+        </glossary>
+    </root>
+</root>

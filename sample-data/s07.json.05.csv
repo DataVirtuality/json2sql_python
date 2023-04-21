@@ -1,0 +1,10 @@
+,boolean_key,empty_string_translation,key_with_description,key_with_line-break,null_translation,simple_key,unverified_key,nested/deeply/key,nested/key,pluralized_key/one,pluralized_key/other,pluralized_key/zero,sample_collection
+0,"--- true
+",,Check it out! This key has a description! (At least in some formats),"This translations contains
+a line-break.",,Just a simple key with a simple message.,This translation is not yet verified and waits for it. (In some formats we also export this status),"Wow, this key is nested even deeper.",This key is nested inside a namespace.,Only one pluralization found.,"Wow, you have %s pluralizations!",You have no pluralization.,first item
+1,"--- true
+",,Check it out! This key has a description! (At least in some formats),"This translations contains
+a line-break.",,Just a simple key with a simple message.,This translation is not yet verified and waits for it. (In some formats we also export this status),"Wow, this key is nested even deeper.",This key is nested inside a namespace.,Only one pluralization found.,"Wow, you have %s pluralizations!",You have no pluralization.,second item
+2,"--- true
+",,Check it out! This key has a description! (At least in some formats),"This translations contains
+a line-break.",,Just a simple key with a simple message.,This translation is not yet verified and waits for it. (In some formats we also export this status),"Wow, this key is nested even deeper.",This key is nested inside a namespace.,Only one pluralization found.,"Wow, you have %s pluralizations!",You have no pluralization.,third item

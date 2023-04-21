@@ -1,0 +1,4 @@
+,boolean_key,empty_string_translation,key_with_description,key_with_line-break,nested_deeply_key,nested_key,null_translation,pluralized_key_one,pluralized_key_other,pluralized_key_zero,sample_collection_0,sample_collection_1,sample_collection_2,simple_key,unverified_key
+0,"--- true
+",,Check it out! This key has a description! (At least in some formats),"This translations contains
+a line-break.","Wow, this key is nested even deeper.",This key is nested inside a namespace.,,Only one pluralization found.,"Wow, you have %s pluralizations!",You have no pluralization.,first item,second item,third item,Just a simple key with a simple message.,This translation is not yet verified and waits for it. (In some formats we also export this status)

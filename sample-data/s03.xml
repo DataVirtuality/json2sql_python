@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <coffee>
+        <region>
+            <id xsi:type="decimal">1</id>
+            <name>John Doe</name>
+        </region>
+        <region>
+            <id xsi:type="decimal">2</id>
+            <name>Don Joeh</name>
+        </region>
+        <country>
+            <id xsi:type="decimal">2</id>
+            <company>ACME</company>
+        </country>
+    </coffee>
+    <brewing>
+        <region>
+            <id xsi:type="decimal">1</id>
+            <name>John Doe</name>
+        </region>
+        <region>
+            <id xsi:type="decimal">2</id>
+            <name>Don Joeh</name>
+        </region>
+        <country>
+            <id xsi:type="decimal">2</id>
+            <company>ACME</company>
+        </country>
+    </brewing>
+</root>
