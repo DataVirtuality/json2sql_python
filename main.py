@@ -21,6 +21,9 @@ parser.add_argument("-r", "--recurse", action="store_true", required=False,
                     help="Recursively search subfolders for json files.")
 parser.add_argument("-ih", "--include_hidden", action="store_true",
                     required=False, help="Include hidden json files.")
+group = parser.add_mutually_exclusive_group()
+group.add_argument('--topdown', action='store_true')
+group.add_argument('--bottomup', action='store_false')
 
 args = parser.parse_args()
 
@@ -33,13 +36,24 @@ class DataTypes(Enum):
     # ARRAY = 'array'
 
 
-@dataclass
 class ObjInfo:
     parent_xpath: str
     current_xpath: str
     xpath: str
     _data_type: DataTypes = DataTypes.UNKNOWN
     cardinality: int = 1
+    depth: int = 1
+
+    def __init__(self,
+                 parent_xpath: str,
+                 current_xpath: str,
+                 xpath: str,
+                 data_type: DataTypes) -> None:
+        self.parent_xpath = parent_xpath
+        self.current_xpath = current_xpath
+        self.xpath = xpath
+        self.data_type = data_type
+        self.depth = xpath.count('/') - 2
 
     def inc_cardinality(self) -> None:
         self.cardinality += 1
@@ -90,7 +104,7 @@ def register_key_value(parsed_data: DICT_OBJ_INFO, parent_xpath: str, current_xp
     xpath = f'{parent_xpath}{current_xpath}/'
     if xpath not in parsed_data:
         parsed_data[xpath] = ObjInfo(
-            parent_xpath=parent_xpath, current_xpath=current_xpath, xpath=xpath, _data_type=data_type)
+            parent_xpath=parent_xpath, current_xpath=current_xpath, xpath=xpath, data_type=data_type)
     else:
         oi: ObjInfo = parsed_data[xpath]
         oi.data_type = data_type
@@ -149,10 +163,27 @@ def helper_determine_children_by_path(parsed_data: DICT_OBJ_INFO) -> HierarchyIn
     return hi_root
 
 
-def parsed_data_2_sql(parsed_data: DICT_OBJ_INFO) -> str:
-    hi: HierarchyInfo = helper_determine_children_by_path(parsed_data)
+def helper_top_down(hi: HierarchyInfo, sql_select: List[str], sql_from: List[str]) -> str:
 
     return ''
+
+
+def top_down_sql_generation(parsed_data: DICT_OBJ_INFO, hi: HierarchyInfo) -> str:
+    sql_select: List[str] = []
+    sql_from: List[str] = []
+    return helper_top_down(hi, sql_select, sql_from)
+
+
+def bottom_up_sql_generation(parsed_data: DICT_OBJ_INFO, hi: HierarchyInfo) -> str:
+    return ''
+
+
+def parsed_data_2_sql(parsed_data: DICT_OBJ_INFO) -> str:
+    hi: HierarchyInfo = helper_determine_children_by_path(parsed_data)
+    if args.topdown:
+        return top_down_sql_generation(parsed_data, hi)
+    else:
+        return ''
 
 
 def generate_dv_sql(obj: Any) -> str:

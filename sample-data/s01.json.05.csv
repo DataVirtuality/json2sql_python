@@ -1,25 +1,5 @@
-,myint,myfloat,glossary/title,glossary/keywords,glossary/list
-0,1,3.1415,example glossary,a,1
-1,1,3.1415,example glossary,a,2
-2,1,3.1415,example glossary,a,3
-3,1,3.1415,example glossary,a,4
-4,1,3.1415,example glossary,a,5
-5,1,3.1415,example glossary,a,6
-6,1,3.1415,example glossary,b,1
-7,1,3.1415,example glossary,b,2
-8,1,3.1415,example glossary,b,3
-9,1,3.1415,example glossary,b,4
-10,1,3.1415,example glossary,b,5
-11,1,3.1415,example glossary,b,6
-12,71,73.1415,7example glossary,7a,71
-13,71,73.1415,7example glossary,7a,72
-14,71,73.1415,7example glossary,7a,73
-15,71,73.1415,7example glossary,7a,74
-16,71,73.1415,7example glossary,7a,75
-17,71,73.1415,7example glossary,7a,76
-18,71,73.1415,7example glossary,7b,71
-19,71,73.1415,7example glossary,7b,72
-20,71,73.1415,7example glossary,7b,73
-21,71,73.1415,7example glossary,7b,74
-22,71,73.1415,7example glossary,7b,75
-23,71,73.1415,7example glossary,7b,76
+,myint,myfloat,glossary/title,glossary/list,glossary/keywords
+0,1,3.1415,example glossary,"[[1, 2, 3], [4, 5, 6]]",a
+1,1,3.1415,example glossary,"[[1, 2, 3], [4, 5, 6]]",b
+2,71,73.1415,7example glossary,,7a
+3,71,73.1415,7example glossary,,7b
