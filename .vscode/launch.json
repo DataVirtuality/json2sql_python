@@ -37,6 +37,26 @@
             ],
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "tcl version",
+            "type": "python",
+            "request": "launch",
+            "program": "main2.py",
+            "args": [
+                "-dsname",
+                "MY_DATASOURCE",
+                "-dspath",
+                "./sample-data/s01.xml",
+                "-infile",
+                "./sample-data/s01.xml",
+                "-outfile",
+                "s01.sql",
+                "-root",
+                "/root"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }

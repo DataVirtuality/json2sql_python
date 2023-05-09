@@ -1,4 +1,4 @@
-from typing import Dict, List, Self, cast, Any
+from typing import Dict, Final, List, Self, cast, Any
 import json
 import argparse
 import glob
@@ -21,9 +21,15 @@ parser.add_argument("-r", "--recurse", action="store_true", required=False,
                     help="Recursively search subfolders for json files.")
 parser.add_argument("-ih", "--include_hidden", action="store_true",
                     required=False, help="Include hidden json files.")
+parser.add_argument("-dsname",
+                    help="Is the name of Data Source (configured in Data Virtuality).")
+parser.add_argument("-dspath",
+                    help="Is the file path of the XML file within the Data source.")
+
 group = parser.add_mutually_exclusive_group()
-group.add_argument('--topdown', action='store_true')
-group.add_argument('--bottomup', action='store_false')
+group.add_argument('--topdown', action='store_false',
+                   help="This is the default.")
+group.add_argument('--bottomup', action='store_true')
 
 args = parser.parse_args()
 
@@ -76,6 +82,7 @@ class ObjInfo:
 
 
 DICT_OBJ_INFO = Dict[str, ObjInfo]
+XML_TABLE: Final[str] = 'xmltable'
 
 
 @dataclass
@@ -83,6 +90,23 @@ class HierarchyInfo:
     current_element: str
     xpath: str
     children: List[Self]
+
+    def is_leaf(self) -> bool:
+        return len(self.children) == 0
+
+    def is_branch(self) -> bool:
+        len(self.children) == 1
+
+    def is_node(self) -> bool:
+        len(self.children) > 1
+
+    def are_all_children_leaves(self) -> bool:
+        return all(x.is_leaf() for x in self.children)
+
+
+@dataclass
+class IntWrapper:
+    counter: int
 
 
 def get_data_type(obj: Any) -> DataTypes:
@@ -163,34 +187,63 @@ def helper_determine_children_by_path(parsed_data: DICT_OBJ_INFO) -> HierarchyIn
     return hi_root
 
 
-def helper_top_down(hi: HierarchyInfo, sql_select: List[str], sql_from: List[str]) -> str:
+def helper_top_down(hi: HierarchyInfo, sql_select: List[str], sql_from: List[str], alias_num: IntWrapper, relative_xpath: str) -> None:
+    '''
+    alias_num - Python doesn't allow pass by reference so we use a class wrapper to get around this.
+    '''
+    if hi.is_branch():
+        # branch: has a single child
+        helper_top_down(hi.children[0], sql_select,
+                        sql_from, alias_num, relative_xpath)
+    elif hi.is_leaf():
+        # leaf: no children
+        sql_select.append(
+            f'"{XML_TABLE}{alias_num.counter:02}"."{hi.current_element}"')
+        sql_from.append(
+            f'"{hi.current_element}" string ''{hi.current_element}''')
+        pass
+    else:
+        # node: has more than 1 child
+        if hi.are_all_children_leaves():
+            for child in hi.children:
+                helper_top_down(child, sql_select,
+                                sql_from, alias_num, relative_xpath)
+        else:
 
-    return ''
+            pass
+        alias_num.counter += 1
 
 
-def top_down_sql_generation(parsed_data: DICT_OBJ_INFO, hi: HierarchyInfo) -> str:
+def top_down_sql_generation(parsed_data: DICT_OBJ_INFO, hi: HierarchyInfo, file_name: str, dsname: str) -> str:
     sql_select: List[str] = []
     sql_from: List[str] = []
-    return helper_top_down(hi, sql_select, sql_from)
+    alias_num = IntWrapper(1)
+
+    sql_from.append(f'"{dsname}"."getFiles"(''{file_name}'') f')
+    sql_from.append(
+        f'cross join XMLTABLE(XMLNAMESPACES( ''http://www.w3.org/2001/XMLSchema-instance'' as "xsi" ), ''/root'' PASSING JSONTOXML(''root'',to_chars(f.file,''UTF-8'')) columns')
+
+    helper_top_down(hi, sql_select, sql_from, alias_num, '/root/')
+    return ''
 
 
 def bottom_up_sql_generation(parsed_data: DICT_OBJ_INFO, hi: HierarchyInfo) -> str:
     return ''
 
 
-def parsed_data_2_sql(parsed_data: DICT_OBJ_INFO) -> str:
+def parsed_data_2_sql(parsed_data: DICT_OBJ_INFO, file_name: str, dsname: str) -> str:
     hi: HierarchyInfo = helper_determine_children_by_path(parsed_data)
     if args.topdown:
-        return top_down_sql_generation(parsed_data, hi)
+        return top_down_sql_generation(parsed_data, hi, file_name, dsname)
     else:
         return ''
 
 
-def generate_dv_sql(obj: Any) -> str:
+def generate_dv_sql(obj: Any, file_name: str, dsname: str) -> str:
     parsed_data: DICT_OBJ_INFO = {}
     parse_struct(obj=obj, parent_xpath='/root/',
                  current_xpath='root', parsed_data=parsed_data)
-    return parsed_data_2_sql(parsed_data)
+    return parsed_data_2_sql(parsed_data, file_name, dsname)
 
 
 if args.stdio is True:
@@ -200,7 +253,7 @@ else:
     for file_name in glob.iglob(args.files, recursive=args.recurse, include_hidden=args.include_hidden):
         with open(file_name, 'rt', encoding='UTF-8') as f:
             json_obj = json.load(f)
-            sql = generate_dv_sql(json_obj)
+            sql = generate_dv_sql(json_obj, file_name, args.dsname)
             with open(f'{file_name}.sql', 'wt', encoding='UTF-8') as fsql:
                 fsql.write(sql)
             gen_csv_files(json_obj, file_name)
