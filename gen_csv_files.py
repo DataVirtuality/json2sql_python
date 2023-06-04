@@ -1,7 +1,8 @@
+# type: ignore
 from typing import Any
 import pandas as pd
 from flatten01 import json_to_dataframe
-from flatten02 import to_csv
+# from flatten02 import to_csv
 from flatten03 import flatten
 from flatten04 import flatten_nested_json_df
 import flatten_json

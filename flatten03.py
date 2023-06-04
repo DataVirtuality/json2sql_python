@@ -1,3 +1,4 @@
+# type: ignore
 from collections.abc import MutableMapping
 # from: https://stackoverflow.com/questions/51359783/how-to-flatten-multilevel-nested-json
 

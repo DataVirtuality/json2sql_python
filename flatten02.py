@@ -1,3 +1,4 @@
+# type: ignore
 import requests
 import json
 import csv

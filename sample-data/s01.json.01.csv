@@ -1,15 +1,107 @@
-,myint,myfloat,glossary.title,glossary.keywords,glossary.list
-0,1,3.1415,example glossary,a,1.0
-1,1,3.1415,example glossary,a,2.0
-2,1,3.1415,example glossary,a,3.0
-3,1,3.1415,example glossary,a,4.0
-4,1,3.1415,example glossary,a,5.0
-5,1,3.1415,example glossary,a,6.0
-6,1,3.1415,example glossary,b,1.0
-7,1,3.1415,example glossary,b,2.0
-8,1,3.1415,example glossary,b,3.0
-9,1,3.1415,example glossary,b,4.0
-10,1,3.1415,example glossary,b,5.0
-11,1,3.1415,example glossary,b,6.0
-12,71,73.1415,7example glossary,7a,
-13,71,73.1415,7example glossary,7b,
+,myint,myfloat,glossary.title,glossary.keywords,glossary.list,glossary.list_objs.servlet-name,glossary.list_objs.servlet-class
+0,987,,,,,,
+1,1,3.1415,example glossary,a,1.0,,
+2,1,3.1415,example glossary,a,2.0,,
+3,1,3.1415,example glossary,a,3.0,,
+4,1,3.1415,example glossary,a,4.0,,
+5,1,3.1415,example glossary,a,5.0,,
+6,1,3.1415,example glossary,a,6.0,,
+7,1,3.1415,example glossary,b,1.0,,
+8,1,3.1415,example glossary,b,2.0,,
+9,1,3.1415,example glossary,b,3.0,,
+10,1,3.1415,example glossary,b,4.0,,
+11,1,3.1415,example glossary,b,5.0,,
+12,1,3.1415,example glossary,b,6.0,,
+13,71,73.1415,7example glossary,7a,,cofaxAdmin,org.cofax.cds.AdminServlet
+14,71,73.1415,7example glossary,7a,,fileServlet,org.cofax.cds.FileServlet
+15,71,73.1415,7example glossary,7a,,servlet-fileServlet,servlet-org.cofax.cds.FileServlet
+16,71,73.1415,7example glossary,7a,,7 servlet-fileServlet,7 servlet-org.cofax.cds.FileServlet
+17,71,73.1415,7example glossary,7b,,cofaxAdmin,org.cofax.cds.AdminServlet
+18,71,73.1415,7example glossary,7b,,fileServlet,org.cofax.cds.FileServlet
+19,71,73.1415,7example glossary,7b,,servlet-fileServlet,servlet-org.cofax.cds.FileServlet
+20,71,73.1415,7example glossary,7b,,7 servlet-fileServlet,7 servlet-org.cofax.cds.FileServlet
+21,71,73.1415,7example glossary,7c,,cofaxAdmin,org.cofax.cds.AdminServlet
+22,71,73.1415,7example glossary,7c,,fileServlet,org.cofax.cds.FileServlet
+23,71,73.1415,7example glossary,7c,,servlet-fileServlet,servlet-org.cofax.cds.FileServlet
+24,71,73.1415,7example glossary,7c,,7 servlet-fileServlet,7 servlet-org.cofax.cds.FileServlet
+25,556,89.345,345example glossary,4g,21.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+26,556,89.345,345example glossary,4g,21.0,88 fileServlet,99 org.cofax.cds.FileServlet
+27,556,89.345,345example glossary,4g,21.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+28,556,89.345,345example glossary,4g,22.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+29,556,89.345,345example glossary,4g,22.0,88 fileServlet,99 org.cofax.cds.FileServlet
+30,556,89.345,345example glossary,4g,22.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+31,556,89.345,345example glossary,4g,33.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+32,556,89.345,345example glossary,4g,33.0,88 fileServlet,99 org.cofax.cds.FileServlet
+33,556,89.345,345example glossary,4g,33.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+34,556,89.345,345example glossary,4g,34.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+35,556,89.345,345example glossary,4g,34.0,88 fileServlet,99 org.cofax.cds.FileServlet
+36,556,89.345,345example glossary,4g,34.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+37,556,89.345,345example glossary,4g,35.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+38,556,89.345,345example glossary,4g,35.0,88 fileServlet,99 org.cofax.cds.FileServlet
+39,556,89.345,345example glossary,4g,35.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+40,556,89.345,345example glossary,4g,36.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+41,556,89.345,345example glossary,4g,36.0,88 fileServlet,99 org.cofax.cds.FileServlet
+42,556,89.345,345example glossary,4g,36.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+43,556,89.345,345example glossary,4g,24.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+44,556,89.345,345example glossary,4g,24.0,88 fileServlet,99 org.cofax.cds.FileServlet
+45,556,89.345,345example glossary,4g,24.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+46,556,89.345,345example glossary,4g,25.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+47,556,89.345,345example glossary,4g,25.0,88 fileServlet,99 org.cofax.cds.FileServlet
+48,556,89.345,345example glossary,4g,25.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+49,556,89.345,345example glossary,4g,26.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+50,556,89.345,345example glossary,4g,26.0,88 fileServlet,99 org.cofax.cds.FileServlet
+51,556,89.345,345example glossary,4g,26.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+52,556,89.345,345example glossary,7df,21.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+53,556,89.345,345example glossary,7df,21.0,88 fileServlet,99 org.cofax.cds.FileServlet
+54,556,89.345,345example glossary,7df,21.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+55,556,89.345,345example glossary,7df,22.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+56,556,89.345,345example glossary,7df,22.0,88 fileServlet,99 org.cofax.cds.FileServlet
+57,556,89.345,345example glossary,7df,22.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+58,556,89.345,345example glossary,7df,33.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+59,556,89.345,345example glossary,7df,33.0,88 fileServlet,99 org.cofax.cds.FileServlet
+60,556,89.345,345example glossary,7df,33.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+61,556,89.345,345example glossary,7df,34.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+62,556,89.345,345example glossary,7df,34.0,88 fileServlet,99 org.cofax.cds.FileServlet
+63,556,89.345,345example glossary,7df,34.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+64,556,89.345,345example glossary,7df,35.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+65,556,89.345,345example glossary,7df,35.0,88 fileServlet,99 org.cofax.cds.FileServlet
+66,556,89.345,345example glossary,7df,35.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+67,556,89.345,345example glossary,7df,36.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+68,556,89.345,345example glossary,7df,36.0,88 fileServlet,99 org.cofax.cds.FileServlet
+69,556,89.345,345example glossary,7df,36.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+70,556,89.345,345example glossary,7df,24.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+71,556,89.345,345example glossary,7df,24.0,88 fileServlet,99 org.cofax.cds.FileServlet
+72,556,89.345,345example glossary,7df,24.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+73,556,89.345,345example glossary,7df,25.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+74,556,89.345,345example glossary,7df,25.0,88 fileServlet,99 org.cofax.cds.FileServlet
+75,556,89.345,345example glossary,7df,25.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+76,556,89.345,345example glossary,7df,26.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+77,556,89.345,345example glossary,7df,26.0,88 fileServlet,99 org.cofax.cds.FileServlet
+78,556,89.345,345example glossary,7df,26.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+79,556,89.345,345example glossary,34f,21.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+80,556,89.345,345example glossary,34f,21.0,88 fileServlet,99 org.cofax.cds.FileServlet
+81,556,89.345,345example glossary,34f,21.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+82,556,89.345,345example glossary,34f,22.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+83,556,89.345,345example glossary,34f,22.0,88 fileServlet,99 org.cofax.cds.FileServlet
+84,556,89.345,345example glossary,34f,22.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+85,556,89.345,345example glossary,34f,33.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+86,556,89.345,345example glossary,34f,33.0,88 fileServlet,99 org.cofax.cds.FileServlet
+87,556,89.345,345example glossary,34f,33.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+88,556,89.345,345example glossary,34f,34.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+89,556,89.345,345example glossary,34f,34.0,88 fileServlet,99 org.cofax.cds.FileServlet
+90,556,89.345,345example glossary,34f,34.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+91,556,89.345,345example glossary,34f,35.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+92,556,89.345,345example glossary,34f,35.0,88 fileServlet,99 org.cofax.cds.FileServlet
+93,556,89.345,345example glossary,34f,35.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+94,556,89.345,345example glossary,34f,36.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+95,556,89.345,345example glossary,34f,36.0,88 fileServlet,99 org.cofax.cds.FileServlet
+96,556,89.345,345example glossary,34f,36.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+97,556,89.345,345example glossary,34f,24.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+98,556,89.345,345example glossary,34f,24.0,88 fileServlet,99 org.cofax.cds.FileServlet
+99,556,89.345,345example glossary,34f,24.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+100,556,89.345,345example glossary,34f,25.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+101,556,89.345,345example glossary,34f,25.0,88 fileServlet,99 org.cofax.cds.FileServlet
+102,556,89.345,345example glossary,34f,25.0,657 fileServlet,575467 org.cofax.cds.FileServlet
+103,556,89.345,345example glossary,34f,26.0,66 cofaxAdmin,77  org.cofax.cds.AdminServlet
+104,556,89.345,345example glossary,34f,26.0,88 fileServlet,99 org.cofax.cds.FileServlet
+105,556,89.345,345example glossary,34f,26.0,657 fileServlet,575467 org.cofax.cds.FileServlet

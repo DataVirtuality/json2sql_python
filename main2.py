@@ -1,11 +1,11 @@
 import argparse
 import os.path
-import getopt
+# import getopt
 # import xml.dom.minidom
 # import xml.etree.ElementTree as ET
 import os
 import re
-import sys
+# import sys
 from typing import Dict
 # import xml.etree.ElementTree as ET
 # from xml.dom.minidom import parse, parseString
@@ -144,30 +144,17 @@ def jsonChildren(node):
     return node.selectNodes('*[not(contains(name(),"@") or contains(name(),"objectcontainer"))]')
 
 
-def jsonAttributes(node):
-    # Select all children nodes that have '@' in their name
-    atts = node.selectNodes('*[contains(name(),"@")]')
-    atts += node.selectNodes('objectcontainer[1]/*[contains(name(),"@")]')
-    return atts
-
-
 def queryFromJsonAtt(node, leafPath):
     xpath = normalize_xpath(node.toXPath())
     result = ""
     for attNode in jsonAttributes(node):
         name = attNode.nodeName()
         name = name.lstrip('@')
-        relpath = relpath(leafPath, xpath)
-        path = "'[file join {} _u0040_{} text()]'".format(relpath, name)
+        rel_path = relpath(leafPath, xpath)
+        path = "'[file join {} _u0040_{} text()]'".format(rel_path, name)
         result += "\"[file join root {} {}]\" STRING PATH {},\n".format(
             xpath, name, path)
     return result
-
-
-def jsonChildren(node):
-    # Select all proper children nodes
-    # Do not have '@' in their name or name = objectcontainer
-    return node.selectNodes("*[not(contains(name(), '@') or contains(name(), 'objectcontainer'))]")
 
 
 def jsonAttributes(node):
@@ -178,17 +165,17 @@ def jsonAttributes(node):
     return atts
 
 
-def queryFromJsonAtt(node, leafPath):
-    xpath = node.toXPath().normalize()
-    result = ""
-    for attNode in jsonAttributes(node):
-        name = attNode.nodeName()
-        name = name.lstrip('@')
-        relpath = xpath.relpath(leafPath)
-        path = "'[file join " + relpath + " _u0040_" + name + " text()]'"
-        result += "\"[file join 'root' " + xpath + " " + \
-            name + "]\" STRING PATH " + path + ",\n"
-    return result
+# def queryFromJsonAtt(node, leafPath):
+#     xpath = node.toXPath().normalize()
+#     result = ""
+#     for attNode in jsonAttributes(node):
+#         name = attNode.nodeName()
+#         name = name.lstrip('@')
+#         relpath = xpath.relpath(leafPath)
+#         path = "'[file join " + relpath + " _u0040_" + name + " text()]'"
+#         result += "\"[file join 'root' " + xpath + " " + \
+#             name + "]\" STRING PATH " + path + ",\n"
+#     return result
 
 
 def queryFromXmlText(node, leafPath):
@@ -196,8 +183,8 @@ def queryFromXmlText(node, leafPath):
     text = node.text
     if text != "":
         name = f"{xpath}/text"
-        relpath = relpath(leafPath, xpath)
-        path = f"'[os.path.join({relpath}, text())]'"
+        rel_path = relpath(leafPath, xpath)
+        path = f"'[os.path.join({rel_path}, text())]'"
         return f'"{name}" STRING PATH {path},\n'
 
 
@@ -264,15 +251,6 @@ def buildQueryJson(qparts, dsource, fpath):
     firstLine = firstLine.rstrip(", ")
     sql = firstLine + "\n" + sql + "\n;;"
     return sql
-
-
-def parseargs(args):
-    for i in range(0, len(args), 2):
-        arg = args[i]
-        val = args[i+1]
-        if arg == "-dsname" or arg == "-dspath" or arg == "-infile" or arg == "-outfile" or arg == "-root":
-            varname = arg.lstrip("-")
-            globals()[varname] = val
 
 
 parser = argparse.ArgumentParser()
@@ -352,7 +330,7 @@ def json2sql():
     else:
         try:
             root = doc.getElementsByTagName(root)
-        except:
+        except Exception:
             return "Error selecting the root node: " + root
 
     parts = getpartsJson(root)

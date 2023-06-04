@@ -1,9 +1,12 @@
+# type: ignore
 import os
 import re
-import xml.etree.ElementTree as ET
+# import xml.etree.ElementTree as ET
+
 
 def normalize_xpath(path):
     return re.sub(r'\[\d+\]', '', path)
+
 
 def relpath(leaf, path):
     # Calculates the relative path from the leaf path to the desired path
@@ -14,6 +17,7 @@ def relpath(leaf, path):
             continue
         res = os.path.join(res, '..')
     return res
+
 
 def query_from_xml_att(node, leaf_path):
     # Creates a 'COLUMNS' line for each node attribute
@@ -26,6 +30,7 @@ def query_from_xml_att(node, leaf_path):
         result += f'"{name}" STRING PATH {path},\n'
     return result
 
+
 def query_from_xml_text(node, leaf_path):
     # Creates a 'COLUMNS' line for node's text value, if any
     xpath = normalize_xpath(node.getroottree().getpath(node))
@@ -35,6 +40,7 @@ def query_from_xml_text(node, leaf_path):
         relpath_ = relpath(leaf_path, xpath)
         path = f"'{os.path.join(relpath_, 'text()')}'"
         return f'"{name}" STRING PATH {path},\n'
+
 
 def get_parts(node):
     """
@@ -70,6 +76,7 @@ def get_parts(node):
         parts[path] += query_from_xml_text(node, path) or ''
     return parts
 
+
 def build_query(qparts, dsource, fpath):
     sql = ""
     count = 1
@@ -86,4 +93,3 @@ def build_query(qparts, dsource, fpath):
             sql += ","
         sql += f"XMLTABLE('{leaf_path}' PASSING data.xmldata\n"
         sql += "COLUMNS\n\"idColumn_{count}\" FOR ORDINALITY"
-

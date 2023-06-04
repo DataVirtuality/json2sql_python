@@ -33,7 +33,9 @@
             "args": [
                 "--files",
                 "sample-data/*.json",
-                "--recurse"
+                "--recurse",
+                "-dsname",
+                "dv_sample_data"
             ],
             "console": "integratedTerminal",
             "justMyCode": true

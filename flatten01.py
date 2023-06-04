@@ -1,3 +1,4 @@
+# type: ignore
 from copy import deepcopy
 import pandas
 
