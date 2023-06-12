@@ -1,4 +1,4 @@
-from typing import Dict, Final, List, Self, cast, Any
+from typing import Dict, Final, List, Optional, Self, cast, Any
 import json
 import glob
 # import sys
@@ -7,7 +7,7 @@ import fileinput
 from enum import Enum
 # import pandas as pd
 from gen_csv_files import gen_csv_files
-from lib.args import parse_args
+from codelib.args import parse_args
 
 args = parse_args()
 
@@ -72,6 +72,8 @@ class HierarchyInfo:
     current_element: str
     xpath: str
     children: List[Self]
+    parent: Optional[Self]
+    xml_attributes: List[str]
 
     def is_leaf(self) -> bool:
         return len(self.children) == 0
@@ -84,6 +86,9 @@ class HierarchyInfo:
 
     def are_all_children_leaves(self) -> bool:
         return all(x.is_leaf() for x in self.children)
+
+    def has_xml_attributes(self) -> bool:
+        return len(self.xml_attributes) > 0
 
 
 @dataclass
@@ -143,7 +148,13 @@ def parse_struct(obj: Any, parent_xpath: str, current_xpath: str, parsed_data: D
 
 
 def helper_determine_children_by_path(parsed_data: DICT_OBJ_INFO) -> HierarchyInfo:
-    hi_root: HierarchyInfo = HierarchyInfo('root', '/root/', [])
+    hi_root: HierarchyInfo = HierarchyInfo(
+        current_element='root',
+        xpath='/root/',
+        children=[],
+        parent=None,
+        xml_attributes=[]
+    )
 
     for key, _ in parsed_data.items():
         xpath: str = '/root/'
@@ -156,7 +167,13 @@ def helper_determine_children_by_path(parsed_data: DICT_OBJ_INFO) -> HierarchyIn
             assert len(lst) <= 1
             xpath = f'{xpath}{item}/'
             if len(lst) == 0:
-                hi = HierarchyInfo(item, xpath, [])
+                hi = HierarchyInfo(
+                    current_element=item,
+                    xpath=xpath,
+                    children=[],
+                    parent=hi_current,
+                    xml_attributes=[]
+                )
                 hi_current.children.append(hi)
                 hi_current = hi
             else:
@@ -176,6 +193,11 @@ def is_node_an_array(parsed_data: DICT_OBJ_INFO, hi: HierarchyInfo) -> bool:
 
 def remove_last_char_from_str(s: str) -> str:
     return s[:-1]
+
+
+def substract_string(prefix: str, target: str) -> str:
+    assert target.startswith(prefix) is True
+    return target[len(prefix):]
 
 
 def helper_top_down(
@@ -198,13 +220,21 @@ def helper_top_down(
 
     if hi.is_branch():
         # branch: has a single child
-        helper_top_down(parsed_data=parsed_data, hi=hi.children[0], sql_select=sql_select, sql_from=sql_from,
-                        alias_num=alias_num, relative_xpath=hi.children[0].xpath, sql_parent_table=sql_parent_table,
-                        sql_parent_xml_column=sql_parent_xml_column, parent_table_number=alias_num.counter
-                        )
+        helper_top_down(
+            parsed_data=parsed_data,
+            hi=hi.children[0],
+            sql_select=sql_select,
+            sql_from=sql_from,
+            alias_num=alias_num,
+            relative_xpath=relative_xpath,
+            sql_parent_table=sql_parent_table,
+            sql_parent_xml_column=sql_parent_xml_column,
+            parent_table_number=parent_table_number
+        )
     else:
-        # node: has more than 1 child
-        # assert hi.is_node() is True
+        xpath_from_wrapper = remove_last_char_from_str(substract_string(relative_xpath, hi.xpath))
+        xpath_relative_to_wrapper = xpath_from_wrapper.count('/') + 1
+        x_path_move_back = '../' * xpath_relative_to_wrapper
 
         sql_from.append('left join lateral(')
         sql_from.append('   select')
@@ -212,7 +242,8 @@ def helper_top_down(
         sql_from.append('       xt.*')
         sql_from.append('   from')
         sql_from.append('       XMLTABLE(')
-        sql_from.append("           XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as \"xsi\" ), '/DV_default_xml_wrapper/root/root' PASSING ")
+        sql_from.append(
+            f"           XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as \"xsi\" ), '/DV_default_xml_wrapper/{xpath_from_wrapper}' PASSING ")
         sql_from.append('               XMLELEMENT(NAME "DV_default_xml_wrapper",')
         sql_from.append("                   XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as \"xsi\" ),")
         sql_from.append(f'                   XMLATTRIBUTES("{sql_parent_table}"."dv_xml_wrapper_id_{parent_table_number:03}" AS "dv_xml_wrapper_parent_id"),')
@@ -220,41 +251,52 @@ def helper_top_down(
         sql_from.append('               )')
         sql_from.append('		    COLUMNS')
         sql_from.append(f'               "idColumn_{current_table_number:03}" FOR ORDINALITY,')
-        sql_from.append('               "dv_xml_wrapper_parent_id" string path \'../../@dv_xml_wrapper_parent_id\',')
+        sql_from.append(f"               \"dv_xml_wrapper_parent_id\" string path '{x_path_move_back}@dv_xml_wrapper_parent_id',")
 
         sql_select.append(f'    -- "{current_sql_table_name}"."idColumn_{current_table_number:03}",')
         sql_select.append(f'    -- "{current_sql_table_name}"."dv_xml_wrapper_parent_id",')
         sql_select.append(f'    -- "{current_sql_table_name}"."dv_xml_wrapper_id_{current_table_number:03}",')
 
         xml_tables: List[HierarchyInfo] = []
-        for child in hi.children:
-            if child.is_leaf() and is_node_an_array(parsed_data=parsed_data, hi=child) is False:
-                sql_data_type = get_data_sql_type(parsed_data, child)
-                if sql_data_type != DataTypes.STR.value:
-                    sql_select.append(f'    "{current_sql_table_name}"."{relative_xpath}{child.current_element}/type",')
-                    sql_from.append(f"               \"{relative_xpath}{child.current_element}/type\" STRING PATH '{child.current_element}/@xsi:type',")
+        if hi.is_leaf() is True:
+            sql_data_type = get_data_sql_type(parsed_data, hi)
+            if sql_data_type != DataTypes.STR.value:
+                sql_select.append(f'    "{current_sql_table_name}"."{hi.xpath}@type",')
+                sql_from.append(f"               \"{hi.xpath}@type\" STRING PATH '{hi.current_element}/@xsi:type',")
+        else:
+            for child in hi.children:
+                if is_node_an_array(parsed_data=parsed_data, hi=child) is True:
+                    sql_select.append(f'    -- "{current_sql_table_name}"."{child.xpath}",')
+                    sql_from.append(f'               "{child.xpath}" xml PATH \'{child.current_element}\',')
+                else:
+                    sql_data_type = get_data_sql_type(parsed_data, child)
+                    if sql_data_type != DataTypes.STR.value:
+                        sql_select.append(f'    "{current_sql_table_name}"."{child.xpath}@type",')
+                        sql_from.append(f"               \"{child.xpath}@type\" STRING PATH '{child.current_element}/@xsi:type',")
 
-                sql_select.append(f'    "{current_sql_table_name}"."{relative_xpath}{child.current_element}",')
-                sql_from.append(f'               "{relative_xpath}{child.current_element}" {sql_data_type} PATH \'{child.current_element}\',')
-            else:
-                sql_select.append(f'    -- "{current_sql_table_name}"."{relative_xpath}{child.current_element}",')
-                sql_from.append(f'               "{relative_xpath}{child.current_element}" xml PATH \'{child.current_element}\',')
-                xml_tables.append(child)
+                    sql_select.append(f'    "{current_sql_table_name}"."{child.xpath}",')
+                    sql_from.append(f'               "{child.xpath}" {sql_data_type} PATH \'{child.current_element}\',')
 
         # Remove comma from last entry
         sql_from[-1] = remove_last_char_from_str(sql_from[-1])
 
+        sql_from.append('        ) xt')
         sql_from.append(f') "{current_sql_table_name}"')
-        sql_from.append(f'    on "{sql_parent_table}"."dv_xml_wrapper_parent_id" = "{current_sql_table_name}"."dv_xml_wrapper_id_{current_table_number:03}"')
+        sql_from.append(f'    on "{sql_parent_table}"."dv_xml_wrapper_id_{parent_table_number:03}" = "{current_sql_table_name}"."dv_xml_wrapper_parent_id"')
         alias_num.counter += 1
 
         for child in xml_tables:
-            helper_top_down(parsed_data=parsed_data, hi=child, sql_select=sql_select, sql_from=sql_from,
-                            alias_num=alias_num, relative_xpath=child.xpath,
-                            sql_parent_table=f'{current_sql_table_name}',
-                            sql_parent_xml_column=f'{relative_xpath}{child.current_element}',
-                            parent_table_number=alias_num.counter
-                            )
+            helper_top_down(
+                parsed_data=parsed_data,
+                hi=child,
+                sql_select=sql_select,
+                sql_from=sql_from,
+                alias_num=alias_num,
+                relative_xpath=hi.xpath,
+                sql_parent_table=f'{current_sql_table_name}',
+                sql_parent_xml_column=child.xpath,
+                parent_table_number=current_table_number
+            )
 
 
 def top_down_sql_generation(parsed_data: DICT_OBJ_INFO, hi: HierarchyInfo, file_name: str, dsname: str) -> str:
@@ -277,10 +319,17 @@ def top_down_sql_generation(parsed_data: DICT_OBJ_INFO, hi: HierarchyInfo, file_
     sql_from.append(f'from "{current_sql_table}"')
 
     alias_num.counter += 1
-    helper_top_down(parsed_data=parsed_data, hi=hi, sql_select=sql_select, sql_from=sql_from,
-                    alias_num=alias_num, relative_xpath='/root', sql_parent_table=f'{current_sql_table}',
-                    sql_parent_xml_column='xmldata', parent_table_number=alias_num.counter
-                    )
+    helper_top_down(
+        parsed_data=parsed_data,
+        hi=hi,
+        sql_select=sql_select,
+        sql_from=sql_from,
+        alias_num=alias_num,
+        relative_xpath='/',
+        sql_parent_table=f'{current_sql_table}',
+        sql_parent_xml_column='xmldata',
+        parent_table_number=current_table_number
+    )
 
     # Remove comma from last entry
     sql_select[-1] = remove_last_char_from_str(sql_select[-1])

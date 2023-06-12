@@ -20,7 +20,9 @@
             "args": [
                 "--files",
                 "sample-data/s01.json",
-                "--recurse"
+                "--recurse",
+                "--dsname",
+                "dv_sample_data"
             ],
             "console": "integratedTerminal",
             "justMyCode": true
