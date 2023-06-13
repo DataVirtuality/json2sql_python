@@ -1,10 +1,10 @@
-from typing import Dict, Final, List, Optional, Self, cast, Any
+from typing import Dict, Final, List, cast, Any
 import json
 import glob
 # import sys
 from dataclasses import dataclass
 import fileinput
-from enum import Enum
+# from enum import Enum
 # import pandas as pd
 from gen_csv_files import gen_csv_files
 from codelib.args import parse_args
@@ -12,173 +12,9 @@ from codelib.args import parse_args
 args = parse_args()
 
 
-class DataTypes(Enum):
-    UNKNOWN = 'unknown'
-    STR = 'string'
-    INT = 'integer'
-    FLOAT = 'float'
-    # ARRAY = 'array'
-
-
-class ObjInfo:
-    parent_xpath: str
-    current_xpath: str
-    xpath: str
-    _data_type: DataTypes = DataTypes.UNKNOWN
-    is_array: bool = False
-    cardinality: int = 1
-    depth: int = 1
-
-    def __init__(self,
-                 parent_xpath: str,
-                 current_xpath: str,
-                 xpath: str,
-                 data_type: DataTypes,
-                 is_array: bool
-                 ) -> None:
-        self.parent_xpath = parent_xpath
-        self.current_xpath = current_xpath
-        self.xpath = xpath
-        self.data_type = data_type
-        self.depth = xpath.count('/') - 2
-        self.is_array = is_array
-
-    def inc_cardinality(self) -> None:
-        self.cardinality += 1
-
-    @property
-    def data_type(self):
-        return self._data_type
-
-    @data_type.setter
-    def data_type(self, datatype: DataTypes):
-        if datatype != self._data_type:
-            if self._data_type is DataTypes.UNKNOWN:
-                self._data_type = datatype
-            elif datatype is DataTypes.UNKNOWN:
-                pass
-            elif datatype in (DataTypes.INT, DataTypes.FLOAT) and self._data_type in (DataTypes.INT, DataTypes.FLOAT):
-                self._data_type = DataTypes.FLOAT
-            elif datatype == DataTypes.STR and self._data_type in (DataTypes.INT, DataTypes.FLOAT):
-                self._data_type = DataTypes.STR
-
-
-DICT_OBJ_INFO = Dict[str, ObjInfo]
-XML_TABLE: Final[str] = 'dataset'
-
-
-@dataclass
-class HierarchyInfo:
-    current_element: str
-    xpath: str
-    children: List[Self]
-    parent: Optional[Self]
-    xml_attributes: List[str]
-
-    def is_leaf(self) -> bool:
-        return len(self.children) == 0
-
-    def is_branch(self) -> bool:
-        return len(self.children) == 1
-
-    def is_node(self) -> bool:
-        return len(self.children) > 1
-
-    def are_all_children_leaves(self) -> bool:
-        return all(x.is_leaf() for x in self.children)
-
-    def has_xml_attributes(self) -> bool:
-        return len(self.xml_attributes) > 0
-
-
 @dataclass
 class IntWrapper:
     counter: int
-
-
-def get_data_type(obj: Any) -> DataTypes:
-    if obj is None:
-        return DataTypes.UNKNOWN
-    if isinstance(obj, str):
-        return DataTypes.STR
-    if isinstance(obj, float):
-        return DataTypes.FLOAT
-    if isinstance(obj, int):
-        return DataTypes.INT
-    raise Exception('Unhandled type')
-    return DataTypes.UNKNOWN
-
-
-def register_key_value(parsed_data: DICT_OBJ_INFO, parent_xpath: str, current_xpath: str, data_type: DataTypes, is_array: bool) -> None:
-    xpath = f'{parent_xpath}{current_xpath}/'
-    if xpath not in parsed_data:
-        parsed_data[xpath] = ObjInfo(parent_xpath=parent_xpath, current_xpath=current_xpath, xpath=xpath, data_type=data_type, is_array=is_array)
-    else:
-        oi: ObjInfo = parsed_data[xpath]
-        oi.data_type = data_type
-        oi.inc_cardinality()
-
-
-def parse_struct(obj: Any, parent_xpath: str, current_xpath: str, parsed_data: DICT_OBJ_INFO) -> None:
-    if isinstance(obj, dict):
-        d = cast(Dict[str, Any], obj)
-        for key, val in d.items():
-            if isinstance(val, dict):
-                parse_struct(obj=val, parent_xpath=f'{parent_xpath}{key}/', current_xpath=f'{key}', parsed_data=parsed_data)
-            elif isinstance(val, list):
-                parse_struct(obj=val, parent_xpath=f'{parent_xpath}', current_xpath=f'{key}', parsed_data=parsed_data)
-            else:
-                register_key_value(parsed_data=parsed_data, parent_xpath=parent_xpath,
-                                   current_xpath=key, data_type=get_data_type(val), is_array=False)
-    elif isinstance(obj, list):
-        lst = cast(List[Any], obj)
-        for item in lst:
-            if isinstance(item, dict):
-                parse_struct(obj=item, parent_xpath=f'{parent_xpath}{current_xpath}/',
-                             current_xpath=current_xpath, parsed_data=parsed_data)
-            elif isinstance(item, list):
-                parse_struct(obj=item, parent_xpath=f'{parent_xpath}{current_xpath}/',
-                             current_xpath=current_xpath, parsed_data=parsed_data)
-            else:
-                register_key_value(parsed_data=parsed_data, parent_xpath=parent_xpath,
-                                   current_xpath=current_xpath, data_type=get_data_type(item), is_array=True)
-    else:
-        register_key_value(parsed_data=parsed_data, parent_xpath=parent_xpath,
-                           current_xpath=current_xpath, data_type=get_data_type(obj), is_array=False)
-
-
-def helper_determine_children_by_path(parsed_data: DICT_OBJ_INFO) -> HierarchyInfo:
-    hi_root: HierarchyInfo = HierarchyInfo(
-        current_element='root',
-        xpath='/root/',
-        children=[],
-        parent=None,
-        xml_attributes=[]
-    )
-
-    for key, _ in parsed_data.items():
-        xpath: str = '/root/'
-        hi_current = hi_root
-        elements = key.split('/')
-        elements = [x for x in elements if len(x) > 0]
-        for i in range(1, len(elements)):
-            item = elements[i]
-            lst = [x for x in hi_current.children if x.current_element == item]
-            assert len(lst) <= 1
-            xpath = f'{xpath}{item}/'
-            if len(lst) == 0:
-                hi = HierarchyInfo(
-                    current_element=item,
-                    xpath=xpath,
-                    children=[],
-                    parent=hi_current,
-                    xml_attributes=[]
-                )
-                hi_current.children.append(hi)
-                hi_current = hi
-            else:
-                hi_current = lst[0]
-    return hi_root
 
 
 def get_data_sql_type(parsed_data: DICT_OBJ_INFO, hi: HierarchyInfo) -> str:
