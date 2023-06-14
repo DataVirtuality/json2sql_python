@@ -16,6 +16,8 @@ def parse_args() -> argparse.Namespace:
                         help="Is the name of Data Source (configured in Data Virtuality).")
     parser.add_argument("--dspath", required=False,
                         help="Is the file path of the XML file within the Data source.")
+    parser.add_argument("--force_strings", required=False, default=False,
+                        help="Is the file path of the XML file within the Data source.")
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--list_as_rows', action='store_false',
