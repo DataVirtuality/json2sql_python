@@ -29,7 +29,17 @@ class SqlGenConfig:
     * False - The array will be converted into an array. Eg. 'col1' int[] 'xpath'
     """
 
-    xml_table_name: str
+    sql_table_alias: str
     """
     Name used in from clause of SQL query.
+    """
+
+    path_separator: str
+    """
+    Name of the JSON or XML to parse.
+    """
+
+    json_xml_file_to_parse: str = 'generic_name.json'
+    """
+    Name of the JSON or XML to parse.
     """

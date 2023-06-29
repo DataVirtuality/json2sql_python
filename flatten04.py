@@ -2,7 +2,13 @@
 import pandas as pd
 
 
-def flatten_nested_json_df(df):
+def flatten_nested_json(input_json_file: str, output_csv_file: str) -> None:
+    df = pd.read_json(input_json_file)
+    df = flatten_nested_json_df(df)
+    df.to_csv(output_csv_file, index=False)
+
+
+def flatten_nested_json_df(df: pd.DataFrame) -> pd.DataFrame:
 
     df = df.reset_index(drop=True)
 
@@ -10,10 +16,10 @@ def flatten_nested_json_df(df):
     print(f"original columns: {df.columns}")
 
     # search for columns to explode/flatten
-    s = (df.applymap(type) == list).all()
+    s = (df.applymap(type) == type([])).any()
     list_columns = s[s].index.tolist()
 
-    s = (df.applymap(type) == dict).all()
+    s = (df.applymap(type) == type({})).any()
     dict_columns = s[s].index.tolist()
 
     print(f"lists: {list_columns}, dicts: {dict_columns}")
@@ -36,10 +42,10 @@ def flatten_nested_json_df(df):
             new_columns.append(col)
 
         # check if there are still dict o list fields to flatten
-        s = (df[new_columns].applymap(type) == list).all()
+        s = (df[new_columns].applymap(type) == type([])).any()
         list_columns = s[s].index.tolist()
 
-        s = (df[new_columns].applymap(type) == dict).all()
+        s = (df[new_columns].applymap(type) == type({})).any()
         dict_columns = s[s].index.tolist()
 
         print(f"lists: {list_columns}, dicts: {dict_columns}")

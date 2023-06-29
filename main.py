@@ -2,6 +2,7 @@
 import argparse
 import json
 import glob
+import os
 # import sys
 # from dataclasses import dataclass
 import fileinput
@@ -13,6 +14,7 @@ from codelib.sql_generator import SqlGenerator
 # import pandas as pd
 # from gen_csv_files import gen_csv_files
 from codelib.args import parse_args
+from flatten04 import flatten_nested_json
 
 
 def ExtractConfigFromArgs(args: argparse.Namespace) -> SqlGenConfig:
@@ -20,8 +22,9 @@ def ExtractConfigFromArgs(args: argparse.Namespace) -> SqlGenConfig:
         dv_datasource_name=args.dsname,
         dv_datasource_filepath=args.dspath,
         force_data_types_to_string=args.force_strings,
-        explode_arrays=args.explode_arrays,
-        xml_table_name=args.list_as_rows
+        explode_arrays=args.list_as_rows,
+        sql_table_alias=args.sqlalias,
+        path_separator=args.path_separator
     )
 
 
@@ -34,7 +37,10 @@ if args.stdio is True:
     # print(generate_dv_sql(json_obj, 'stdio', args.dsname))
 else:
     for file_name in glob.iglob(args.files, recursive=args.recurse, include_hidden=args.include_hidden):
+        config.json_xml_file_to_parse = os.path.basename(file_name)
         treenodeinfo = parse_json_file(file_name)
         sqlgen = SqlGenerator(config=config, treenodeinfo=treenodeinfo)
         with open(f'{file_name}.sql', 'wt', encoding='UTF-8') as fsql:
             fsql.write(sqlgen.generate_dv_sql())
+
+        flatten_nested_json(file_name, f'{file_name}.04.csv')

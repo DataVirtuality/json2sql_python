@@ -1,36 +1,48 @@
-with "dataset001" as (
+with "XmlTable001" as (
     SELECT
         uuid() as dv_xml_wrapper_id_001,
         JSONTOXML('root', to_chars(f.file,'UTF-8')) as xmldata
     FROM
-        "dv_sample_data".getFiles('sample-data/s01.json') f
+        "dv_sample_data".getFiles('./s01.json') f
 )
 select
-    "dataset001"."dv_xml_wrapper_id_001",
-    -- "dataset002"."idColumn_002",
-    -- "dataset002"."dv_xml_wrapper_parent_id",
-    -- "dataset002"."dv_xml_wrapper_id_002",
-    "dataset002"."/root/root/myint/@type",
-    "dataset002"."/root/root/myint/",
-    "dataset002"."/root/root/myfloat/@type",
-    "dataset002"."/root/root/myfloat/",
-    -- "dataset002"."/root/root/glossary/",
-    -- "dataset003"."idColumn_003",
-    -- "dataset003"."dv_xml_wrapper_parent_id",
-    -- "dataset003"."dv_xml_wrapper_id_003",
-    "dataset003"."/root/root/glossary/title/",
-    "dataset003"."/root/root/glossary/keywords/",
-    -- "dataset003"."/root/root/glossary/list/",
-    -- "dataset003"."/root/root/glossary/list_objs/",
-    -- "dataset004"."idColumn_004",
-    -- "dataset004"."dv_xml_wrapper_parent_id",
-    -- "dataset004"."dv_xml_wrapper_id_004",
-    -- "dataset005"."idColumn_005",
-    -- "dataset005"."dv_xml_wrapper_parent_id",
-    -- "dataset005"."dv_xml_wrapper_id_005",
-    "dataset005"."/root/root/glossary/list_objs/servlet-name/",
-    "dataset005"."/root/root/glossary/list_objs/servlet-class/"
-from "dataset001"
+    "XmlTable001"."dv_xml_wrapper_id_001",
+    -- "XmlTable002"."idColumn_002",
+    -- "XmlTable002"."dv_xml_wrapper_parent_id",
+    -- "XmlTable002"."dv_xml_wrapper_id_002",
+    "XmlTable002"."/root/root/myint/@type",
+    "XmlTable002"."/root/root/myint/",
+    "XmlTable002"."/root/root/myfloat/@type",
+    "XmlTable002"."/root/root/myfloat/",
+    -- "XmlTable002"."/root/root/glossary/",
+    -- "XmlTable003"."idColumn_003",
+    -- "XmlTable003"."dv_xml_wrapper_parent_id",
+    -- "XmlTable003"."dv_xml_wrapper_id_003",
+    "XmlTable003"."/root/root/glossary/title/",
+    -- "XmlTable003"."/root/root/glossary/keywords/",
+    -- "XmlTable003"."/root/root/glossary/list/",
+    -- "XmlTable003"."/root/root/glossary/list_objs/",
+    -- "XmlTable004"."idColumn_004",
+    -- "XmlTable004"."dv_xml_wrapper_parent_id",
+    -- "XmlTable004"."dv_xml_wrapper_id_004",
+    "XmlTable004"."/root/root/glossary/keywords/",
+    -- "XmlTable005"."idColumn_005",
+    -- "XmlTable005"."dv_xml_wrapper_parent_id",
+    -- "XmlTable005"."dv_xml_wrapper_id_005",
+    "XmlTable005"."/root/root/glossary/list/list/",
+    "XmlTable005"."/root/root/glossary/list/list/@type",
+    -- "XmlTable005"."/root/root/glossary/list/list/list/",
+    -- "XmlTable006"."idColumn_006",
+    -- "XmlTable006"."dv_xml_wrapper_parent_id",
+    -- "XmlTable006"."dv_xml_wrapper_id_006",
+    "XmlTable006"."/root/root/glossary/list/list/list/",
+    "XmlTable006"."/root/root/glossary/list/list/list/@type",
+    -- "XmlTable007"."idColumn_007",
+    -- "XmlTable007"."dv_xml_wrapper_parent_id",
+    -- "XmlTable007"."dv_xml_wrapper_id_007",
+    "XmlTable007"."/root/root/glossary/list_objs/servlet-name/",
+    "XmlTable007"."/root/root/glossary/list_objs/servlet-class/"
+from "XmlTable001"
 left join lateral(
    select
        uuid() as "dv_xml_wrapper_id_002",
@@ -40,8 +52,8 @@ left join lateral(
            XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ), '/DV_default_xml_wrapper/root/root' PASSING 
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
-                   XMLATTRIBUTES("dataset001"."dv_xml_wrapper_id_001" AS "dv_xml_wrapper_parent_id"),
-                    "dataset001"."xmldata"
+                   XMLATTRIBUTES("XmlTable001"."dv_xml_wrapper_id_001" AS "dv_xml_wrapper_parent_id"),
+                    "XmlTable001"."xmldata"
                )
 		    COLUMNS
                "idColumn_002" FOR ORDINALITY,
@@ -52,8 +64,8 @@ left join lateral(
                "/root/root/myfloat/" float PATH 'myfloat',
                "/root/root/glossary/" xml PATH 'glossary'
         ) xt
-) "dataset002"
-    on "dataset001"."dv_xml_wrapper_id_001" = "dataset002"."dv_xml_wrapper_parent_id"
+) "XmlTable002"
+    on "XmlTable001"."dv_xml_wrapper_id_001" = "XmlTable002"."dv_xml_wrapper_parent_id"
 left join lateral(
    select
        uuid() as "dv_xml_wrapper_id_003",
@@ -63,54 +75,96 @@ left join lateral(
            XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ), '/DV_default_xml_wrapper/glossary' PASSING 
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
-                   XMLATTRIBUTES("dataset002"."dv_xml_wrapper_id_002" AS "dv_xml_wrapper_parent_id"),
-                    "dataset002"."/root/root/glossary/"
+                   XMLATTRIBUTES("XmlTable002"."dv_xml_wrapper_id_002" AS "dv_xml_wrapper_parent_id"),
+                    "XmlTable002"."/root/root/glossary/"
                )
 		    COLUMNS
                "idColumn_003" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../@dv_xml_wrapper_parent_id',
                "/root/root/glossary/title/" string PATH 'title',
-               "/root/root/glossary/keywords/" string PATH 'keywords',
+               "/root/root/glossary/keywords/" xml PATH 'keywords',
                "/root/root/glossary/list/" xml PATH 'list',
                "/root/root/glossary/list_objs/" xml PATH 'list_objs'
         ) xt
-) "dataset003"
-    on "dataset002"."dv_xml_wrapper_id_002" = "dataset003"."dv_xml_wrapper_parent_id"
+) "XmlTable003"
+    on "XmlTable002"."dv_xml_wrapper_id_002" = "XmlTable003"."dv_xml_wrapper_parent_id"
 left join lateral(
    select
        uuid() as "dv_xml_wrapper_id_004",
        xt.*
    from
        XMLTABLE(
-           XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ), '/DV_default_xml_wrapper/list/list/list' PASSING 
+           XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ), '/DV_default_xml_wrapper/keywords' PASSING 
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
-                   XMLATTRIBUTES("dataset003"."dv_xml_wrapper_id_003" AS "dv_xml_wrapper_parent_id"),
-                    "dataset003"."/root/root/glossary/list/"
+                   XMLATTRIBUTES("XmlTable003"."dv_xml_wrapper_id_003" AS "dv_xml_wrapper_parent_id"),
+                    "XmlTable003"."/root/root/glossary/keywords/"
                )
 		    COLUMNS
                "idColumn_004" FOR ORDINALITY,
-               "dv_xml_wrapper_parent_id" string path '../../../@dv_xml_wrapper_parent_id'
+               "dv_xml_wrapper_parent_id" string path '../@dv_xml_wrapper_parent_id',
+               "/root/root/glossary/keywords/" string PATH '.'
         ) xt
-) "dataset004"
-    on "dataset003"."dv_xml_wrapper_id_003" = "dataset004"."dv_xml_wrapper_parent_id"
+) "XmlTable004"
+    on "XmlTable003"."dv_xml_wrapper_id_003" = "XmlTable004"."dv_xml_wrapper_parent_id"
 left join lateral(
    select
        uuid() as "dv_xml_wrapper_id_005",
        xt.*
    from
        XMLTABLE(
-           XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ), '/DV_default_xml_wrapper/list_objs' PASSING 
+           XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ), '/DV_default_xml_wrapper/list/list' PASSING 
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
-                   XMLATTRIBUTES("dataset003"."dv_xml_wrapper_id_003" AS "dv_xml_wrapper_parent_id"),
-                    "dataset003"."/root/root/glossary/list_objs/"
+                   XMLATTRIBUTES("XmlTable003"."dv_xml_wrapper_id_003" AS "dv_xml_wrapper_parent_id"),
+                    "XmlTable003"."/root/root/glossary/list/"
                )
 		    COLUMNS
                "idColumn_005" FOR ORDINALITY,
+               "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
+               "/root/root/glossary/list/list/" integer PATH '.',
+               "/root/root/glossary/list/list/@type" STRING PATH './@xsi:type',
+               "/root/root/glossary/list/list/list/" xml PATH 'list'
+        ) xt
+) "XmlTable005"
+    on "XmlTable003"."dv_xml_wrapper_id_003" = "XmlTable005"."dv_xml_wrapper_parent_id"
+left join lateral(
+   select
+       uuid() as "dv_xml_wrapper_id_006",
+       xt.*
+   from
+       XMLTABLE(
+           XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ), '/DV_default_xml_wrapper/list' PASSING 
+               XMLELEMENT(NAME "DV_default_xml_wrapper",
+                   XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
+                   XMLATTRIBUTES("XmlTable005"."dv_xml_wrapper_id_005" AS "dv_xml_wrapper_parent_id"),
+                    "XmlTable005"."/root/root/glossary/list/list/list/"
+               )
+		    COLUMNS
+               "idColumn_006" FOR ORDINALITY,
+               "dv_xml_wrapper_parent_id" string path '../@dv_xml_wrapper_parent_id',
+               "/root/root/glossary/list/list/list/" integer PATH '.',
+               "/root/root/glossary/list/list/list/@type" STRING PATH './@xsi:type'
+        ) xt
+) "XmlTable006"
+    on "XmlTable005"."dv_xml_wrapper_id_005" = "XmlTable006"."dv_xml_wrapper_parent_id"
+left join lateral(
+   select
+       uuid() as "dv_xml_wrapper_id_007",
+       xt.*
+   from
+       XMLTABLE(
+           XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ), '/DV_default_xml_wrapper/list_objs' PASSING 
+               XMLELEMENT(NAME "DV_default_xml_wrapper",
+                   XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
+                   XMLATTRIBUTES("XmlTable003"."dv_xml_wrapper_id_003" AS "dv_xml_wrapper_parent_id"),
+                    "XmlTable003"."/root/root/glossary/list_objs/"
+               )
+		    COLUMNS
+               "idColumn_007" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../@dv_xml_wrapper_parent_id',
                "/root/root/glossary/list_objs/servlet-name/" string PATH 'servlet-name',
                "/root/root/glossary/list_objs/servlet-class/" string PATH 'servlet-class'
         ) xt
-) "dataset005"
-    on "dataset003"."dv_xml_wrapper_id_003" = "dataset005"."dv_xml_wrapper_parent_id"
+) "XmlTable007"
+    on "XmlTable003"."dv_xml_wrapper_id_003" = "XmlTable007"."dv_xml_wrapper_parent_id"

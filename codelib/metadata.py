@@ -8,6 +8,20 @@ from enum import Enum
 # import pandas as pd
 
 
+class NodeTypes(Enum):
+    DATA = 'data'
+    DICT = 'dict'
+    LIST = 'list'
+
+
+def determine_node_type(obj: Any) -> NodeTypes:
+    if isinstance(obj, list):
+        return NodeTypes.LIST
+    if isinstance(obj, dict):
+        return NodeTypes.DICT
+    return NodeTypes.DATA
+
+
 class DataTypes(Enum):
     UNKNOWN = 'unknown'
     STR = 'string'
@@ -17,6 +31,8 @@ class DataTypes(Enum):
 
 def determine_data_type(obj: Any) -> DataTypes:
     if obj is None:
+        return DataTypes.UNKNOWN
+    if isinstance(obj, (list, dict)):
         return DataTypes.UNKNOWN
     if isinstance(obj, str):
         return DataTypes.STR
@@ -33,7 +49,7 @@ class TreeNodeInfo:
     Abstract representation of the JSON or XML file.
     """
 
-    xpath_index: Dict[str, Self]
+    xpath_index: Dict[str, Self] = {}
     """
     Index to all the nodes using the xpath of each node.
     """
@@ -44,9 +60,9 @@ class TreeNodeInfo:
             xpath: str,
             parent: Optional[Self],
             parent_xpath: Optional[str],
-            xml_attributes: Optional[List[str]] = None,
+            node_type: NodeTypes,
             data_type: DataTypes = DataTypes.UNKNOWN,
-            is_array: bool = False,
+            xml_attributes: Optional[List[str]] = None,
             has_been_processed: bool = False
     ) -> None:
         """
@@ -104,14 +120,14 @@ class TreeNodeInfo:
         XML attributes associated with this node.
         """
 
+        self.node_type: NodeTypes = node_type
+        """
+        A node may be a list, dictionary, or data type
+        """
+
         self._data_type: DataTypes = data_type
         """
         Data type of this node.
-        """
-
-        self.is_array: bool = is_array
-        """
-        Does this node contain array data.
         """
 
         self.has_been_processed: bool = has_been_processed
@@ -127,6 +143,7 @@ class TreeNodeInfo:
         parent: Optional[Self],
         parent_xpath: Optional[str],
         xml_attributes: Optional[List[str]],
+        node_type: NodeTypes,
         data_type: DataTypes,
         is_array: bool = False,
         has_been_processed: bool = False
@@ -163,7 +180,6 @@ class TreeNodeInfo:
 
             assert tni.parent == parent
             assert tni.parent_xpath == parent_xpath
-            assert tni.is_array == is_array
             assert tni.has_been_processed is False
 
             return tni
@@ -173,9 +189,9 @@ class TreeNodeInfo:
                 xpath=xpath,
                 parent=parent,
                 parent_xpath=parent_xpath,
-                xml_attributes=xml_attributes,
+                node_type=node_type,
                 data_type=data_type,
-                is_array=is_array,
+                xml_attributes=xml_attributes,
                 has_been_processed=has_been_processed
             )
             TreeNodeInfo.xpath_index[xpath] = tni
@@ -262,17 +278,41 @@ class TreeNodeInfo:
             elif datatype == DataTypes.STR and self._data_type in (DataTypes.INT, DataTypes.FLOAT):
                 self._data_type = DataTypes.STR
 
-    def is_leaf(self) -> bool:
-        return len(self.children) == 0
+    def has_children(self) -> bool:
+        return len(self.children) > 0
 
-    def is_branch(self) -> bool:
+    def has_single_child(self) -> bool:
         return len(self.children) == 1
 
-    def is_node(self) -> bool:
-        return len(self.children) > 1
+    def num_of_children(self) -> int:
+        return len(self.children)
 
-    def are_all_children_leaves(self) -> bool:
-        return all(x.is_leaf() for x in self.children)
+    def has_data(self) -> bool:
+        return self.data_type != DataTypes.UNKNOWN
+
+    def is_datatype_numeric(self) -> bool:
+        return self.data_type in [DataTypes.FLOAT, DataTypes.INT]
+
+    def is_datatype_string(self) -> bool:
+        return self.data_type == DataTypes.STR
+
+    # def is_branch(self) -> bool:
+    #     return len(self.children) == 1
+
+    # def is_node(self) -> bool:
+    #     return len(self.children) > 1
+
+    # def are_all_children_leaves(self) -> bool:
+    #     return all(x.is_leaf() for x in self.children)
 
     def has_xml_attributes(self) -> bool:
         return len(self.xml_attributes) > 0
+
+    def make_subtable(self) -> bool:
+        return self.node_type in [NodeTypes.LIST, NodeTypes.DICT]
+
+    def is_list(self) -> bool:
+        return self.node_type == NodeTypes.LIST
+
+    def is_dict(self) -> bool:
+        return self.node_type == NodeTypes.DICT
