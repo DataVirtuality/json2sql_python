@@ -1,5 +1,5 @@
-from typing import Final, List
-# import sys
+from typing import Final, List, Optional
+import re
 from codelib.SqlGenConfig import SqlGenConfig
 from codelib.metadata import TreeNodeInfo
 # from enum import Enum
@@ -18,6 +18,9 @@ def substract_string(prefix: str, target: str) -> str:
 
 
 class SqlGenerator:
+    _regex_root = re.compile(pattern=r"^(/root)+", flags=re.MULTILINE | re.IGNORECASE)
+    _regex_path_separator = re.compile(pattern=r"/", flags=re.NOFLAG)
+
     def __init__(self, treenodeinfo: TreeNodeInfo, config: SqlGenConfig) -> None:
         self.alias_num: int = 0
         """
@@ -48,6 +51,46 @@ class SqlGenerator:
         """
         Class holding the configuration data
         """
+
+        self.col_name_regex_compiled: Optional[re.Pattern[str]] = None
+        """
+        The regex statement is applied after the other column names modifiers. \n
+        Must be a valid Python regex expression. \n
+        See https://docs.python.org/3/library/re.html
+        """
+        if self.config.col_name_regex is not None:
+            self.col_name_regex_compiled = re.compile(
+                self.config.col_name_regex,
+                re.IGNORECASE if self.config.col_name_regex_ignore_case else re.NOFLAG
+            )
+
+    def mod_col_name(self, col_name: str) -> str:
+        """
+        Modify column name based on the configuration parameters.
+
+        Args:
+            col_name (str): Original column name
+
+        Returns:
+            str: Modified column name
+        """
+
+        if self.config.col_name_replace_root is not None:
+            col_name = SqlGenerator._regex_root.sub(col_name, self.config.col_name_replace_root)
+
+        if self.config.col_name_replace_prefix is not None:
+            col_name = self.config.col_name_replace_prefix + col_name[-1:]
+
+        if self.config.col_name_replace_suffix is not None and col_name[-1] == '/':
+            col_name = col_name[:-1] + self.config.col_name_replace_suffix
+
+        if self.config.col_name_path_separator is not None:
+            col_name = SqlGenerator._regex_path_separator.sub(col_name, self.config.col_name_path_separator)
+
+        if self.col_name_regex_compiled is not None:
+            col_name = self.col_name_regex_compiled.sub(col_name, self.config.col_name_regex_replacement)
+
+        return col_name
 
     def helper_top_down(
             self,
@@ -101,33 +144,33 @@ class SqlGenerator:
 
         xml_tables: List[TreeNodeInfo] = []
         if tni.has_data():
-            self.sql_select.append(f'    "{current_sql_table_name}"."{tni.xpath}",')
+            self.sql_select.append(f'    "{current_sql_table_name}"."{self.mod_col_name(tni.xpath)}",')
 
             if tni.is_list():
-                self.sql_from.append(f"               \"{tni.xpath}\" {self.get_sql_datatype(tni)} PATH '.',")
+                self.sql_from.append(f"               \"{self.mod_col_name(tni.xpath)}\" {self.get_sql_datatype(tni)} PATH '.',")
 
                 if tni.is_datatype_numeric():
-                    self.sql_select.append(f'    "{current_sql_table_name}"."{tni.xpath}@type",')
-                    self.sql_from.append(f"               \"{tni.xpath}@type\" STRING PATH './@xsi:type',")
+                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{tni.xpath}@type")}",')
+                    self.sql_from.append(f"               \"{self.mod_col_name(f'{tni.xpath}@type')}\" STRING PATH './@xsi:type',")
             else:
-                self.sql_from.append(f"               \"{tni.xpath}\" {self.get_sql_datatype(tni)} PATH '{tni.element_name}',")
+                self.sql_from.append(f"               \"{self.mod_col_name(tni.xpath)}\" {self.get_sql_datatype(tni)} PATH '{tni.element_name}',")
 
                 if tni.is_datatype_numeric():
-                    self.sql_select.append(f'    "{current_sql_table_name}"."{tni.xpath}@type",')
-                    self.sql_from.append(f"               \"{tni.xpath}@type\" STRING PATH '{tni.element_name}/@xsi:type',")
+                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{tni.xpath}@type")}",')
+                    self.sql_from.append(f"               \"{self.mod_col_name(f'{tni.xpath}@type')}\" STRING PATH '{tni.element_name}/@xsi:type',")
 
         for child in tni.children:
             if child.make_subtable():
-                self.sql_select.append(f'    -- "{current_sql_table_name}"."{child.xpath}",')
-                self.sql_from.append(f'               "{child.xpath}" xml PATH \'{child.element_name}\',')
+                self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(child.xpath)}",')
+                self.sql_from.append(f'               "{self.mod_col_name(child.xpath)}" xml PATH \'{child.element_name}\',')
                 xml_tables.append(child)
             else:
                 if child.is_datatype_numeric():
-                    self.sql_select.append(f'    "{current_sql_table_name}"."{child.xpath}@type",')
-                    self.sql_from.append(f"               \"{child.xpath}@type\" STRING PATH '{child.element_name}/@xsi:type',")
+                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{child.xpath}@type")}",')
+                    self.sql_from.append(f"               \"{self.mod_col_name(f'{child.xpath}@type')}\" STRING PATH '{child.element_name}/@xsi:type',")
 
-                self.sql_select.append(f'    "{current_sql_table_name}"."{child.xpath}",')
-                self.sql_from.append(f'               "{child.xpath}" {self.get_sql_datatype(child)} PATH \'{child.element_name}\',')
+                self.sql_select.append(f'    "{current_sql_table_name}"."{self.mod_col_name(child.xpath)}",')
+                self.sql_from.append(f'               "{self.mod_col_name(child.xpath)}" {self.get_sql_datatype(child)} PATH \'{child.element_name}\',')
 
         # Remove comma from last entry
         self.sql_from[-1] = remove_last_char_from_str(self.sql_from[-1])
@@ -156,10 +199,10 @@ class SqlGenerator:
         self.sql_select.append(f"        uuid() as dv_xml_wrapper_id_{current_table_number:03},")
         self.sql_select.append("        JSONTOXML('root', to_chars(f.file,'UTF-8')) as xmldata")
         self.sql_select.append("    FROM")
-        self.sql_select.append(f'        "{self.config.dv_datasource_name}".getFiles(\'{self.config.dv_datasource_filepath}{self.config.path_separator}{self.config.json_xml_file_to_parse}\') f')
+        self.sql_select.append(f'        "{self.config.dv_datasource_name}".getFiles(\'{self.config.dv_datasource_filepath}{self.config.col_name_path_separator}{self.config.json_xml_file_to_parse}\') f')
         self.sql_select.append(")")
         self.sql_select.append("select")
-        self.sql_select.append(f'    "{current_sql_table}"."dv_xml_wrapper_id_{current_table_number:03}",')
+        self.sql_select.append(f'    --"{current_sql_table}"."dv_xml_wrapper_id_{current_table_number:03}",')
 
         self.sql_from.append(f'from "{current_sql_table}"')
 

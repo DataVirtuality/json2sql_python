@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
@@ -15,6 +16,18 @@ class SqlGenConfig:
     dv_datasource_filepath: str
     """
     Is the file path of the XML file within the Data source.
+    """
+
+    dv_path_separator: str
+    """
+    Separator used building the file path in Data Virtuality SQL.
+    """
+
+    file_amalgamation: bool
+    """
+    False: The format of each file processed is unique.
+    True: All of the files share the same format. The final format is an
+        amalgamation of all the individual file formats.
     """
 
     force_data_types_to_string: bool
@@ -34,9 +47,57 @@ class SqlGenConfig:
     Name used in from clause of SQL query.
     """
 
-    path_separator: str
+    col_name_regex_ignore_case: bool
     """
-    Name of the JSON or XML to parse.
+    The regex statement is applied after the other column names modifiers. \n
+    Must be a valid Python regex expression. \n
+    See https://docs.python.org/3/library/re.html
+    """
+
+    col_name_replace_prefix: Optional[str] = None
+    """
+    Replace the leading slash from the column name with the specified string. \n 
+        Eg prefix='' /root/root/col1/ -> root/root/col1/  \n
+        Eg prefix='[' /root/root/col1/ -> [root/root/col1/
+    """
+
+    col_name_replace_suffix: Optional[str] = None
+    """
+    Replace the trailing slash from the column name. \n
+    The last character Will not be removed if it is not a '/'.
+        Eg suffix='' /root/root/col1/ -> /root/root/col1 \n
+        Eg suffix=']' /root/root/col1/ -> /root/root/col1] \n
+        NO change if last character is not a / \n
+        Eg suffix=']' /root/root/col1/@type -> /root/root/col1/@type 
+    """
+
+    col_name_replace_root: Optional[str] = None
+    """
+    Replace the leading '/root from the the column name. \n
+        Eg replace_rootroot='' /root/col1/ -> /col1/ \n
+        Eg replace_rootroot='' /root/root/col1/ -> /col1/ \n
+        Eg replace_rootroot='srcName' /root/col1/ -> srcName/col1/ \n
+        Eg replace_rootroot='srcName' /root/root/col1/ -> srcName/col1/
+    """
+
+    col_name_path_separator: Optional[str] = None
+    """
+    Specify the path separator used for the column names. \n
+        Eg if separator=. then /root/root/col1/ -> .root.root.col1. \n
+        Eg if separator=- then /root/root/col1/ -> -root-root-col1- \n
+        Eg if separator=| then /root/root/col1/ -> |root|root|col1|
+    """
+
+    col_name_regex: Optional[str] = None
+    """
+    The regex statement is applied after the other column names modifiers. \n
+    Must be a valid Python regex expression. \n
+    See https://docs.python.org/3/library/re.html
+    """
+
+    col_name_regex_replacement: str = ''
+    """
+    The substitution text used in the regex replacement.
     """
 
     json_xml_file_to_parse: str = 'generic_name.json'

@@ -19,12 +19,20 @@ from flatten04 import flatten_nested_json
 
 def ExtractConfigFromArgs(args: argparse.Namespace) -> SqlGenConfig:
     return SqlGenConfig(
+        file_amalgamation=args.file_amalgamation,
         dv_datasource_name=args.dsname,
         dv_datasource_filepath=args.dspath,
+        dv_path_separator=args.ds_path_separator,
         force_data_types_to_string=args.force_strings,
-        explode_arrays=args.list_as_rows,
         sql_table_alias=args.sqlalias,
-        path_separator=args.path_separator
+        col_name_replace_prefix=args.col_name_replace_prefix,
+        col_name_replace_suffix=args.col_name_replace_suffix,
+        col_name_replace_root=args.col_name_replace_root,
+        col_name_path_separator=args.col_name_path_separator,
+        col_name_regex=args.col_name_regex,
+        col_name_regex_ignore_case=args.col_name_regex_ignore_case,
+        col_name_regex_replacement=args.col_name_regex_replacement,
+        explode_arrays=args.list_as_rows
     )
 
 
