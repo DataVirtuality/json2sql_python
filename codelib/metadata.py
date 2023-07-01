@@ -29,6 +29,58 @@ class DataTypes(Enum):
     FLOAT = 'float'
 
 
+class DataTypeWrapper:
+    """
+    Wrapper for DataTypes
+    """
+
+    def __init__(self, default_datatype: DataTypes = DataTypes.UNKNOWN) -> None:
+        self._datatype = default_datatype
+
+    def __eq__(self, __value: Any) -> bool:
+        if isinstance(__value, DataTypeWrapper):
+            return self._datatype == __value._datatype
+        elif isinstance(__value, DataTypes):
+            return self._datatype == __value
+        else:
+            return False
+
+    @property
+    def datatype(self) -> DataTypes:
+        return self._datatype
+
+    @datatype.setter
+    def datatype(self, datatype: DataTypes) -> None:
+        """
+        Setter for the data type. This method handles the promotion of data types.
+        Eg. When parsing the JSON document, [{"a": 1}, {"a": "foo"}] The 1st value is of type is int and
+        the data type is set to int. But the 2nd value is of type string. The 2nd call to this method will
+        promote the data type to string.
+
+        Truth table
+        |Current Data Type      | New Data Type        | Result            |
+        |-----------------------|----------------------|-------------------|
+        |same                   | same                 | no change         |
+        |unknown                | str, int, float      | new value         |
+        |str, int, float        | unknown              | no change         |
+        |int                    | float                | float             |
+        |float                  | int                  | float             |
+        |int, float             | str                  | str               |
+
+        Args:
+            datatype (DataTypes): new data type
+        """
+        if datatype != self._datatype:
+            if self._datatype is DataTypes.UNKNOWN:
+                self._datatype = datatype
+            elif datatype is DataTypes.UNKNOWN:
+                pass
+            elif datatype == DataTypes.FLOAT and self._datatype == DataTypes.INT:
+                self._datatype = DataTypes.FLOAT
+            elif datatype == DataTypes.STR and self._datatype in (DataTypes.INT, DataTypes.FLOAT):
+                self._datatype = DataTypes.STR
+
+
 def determine_data_type(obj: Any) -> DataTypes:
     if obj is None:
         return DataTypes.UNKNOWN
@@ -44,7 +96,7 @@ def determine_data_type(obj: Any) -> DataTypes:
     return DataTypes.UNKNOWN
 
 
-class TreeNodeInfo:
+class TreeNodeInfo(DataTypeWrapper):
     """
     Abstract representation of the JSON or XML file.
     """
@@ -62,7 +114,7 @@ class TreeNodeInfo:
             parent_xpath: Optional[str],
             node_type: NodeTypes,
             data_type: DataTypes = DataTypes.UNKNOWN,
-            xml_attributes: Optional[List[str]] = None,
+            xml_attributes: Optional[Dict[str, DataTypeWrapper]] = None,
             has_been_processed: bool = False
     ) -> None:
         """
@@ -77,7 +129,7 @@ class TreeNodeInfo:
 
             parent_xpath (Optional[str]): XPath of parent. If this node is the root, then parent_xpath is None.
 
-            xml_attributes (Optional[List[str]]): list of xml attributes. Defaults to None.
+            xml_attributes (Optional[Dict[str, DataTypeWrapper]]): list of xml attributes. Defaults to None.
 
             data_type (DataTypes, optional): Type of data held in this node. Defaults to DataTypes.UNKNOWN.
 
@@ -85,6 +137,11 @@ class TreeNodeInfo:
 
             has_been_processed (bool, optional): Indicates if this node has been processed. Defaults to False.
         """
+        super().__init__(data_type)
+        """
+        Data type of this node.
+        """
+
         self.element_name: str = element_name
         """
         name of the current element
@@ -105,7 +162,7 @@ class TreeNodeInfo:
         XPath of the this node's parent. If this node is the root, then the value is None.
         """
 
-        self.xml_attributes = [] if xml_attributes is None else xml_attributes
+        self.xml_attributes: Optional[Dict[str, DataTypeWrapper]] = xml_attributes
         """
         List of XML attributes associated with this node.
         """
@@ -115,19 +172,9 @@ class TreeNodeInfo:
         List of immediate children.
         """
 
-        self.xml_attributes: List[str] = []
-        """
-        XML attributes associated with this node.
-        """
-
         self.node_type: NodeTypes = node_type
         """
         A node may be a list, dictionary, or data type
-        """
-
-        self._data_type: DataTypes = data_type
-        """
-        Data type of this node.
         """
 
         self.has_been_processed: bool = has_been_processed
@@ -142,10 +189,9 @@ class TreeNodeInfo:
         xpath: str,
         parent: Optional[Self],
         parent_xpath: Optional[str],
-        xml_attributes: Optional[List[str]],
+        xml_attributes: Optional[Dict[str, DataTypeWrapper]],
         node_type: NodeTypes,
         data_type: DataTypes,
-        is_array: bool = False,
         has_been_processed: bool = False
     ) -> Self:
         """
@@ -173,10 +219,9 @@ class TreeNodeInfo:
         """
         if TreeNodeInfo.exists(xpath):
             tni = TreeNodeInfo.get_via_xpath(xpath)
-            tni.data_type = data_type  # update the data type
+            tni.datatype = data_type  # update the data type
             # add any missing XML attributes
-            if xml_attributes is not None:
-                tni.xml_attributes = list(set(tni.xml_attributes).union(set(xml_attributes)))
+            tni.xml_attributes = TreeNodeInfo.merge_xml_attributes(tni.xml_attributes, xml_attributes)
 
             assert tni.parent == parent
             assert tni.parent_xpath == parent_xpath
@@ -237,47 +282,6 @@ class TreeNodeInfo:
         """
         return self.xpath.count('/') - 2
 
-    @property
-    def data_type(self):
-        """
-        Gets the data type of this node.
-
-        Returns:
-            _type_: data type
-        """
-        return self._data_type
-
-    @data_type.setter
-    def data_type(self, datatype: DataTypes):
-        """
-        Setter for the data type. This method handles the promotion of data types.
-        Eg. When parsing the JSON document, [{"a": 1}, {"a": "foo"}] The 1st value is of type is int and
-        the data type is set to int. But the 2nd value is of type string. The 2nd call to this method will
-        promote the data type to string.
-
-        Truth table
-        |Current Data Type      | New Data Type        | Result            |
-        |-----------------------|----------------------|-------------------|
-        |same                   | same                 | no change         |
-        |unknown                | str, int, float      | new value         |
-        |str, int, float        | unknown              | no change         |
-        |int                    | float                | float             |
-        |float                  | int                  | float             |
-        |int, float             | str                  | str               |
-
-        Args:
-            datatype (DataTypes): new data type
-        """
-        if datatype != self._data_type:
-            if self._data_type is DataTypes.UNKNOWN:
-                self._data_type = datatype
-            elif datatype is DataTypes.UNKNOWN:
-                pass
-            elif datatype in (DataTypes.INT, DataTypes.FLOAT) and self._data_type in (DataTypes.INT, DataTypes.FLOAT):
-                self._data_type = DataTypes.FLOAT
-            elif datatype == DataTypes.STR and self._data_type in (DataTypes.INT, DataTypes.FLOAT):
-                self._data_type = DataTypes.STR
-
     def has_children(self) -> bool:
         return len(self.children) > 0
 
@@ -288,13 +292,13 @@ class TreeNodeInfo:
         return len(self.children)
 
     def has_data(self) -> bool:
-        return self.data_type != DataTypes.UNKNOWN
+        return self.datatype != DataTypes.UNKNOWN
 
     def is_datatype_numeric(self) -> bool:
-        return self.data_type in [DataTypes.FLOAT, DataTypes.INT]
+        return self.datatype in [DataTypes.FLOAT, DataTypes.INT]
 
     def is_datatype_string(self) -> bool:
-        return self.data_type == DataTypes.STR
+        return self.datatype == DataTypes.STR
 
     # def is_branch(self) -> bool:
     #     return len(self.children) == 1
@@ -306,7 +310,10 @@ class TreeNodeInfo:
     #     return all(x.is_leaf() for x in self.children)
 
     def has_xml_attributes(self) -> bool:
-        return len(self.xml_attributes) > 0
+        if self.xml_attributes is None:
+            return False
+        else:
+            return len(self.xml_attributes) > 0
 
     def make_subtable(self) -> bool:
         return self.node_type in [NodeTypes.LIST, NodeTypes.DICT]
@@ -316,3 +323,26 @@ class TreeNodeInfo:
 
     def is_dict(self) -> bool:
         return self.node_type == NodeTypes.DICT
+
+    @classmethod
+    def merge_xml_attributes(
+        cls,
+        main_dict: Optional[Dict[str, DataTypeWrapper]],
+        add_dict: Optional[Dict[str, DataTypeWrapper]]
+    ) -> Optional[Dict[str, DataTypeWrapper]]:
+        if main_dict is not None and add_dict is not None:
+            for k, v in add_dict.items():
+                if k in main_dict:
+                    main_dict[k].datatype = v.datatype
+                else:
+                    main_dict[k] = v
+            return main_dict
+
+        elif main_dict is None and add_dict is None:
+            return None
+
+        if main_dict is not None:
+            return main_dict
+
+        if add_dict is not None:
+            return add_dict

@@ -16,8 +16,7 @@ def parse_dict(
             parent_xpath=parent_xpath,
             node_type=determine_node_type(val),
             data_type=determine_data_type(val),
-            xml_attributes=None,
-            is_array=False
+            xml_attributes=None
         )
         if isinstance(val, dict):
             parse_dict(
@@ -64,7 +63,7 @@ def parse_list(
                 element_name=parent_node.element_name
             )
         else:
-            parent_node.data_type = determine_data_type(item)
+            parent_node.datatype = determine_data_type(item)
 
 
 def parse_obj(

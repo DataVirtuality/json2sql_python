@@ -14,7 +14,7 @@ from codelib.sql_generator import SqlGenerator
 # import pandas as pd
 # from gen_csv_files import gen_csv_files
 from codelib.args import parse_args
-from flatten04 import flatten_nested_json
+from flatten.flatten04 import flatten_nested_json
 
 
 def ExtractConfigFromArgs(args: argparse.Namespace) -> SqlGenConfig:

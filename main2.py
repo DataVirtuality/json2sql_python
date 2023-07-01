@@ -1,3 +1,4 @@
+# type: ignore
 import argparse
 import os.path
 # import getopt

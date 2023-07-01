@@ -230,4 +230,4 @@ class SqlGenerator:
         if self.config.force_data_types_to_string:
             return "STRING"
         else:
-            return tni.data_type.value
+            return tni.datatype.value
