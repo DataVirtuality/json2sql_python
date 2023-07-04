@@ -6,15 +6,30 @@ from typing import Any, Dict, List, Optional, Self
 # import fileinput
 from enum import Enum
 # import pandas as pd
+import copy
 
 
 class NodeTypes(Enum):
+    """
+    Describes the type of node.
+
+    DATA - is a catch-all. It may have data.
+    """
     DATA = 'data'
     DICT = 'dict'
     LIST = 'list'
 
 
 def determine_node_type(obj: Any) -> NodeTypes:
+    """
+    Function to determine the type of node.
+
+    Args:
+        obj (Any): Any type of object.
+
+    Returns:
+        NodeTypes: Returns the type of node.
+    """
     if isinstance(obj, list):
         return NodeTypes.LIST
     if isinstance(obj, dict):
@@ -23,6 +38,11 @@ def determine_node_type(obj: Any) -> NodeTypes:
 
 
 class DataTypes(Enum):
+    """
+    Describes the type of data the node has.
+
+    This description does not refer to the XML attributes.
+    """
     UNKNOWN = 'unknown'
     STR = 'string'
     INT = 'integer'
@@ -31,13 +51,24 @@ class DataTypes(Enum):
 
 class DataTypeWrapper:
     """
-    Wrapper for DataTypes
+    Wrapper for DataTypes so we can easily implement a getter/setter for the DataType.
     """
 
     def __init__(self, default_datatype: DataTypes = DataTypes.UNKNOWN) -> None:
         self._datatype = default_datatype
 
     def __eq__(self, __value: Any) -> bool:
+        """
+        Tests for equality
+
+        Args:
+            __value (Any): Another DataTypeWrapper or DataTypes
+
+        Returns:
+            bool:
+                True - if equal \n
+                False - if NOT equal
+        """
         if isinstance(__value, DataTypeWrapper):
             return self._datatype == __value._datatype
         elif isinstance(__value, DataTypes):
@@ -80,8 +111,28 @@ class DataTypeWrapper:
             elif datatype == DataTypes.STR and self._datatype in (DataTypes.INT, DataTypes.FLOAT):
                 self._datatype = DataTypes.STR
 
+    def __repr__(self):
+        class_name = type(self).__name__
+        return f"{class_name}(datatype={self._datatype.value!r},mem_self={id(self)},mem_datatype={id(self._datatype)})"
+
+    def __str__(self):
+        class_name = type(self).__name__
+        return f"{class_name}(datatype={self._datatype.value})"
+
 
 def determine_data_type(obj: Any) -> DataTypes:
+    """
+    Programmatically map the TYPE to our list of data types.
+
+    Args:
+        obj (Any): _description_
+
+    Raises:
+        Exception: _description_
+
+    Returns:
+        DataTypes: _description_
+    """
     if obj is None:
         return DataTypes.UNKNOWN
     if isinstance(obj, (list, dict)):
@@ -93,7 +144,7 @@ def determine_data_type(obj: Any) -> DataTypes:
     if isinstance(obj, int):
         return DataTypes.INT
     raise Exception('Unhandled type')
-    return DataTypes.UNKNOWN
+    # return DataTypes.UNKNOWN
 
 
 class TreeNodeInfo(DataTypeWrapper):
@@ -217,6 +268,9 @@ class TreeNodeInfo(DataTypeWrapper):
         Returns:
             Self: new instance of TreeNodeInfo or existing instance
         """
+        assert xpath[0] == '/'
+        assert xpath[-1] == '/'
+
         if TreeNodeInfo.exists(xpath):
             tni = TreeNodeInfo.get_via_xpath(xpath)
             tni.datatype = data_type  # update the data type
@@ -226,6 +280,8 @@ class TreeNodeInfo(DataTypeWrapper):
             assert tni.parent == parent
             assert tni.parent_xpath == parent_xpath
             assert tni.has_been_processed is False
+            assert tni.xpath[0] == '/'
+            assert tni.xpath[-1] == '/'
 
             return tni
         else:
@@ -242,6 +298,10 @@ class TreeNodeInfo(DataTypeWrapper):
             TreeNodeInfo.xpath_index[xpath] = tni
             if parent is not None:
                 parent.children.append(tni)
+
+            assert tni.xpath[0] == '/'
+            assert tni.xpath[-1] == '/'
+
             return tni
 
     @classmethod
@@ -255,6 +315,9 @@ class TreeNodeInfo(DataTypeWrapper):
         Returns:
             Self: instance of TreeNodeInfo
         """
+        assert xpath[0] == '/'
+        assert xpath[-1] == '/'
+
         assert xpath in TreeNodeInfo.xpath_index
         return TreeNodeInfo.xpath_index[xpath]
 
@@ -268,8 +331,8 @@ class TreeNodeInfo(DataTypeWrapper):
 
         Returns:
             bool:
-            * True if an object is associated with the xpath.
-            * False if an object is NOT associated with the xpath.
+                True - if an object is associated with the xpath. \n
+                False - if an object is NOT associated with the xpath.
         """
         return xpath in TreeNodeInfo.xpath_index
 
@@ -278,71 +341,169 @@ class TreeNodeInfo(DataTypeWrapper):
         Indicates the depth from the root.
 
         Returns:
-            int: depth
+            int: depth is zero based
         """
         return self.xpath.count('/') - 2
 
     def has_children(self) -> bool:
+        """
+        Helper to determine if the node has children.
+
+        Returns:
+            bool:
+                True - if the node has children \n
+                False - if the node has NO children
+        """
         return len(self.children) > 0
 
     def has_single_child(self) -> bool:
+        """
+        Helper to determine if the node has a single child.
+
+        Returns:
+            bool:
+                True - if the node has a single child \n
+                False - if the node has NO children or more than one child
+        """
         return len(self.children) == 1
 
     def num_of_children(self) -> int:
+        """
+        Number of children the node has.
+
+        Returns:
+            int: May be zero or a positive value
+        """
         return len(self.children)
 
     def has_data(self) -> bool:
+        """
+        Does the node have data?
+        Does not consider XML attributes.
+
+        Returns:
+            bool:
+                True - if the node has data. \n
+                False - if the node has NO data.
+        """
         return self.datatype != DataTypes.UNKNOWN
 
     def is_datatype_numeric(self) -> bool:
+        """
+        Does the node have a numeric type.
+
+        Returns:
+            bool:
+                True - if the node has numeric data. \n
+                False - if the node has NO data or the datatype is not numeric.
+        """
         return self.datatype in [DataTypes.FLOAT, DataTypes.INT]
 
     def is_datatype_string(self) -> bool:
+        """
+        Does the node have a string type.
+
+        Returns:
+            bool:
+                True - if the node has string data. \n
+                False - if the node has NO data or the datatype is not a string.
+        """
         return self.datatype == DataTypes.STR
 
-    # def is_branch(self) -> bool:
-    #     return len(self.children) == 1
-
-    # def is_node(self) -> bool:
-    #     return len(self.children) > 1
-
-    # def are_all_children_leaves(self) -> bool:
-    #     return all(x.is_leaf() for x in self.children)
-
     def has_xml_attributes(self) -> bool:
+        """
+        Does the node have any XML attributes?
+
+        Returns:
+            bool:
+                True - if the node has XML attribute data. \n
+                False - if the node has NO XML attribute data.
+        """
         if self.xml_attributes is None:
             return False
         else:
             return len(self.xml_attributes) > 0
 
+    def has_data_or_xml_attributes(self) -> bool:
+        """
+        Does the node have any XML attributes or data?
+
+        Returns:
+            bool:
+                True - if the node has XML attribute data or node data. \n
+                False - if the node has NO XML attribute data and no node data.
+        """
+        return self.has_xml_attributes() or self.has_data()
+
     def make_subtable(self) -> bool:
+        """
+        If the node is a list or dict, then this node should be made into subtable
+        when generating the DV SQL.
+
+        Returns:
+            bool:
+                TRUE - Make the node into a subtable.\n
+                FALSE - Do not make into a subtable.
+        """
         return self.node_type in [NodeTypes.LIST, NodeTypes.DICT]
 
     def is_list(self) -> bool:
+        """
+        Is the node is a list?
+
+        Returns:
+            bool:
+                TRUE - The node is a list.\n
+                FALSE - The node is NOT a list.
+        """
         return self.node_type == NodeTypes.LIST
 
     def is_dict(self) -> bool:
+        """
+        Is the node is a dict?
+
+        Returns:
+            bool:
+                TRUE - The node is a dict.\n
+                FALSE - The node is NOT a dict.
+        """
         return self.node_type == NodeTypes.DICT
 
     @classmethod
     def merge_xml_attributes(
         cls,
-        main_dict: Optional[Dict[str, DataTypeWrapper]],
-        add_dict: Optional[Dict[str, DataTypeWrapper]]
+        dict1: Optional[Dict[str, DataTypeWrapper]],
+        dict2: Optional[Dict[str, DataTypeWrapper]]
     ) -> Optional[Dict[str, DataTypeWrapper]]:
-        if main_dict is not None and add_dict is not None:
-            for k, v in add_dict.items():
-                if k in main_dict:
-                    main_dict[k].datatype = v.datatype
-                else:
-                    main_dict[k] = v
-            return main_dict
+        """
+        Merge two XML attribute dictionaries.
 
-        elif main_dict is None and add_dict is None:
+        If the same key exists in both, then the data type is updates
+        using the DataTypes getter/setter.
+
+        The arguments are not modified and the method has no side effects.
+
+        Args:
+            dict1 (Optional[Dict[str, DataTypeWrapper]]): XML attributes
+            dict2 (Optional[Dict[str, DataTypeWrapper]]): XML attributes
+
+        Returns:
+            Optional[Dict[str, DataTypeWrapper]]: _description_
+        """
+        if dict1 is not None and dict2 is not None:
+            dict_merged = copy.deepcopy(dict1)
+            for k, v in dict2.items():
+                if k in dict1:
+                    dict_merged[k].datatype = copy.copy(v.datatype)
+                else:
+                    dict_merged[k] = v  # Since this is an enum, there is not need to perform a copy
+            return dict_merged
+
+        elif dict1 is None and dict2 is None:
             return None
 
-        if main_dict is not None:
-            return main_dict
+        elif dict1 is not None:
+            return copy.deepcopy(dict1)
 
-        if add_dict is not None:
-            return add_dict
+        elif dict2 is not None:
+            return copy.deepcopy(dict2)

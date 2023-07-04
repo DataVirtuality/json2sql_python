@@ -8,12 +8,16 @@ def flatten_nested_json(input_json_file: str, output_csv_file: str) -> None:
     df.to_csv(output_csv_file, index=False)
 
 
-def flatten_nested_json_df(df: pd.DataFrame) -> pd.DataFrame:
+def flatten_nested_json_df(
+    df: pd.DataFrame,
+    verbose: bool = False
+) -> pd.DataFrame:
 
     df = df.reset_index(drop=True)
 
-    print(f"original shape: {df.shape}")
-    print(f"original columns: {df.columns}")
+    if verbose:
+        print(f"original shape: {df.shape}")
+        print(f"original columns: {df.columns}")
 
     # search for columns to explode/flatten
     s = (df.applymap(lambda x: isinstance(x, list))).any()
@@ -22,12 +26,14 @@ def flatten_nested_json_df(df: pd.DataFrame) -> pd.DataFrame:
     s = (df.applymap(lambda x: isinstance(x, dict))).any()
     dict_columns = s[s].index.tolist()
 
-    print(f"lists: {list_columns}, dicts: {dict_columns}")
+    if verbose:
+        print(f"lists: {list_columns}, dicts: {dict_columns}")
     while len(list_columns) > 0 or len(dict_columns) > 0:
         new_columns = []
 
         for col in dict_columns:
-            print(f"flattening: {col}")
+            if verbose:
+                print(f"flattening: {col}")
             # explode dictionaries horizontally, adding new columns
             horiz_exploded = pd.json_normalize(df[col]).add_prefix(f'{col}.')
             horiz_exploded.index = df.index
@@ -35,7 +41,8 @@ def flatten_nested_json_df(df: pd.DataFrame) -> pd.DataFrame:
             new_columns.extend(horiz_exploded.columns)  # inplace
 
         for col in list_columns:
-            print(f"exploding: {col}")
+            if verbose:
+                print(f"exploding: {col}")
             # explode lists vertically, adding new columns
             df = df.drop(columns=[col]).join(df[col].explode().to_frame())
             df = df.reset_index(drop=True)
@@ -48,8 +55,10 @@ def flatten_nested_json_df(df: pd.DataFrame) -> pd.DataFrame:
         s = (df[new_columns].applymap(lambda x: isinstance(x, dict))).any()
         dict_columns = s[s].index.tolist()
 
-        print(f"lists: {list_columns}, dicts: {dict_columns}")
+        if verbose:
+            print(f"lists: {list_columns}, dicts: {dict_columns}")
 
-    print(f"final shape: {df.shape}")
-    print(f"final columns: {df.columns}")
+    if verbose:
+        print(f"final shape: {df.shape}")
+        print(f"final columns: {df.columns}")
     return df

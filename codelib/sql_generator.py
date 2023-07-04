@@ -2,6 +2,7 @@ from typing import Final, List, Optional
 import re
 from codelib.SqlGenConfig import SqlGenConfig
 from codelib.metadata import TreeNodeInfo
+# import copy
 # from enum import Enum
 # import pandas as pd
 # from gen_csv_files import gen_csv_files
@@ -13,13 +14,29 @@ def remove_last_char_from_str(s: str) -> str:
 
 
 def substract_string(prefix: str, target: str) -> str:
-    assert target.startswith(prefix) is True
+    if target.startswith(prefix) is False:
+        print(f'substract_string prefix:[{prefix}] not in target:[{target}]')
+        # assert target.startswith(prefix) is True
+        return target
     return target[len(prefix):]
 
 
 class SqlGenerator:
     _regex_root = re.compile(pattern=r"^(/root)+", flags=re.MULTILINE | re.IGNORECASE)
+    """
+    Regex expression used to replace the leading '/root' text of the column name
+    """
+
+    _regex_validate_col_name = re.compile(pattern=r"/@[\w_]+$", flags=re.IGNORECASE)
+    """
+    Regex expression used to verify the column name ends with '@type' \n
+    For example  /../../@type
+    """
+
     _regex_path_separator = re.compile(pattern=r"/", flags=re.NOFLAG)
+    """
+    Regex expression used to replace path separattor '/'
+    """
 
     def __init__(self, treenodeinfo: TreeNodeInfo, config: SqlGenConfig) -> None:
         self.alias_num: int = 0
@@ -58,11 +75,6 @@ class SqlGenerator:
         Must be a valid Python regex expression. \n
         See https://docs.python.org/3/library/re.html
         """
-        if self.config.col_name_regex is not None:
-            self.col_name_regex_compiled = re.compile(
-                self.config.col_name_regex,
-                re.IGNORECASE if self.config.col_name_regex_ignore_case else re.NOFLAG
-            )
 
     def mod_col_name(self, col_name: str) -> str:
         """
@@ -74,21 +86,39 @@ class SqlGenerator:
         Returns:
             str: Modified column name
         """
+        # Make a backup copy of the original name
+        original_col_name = col_name
+
+        assert len(col_name) > 3  # minimum string length is 3. Eg. /a/
+        assert col_name[0] == '/'
+        # Ensure the col name ends with '/' or ends with '/@text'
+        assert col_name[-1] == '/' or self._regex_validate_col_name.search(col_name) is not None
 
         if self.config.col_name_replace_root is not None:
-            col_name = SqlGenerator._regex_root.sub(col_name, self.config.col_name_replace_root)
+            col_name = SqlGenerator._regex_root.sub(self.config.col_name_replace_root, col_name)
 
         if self.config.col_name_replace_prefix is not None:
-            col_name = self.config.col_name_replace_prefix + col_name[-1:]
+            col_name = self.config.col_name_replace_prefix + col_name[1:]
 
-        if self.config.col_name_replace_suffix is not None and col_name[-1] == '/':
+        if self.config.col_name_replace_suffix is not None:
             col_name = col_name[:-1] + self.config.col_name_replace_suffix
 
         if self.config.col_name_path_separator is not None:
-            col_name = SqlGenerator._regex_path_separator.sub(col_name, self.config.col_name_path_separator)
+            col_name = self._regex_path_separator.sub(self.config.col_name_path_separator, col_name)
+
+        if self.col_name_regex_compiled is None and self.config.col_name_regex is not None:
+            self.col_name_regex_compiled = re.compile(
+                self.config.col_name_regex,
+                re.IGNORECASE if self.config.col_name_regex_ignore_case else re.NOFLAG
+            )
 
         if self.col_name_regex_compiled is not None:
-            col_name = self.col_name_regex_compiled.sub(col_name, self.config.col_name_regex_replacement)
+            col_name = self.col_name_regex_compiled.sub(self.config.col_name_regex_replacement, col_name)
+
+        col_name = col_name.strip()
+
+        if len(col_name) == 0:
+            col_name = f'ERROR__{original_col_name}__col_mods_resulted_in_empty_str'
 
         return col_name
 
