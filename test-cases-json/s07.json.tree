@@ -1,0 +1,288 @@
+=====================================
+TreeNodeInfo
+-------------------------------------
+Indexes
+    /root/
+    /root/boolean_key/
+    /root/empty_string_translation/
+    /root/key_with_description/
+    /root/key_with_line-break/
+    /root/nested/
+    /root/nested/deeply/
+    /root/nested/deeply/key/
+    /root/nested/key/
+    /root/null_translation/
+    /root/pluralized_key/
+    /root/pluralized_key/one/
+    /root/pluralized_key/other/
+    /root/pluralized_key/zero/
+    /root/sample_collection/
+    /root/simple_key/
+    /root/unverified_key/
+-------------------------------------
+/root/
+    unescaped_xpath=/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=0
+    has_been_processed=False
+    num_of_children=10
+    parent=None
+    Children
+        xpath=/root/boolean_key/
+        xpath=/root/empty_string_translation/
+        xpath=/root/key_with_description/
+        xpath=/root/key_with_line-break/
+        xpath=/root/nested/
+        xpath=/root/null_translation/
+        xpath=/root/pluralized_key/
+        xpath=/root/sample_collection/
+        xpath=/root/simple_key/
+        xpath=/root/unverified_key/
+    XML_attributes
+        None
+-------------------------------------
+/root/boolean_key/
+    unescaped_xpath=/root/boolean_key/
+    element_name=boolean_key
+    unescaped_element_name=boolean_key
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=1
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/empty_string_translation/
+    unescaped_xpath=/root/empty_string_translation/
+    element_name=empty_string_translation
+    unescaped_element_name=empty_string_translation
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=1
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/key_with_description/
+    unescaped_xpath=/root/key_with_description/
+    element_name=key_with_description
+    unescaped_element_name=key_with_description
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=1
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/key_with_line-break/
+    unescaped_xpath=/root/key_with_line-break/
+    element_name=key_with_line-break
+    unescaped_element_name=key_with_line-break
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=1
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/nested/
+    unescaped_xpath=/root/nested/
+    element_name=nested
+    unescaped_element_name=nested
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=1
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/
+    Children
+        xpath=/root/nested/deeply/
+        xpath=/root/nested/key/
+    XML_attributes
+        None
+-------------------------------------
+/root/nested/deeply/
+    unescaped_xpath=/root/nested/deeply/
+    element_name=deeply
+    unescaped_element_name=deeply
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/nested/
+    Children
+        xpath=/root/nested/deeply/key/
+    XML_attributes
+        None
+-------------------------------------
+/root/nested/deeply/key/
+    unescaped_xpath=/root/nested/deeply/key/
+    element_name=key
+    unescaped_element_name=key
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/nested/deeply/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/nested/key/
+    unescaped_xpath=/root/nested/key/
+    element_name=key
+    unescaped_element_name=key
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=2
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/nested/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/null_translation/
+    unescaped_xpath=/root/null_translation/
+    element_name=null_translation
+    unescaped_element_name=null_translation
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=1
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/pluralized_key/
+    unescaped_xpath=/root/pluralized_key/
+    element_name=pluralized_key
+    unescaped_element_name=pluralized_key
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=1
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/
+    Children
+        xpath=/root/pluralized_key/one/
+        xpath=/root/pluralized_key/other/
+        xpath=/root/pluralized_key/zero/
+    XML_attributes
+        None
+-------------------------------------
+/root/pluralized_key/one/
+    unescaped_xpath=/root/pluralized_key/one/
+    element_name=one
+    unescaped_element_name=one
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=2
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/pluralized_key/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/pluralized_key/other/
+    unescaped_xpath=/root/pluralized_key/other/
+    element_name=other
+    unescaped_element_name=other
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=2
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/pluralized_key/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/pluralized_key/zero/
+    unescaped_xpath=/root/pluralized_key/zero/
+    element_name=zero
+    unescaped_element_name=zero
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=2
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/pluralized_key/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/sample_collection/
+    unescaped_xpath=/root/sample_collection/
+    element_name=sample_collection
+    unescaped_element_name=sample_collection
+    datatype=DataTypes.STR
+    node_type=NodeTypes.LIST
+    depth=1
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/simple_key/
+    unescaped_xpath=/root/simple_key/
+    element_name=simple_key
+    unescaped_element_name=simple_key
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=1
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/unverified_key/
+    unescaped_xpath=/root/unverified_key/
+    element_name=unverified_key
+    unescaped_element_name=unverified_key
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=1
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/
+    Children
+        None
+    XML_attributes
+        None

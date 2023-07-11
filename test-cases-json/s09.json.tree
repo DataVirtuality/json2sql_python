@@ -1,0 +1,302 @@
+=====================================
+TreeNodeInfo
+-------------------------------------
+Indexes
+    /root/
+    /root/root/
+    /root/root/glossary/
+    /root/root/glossary/GlossDiv/
+    /root/root/glossary/GlossDiv/GlossList/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/Abbrev/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/Acronym/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/GlossSeeAlso/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/para/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossSee/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossTerm/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/ID/
+    /root/root/glossary/GlossDiv/GlossList/GlossEntry/SortAs/
+    /root/root/glossary/GlossDiv/title/
+    /root/root/glossary/keywords/
+    /root/root/glossary/title/
+-------------------------------------
+/root/
+    unescaped_xpath=/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=0
+    has_been_processed=False
+    num_of_children=1
+    parent=None
+    Children
+        xpath=/root/root/
+    XML_attributes
+        None
+-------------------------------------
+/root/root/
+    unescaped_xpath=/root/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=1
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/
+    Children
+        xpath=/root/root/glossary/
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/
+    unescaped_xpath=/root/root/glossary/
+    element_name=glossary
+    unescaped_element_name=glossary
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/root/
+    Children
+        xpath=/root/root/glossary/GlossDiv/
+        xpath=/root/root/glossary/keywords/
+        xpath=/root/root/glossary/title/
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/
+    unescaped_xpath=/root/root/glossary/GlossDiv/
+    element_name=GlossDiv
+    unescaped_element_name=GlossDiv
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/root/glossary/
+    Children
+        xpath=/root/root/glossary/GlossDiv/GlossList/
+        xpath=/root/root/glossary/GlossDiv/title/
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/
+    element_name=GlossList
+    unescaped_element_name=GlossList
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/root/glossary/GlossDiv/
+    Children
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    element_name=GlossEntry
+    unescaped_element_name=GlossEntry
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=5
+    has_been_processed=False
+    num_of_children=7
+    parent=/root/root/glossary/GlossDiv/GlossList/
+    Children
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/Abbrev/
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/Acronym/
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossSee/
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossTerm/
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/ID/
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/SortAs/
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/Abbrev/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/Abbrev/
+    element_name=Abbrev
+    unescaped_element_name=Abbrev
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/Acronym/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/Acronym/
+    element_name=Acronym
+    unescaped_element_name=Acronym
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/
+    element_name=GlossDef
+    unescaped_element_name=GlossDef
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=6
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    Children
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/GlossSeeAlso/
+        xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/para/
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/GlossSeeAlso/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/GlossSeeAlso/
+    element_name=GlossSeeAlso
+    unescaped_element_name=GlossSeeAlso
+    datatype=DataTypes.STR
+    node_type=NodeTypes.LIST
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/para/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/para/
+    element_name=para
+    unescaped_element_name=para
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossDef/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossSee/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossSee/
+    element_name=GlossSee
+    unescaped_element_name=GlossSee
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossTerm/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/GlossTerm/
+    element_name=GlossTerm
+    unescaped_element_name=GlossTerm
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/ID/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/ID/
+    element_name=ID
+    unescaped_element_name=ID
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/GlossList/GlossEntry/SortAs/
+    unescaped_xpath=/root/root/glossary/GlossDiv/GlossList/GlossEntry/SortAs/
+    element_name=SortAs
+    unescaped_element_name=SortAs
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/GlossDiv/GlossList/GlossEntry/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/GlossDiv/title/
+    unescaped_xpath=/root/root/glossary/GlossDiv/title/
+    element_name=title
+    unescaped_element_name=title
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/GlossDiv/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/keywords/
+    unescaped_xpath=/root/root/glossary/keywords/
+    element_name=keywords
+    unescaped_element_name=keywords
+    datatype=DataTypes.STR
+    node_type=NodeTypes.LIST
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/root/glossary/title/
+    unescaped_xpath=/root/root/glossary/title/
+    element_name=title
+    unescaped_element_name=title
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/root/glossary/
+    Children
+        None
+    XML_attributes
+        None

@@ -1,0 +1,4 @@
+Employees.userId,Employees.jobTitleName,Employees.firstName,Employees.lastName,Employees.preferredFullName,Employees.employeeCode,Employees.region,Employees.phoneNumber,Employees.emailAddress
+rirani,Developer,Romin,Irani,Romin Irani,E1,CA,408-1234567,romin.k.irani@gmail.com
+nirani,Developer,Neil,Irani,Neil Irani,E2,CA,408-1111111,neilrirani@gmail.com
+thanks,Program Directory,Tom,Hanks,Tom Hanks,E3,CA,408-2222222,tomhanks@gmail.com

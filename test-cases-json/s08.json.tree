@@ -1,0 +1,909 @@
+=====================================
+TreeNodeInfo
+-------------------------------------
+Indexes
+    /root/
+    /root/feed/
+    /root/feed/author/
+    /root/feed/author/name/
+    /root/feed/author/name/label/
+    /root/feed/author/uri/
+    /root/feed/author/uri/label/
+    /root/feed/entry/
+    /root/feed/entry/author/
+    /root/feed/entry/author/label/
+    /root/feed/entry/author/name/
+    /root/feed/entry/author/name/label/
+    /root/feed/entry/author/uri/
+    /root/feed/entry/author/uri/label/
+    /root/feed/entry/content/
+    /root/feed/entry/content/attributes/
+    /root/feed/entry/content/attributes/type/
+    /root/feed/entry/content/label/
+    /root/feed/entry/id/
+    /root/feed/entry/id/label/
+    /root/feed/entry/im_u003A_contentType/
+    /root/feed/entry/im_u003A_contentType/attributes/
+    /root/feed/entry/im_u003A_contentType/attributes/label/
+    /root/feed/entry/im_u003A_contentType/attributes/term/
+    /root/feed/entry/im_u003A_rating/
+    /root/feed/entry/im_u003A_rating/label/
+    /root/feed/entry/im_u003A_version/
+    /root/feed/entry/im_u003A_version/label/
+    /root/feed/entry/im_u003A_voteCount/
+    /root/feed/entry/im_u003A_voteCount/label/
+    /root/feed/entry/im_u003A_voteSum/
+    /root/feed/entry/im_u003A_voteSum/label/
+    /root/feed/entry/link/
+    /root/feed/entry/link/attributes/
+    /root/feed/entry/link/attributes/href/
+    /root/feed/entry/link/attributes/rel/
+    /root/feed/entry/title/
+    /root/feed/entry/title/label/
+    /root/feed/entry/updated/
+    /root/feed/entry/updated/label/
+    /root/feed/icon/
+    /root/feed/icon/label/
+    /root/feed/id/
+    /root/feed/id/label/
+    /root/feed/link/
+    /root/feed/link/attributes/
+    /root/feed/link/attributes/href/
+    /root/feed/link/attributes/rel/
+    /root/feed/link/attributes/type/
+    /root/feed/rights/
+    /root/feed/rights/label/
+    /root/feed/title/
+    /root/feed/title/label/
+    /root/feed/updated/
+    /root/feed/updated/label/
+-------------------------------------
+/root/
+    unescaped_xpath=/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=0
+    has_been_processed=False
+    num_of_children=1
+    parent=None
+    Children
+        xpath=/root/feed/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/
+    unescaped_xpath=/root/feed/
+    element_name=feed
+    unescaped_element_name=feed
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=1
+    has_been_processed=False
+    num_of_children=8
+    parent=/root/
+    Children
+        xpath=/root/feed/author/
+        xpath=/root/feed/entry/
+        xpath=/root/feed/icon/
+        xpath=/root/feed/id/
+        xpath=/root/feed/link/
+        xpath=/root/feed/rights/
+        xpath=/root/feed/title/
+        xpath=/root/feed/updated/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/author/
+    unescaped_xpath=/root/feed/author/
+    element_name=author
+    unescaped_element_name=author
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/feed/
+    Children
+        xpath=/root/feed/author/name/
+        xpath=/root/feed/author/uri/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/author/name/
+    unescaped_xpath=/root/feed/author/name/
+    element_name=name
+    unescaped_element_name=name
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/author/
+    Children
+        xpath=/root/feed/author/name/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/author/name/label/
+    unescaped_xpath=/root/feed/author/name/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/author/name/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/author/uri/
+    unescaped_xpath=/root/feed/author/uri/
+    element_name=uri
+    unescaped_element_name=uri
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/author/
+    Children
+        xpath=/root/feed/author/uri/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/author/uri/label/
+    unescaped_xpath=/root/feed/author/uri/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/author/uri/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/
+    unescaped_xpath=/root/feed/entry/
+    element_name=entry
+    unescaped_element_name=entry
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=2
+    has_been_processed=False
+    num_of_children=11
+    parent=/root/feed/
+    Children
+        xpath=/root/feed/entry/author/
+        xpath=/root/feed/entry/content/
+        xpath=/root/feed/entry/id/
+        xpath=/root/feed/entry/im_u003A_contentType/
+        xpath=/root/feed/entry/im_u003A_rating/
+        xpath=/root/feed/entry/im_u003A_version/
+        xpath=/root/feed/entry/im_u003A_voteCount/
+        xpath=/root/feed/entry/im_u003A_voteSum/
+        xpath=/root/feed/entry/link/
+        xpath=/root/feed/entry/title/
+        xpath=/root/feed/entry/updated/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/author/
+    unescaped_xpath=/root/feed/entry/author/
+    element_name=author
+    unescaped_element_name=author
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/author/label/
+        xpath=/root/feed/entry/author/name/
+        xpath=/root/feed/entry/author/uri/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/author/label/
+    unescaped_xpath=/root/feed/entry/author/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/author/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/author/name/
+    unescaped_xpath=/root/feed/entry/author/name/
+    element_name=name
+    unescaped_element_name=name
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/author/
+    Children
+        xpath=/root/feed/entry/author/name/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/author/name/label/
+    unescaped_xpath=/root/feed/entry/author/name/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/author/name/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/author/uri/
+    unescaped_xpath=/root/feed/entry/author/uri/
+    element_name=uri
+    unescaped_element_name=uri
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/author/
+    Children
+        xpath=/root/feed/entry/author/uri/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/author/uri/label/
+    unescaped_xpath=/root/feed/entry/author/uri/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/author/uri/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/content/
+    unescaped_xpath=/root/feed/entry/content/
+    element_name=content
+    unescaped_element_name=content
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/content/attributes/
+        xpath=/root/feed/entry/content/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/content/attributes/
+    unescaped_xpath=/root/feed/entry/content/attributes/
+    element_name=attributes
+    unescaped_element_name=attributes
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/content/
+    Children
+        xpath=/root/feed/entry/content/attributes/type/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/content/attributes/type/
+    unescaped_xpath=/root/feed/entry/content/attributes/type/
+    element_name=type
+    unescaped_element_name=type
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/content/attributes/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/content/label/
+    unescaped_xpath=/root/feed/entry/content/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/content/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/id/
+    unescaped_xpath=/root/feed/entry/id/
+    element_name=id
+    unescaped_element_name=id
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/id/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/id/label/
+    unescaped_xpath=/root/feed/entry/id/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/id/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_contentType/
+    unescaped_xpath=/root/feed/entry/im:contentType/
+    element_name=im_u003A_contentType
+    unescaped_element_name=im:contentType
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/im_u003A_contentType/attributes/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_contentType/attributes/
+    unescaped_xpath=/root/feed/entry/im:contentType/attributes/
+    element_name=attributes
+    unescaped_element_name=attributes
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/feed/entry/im_u003A_contentType/
+    Children
+        xpath=/root/feed/entry/im_u003A_contentType/attributes/label/
+        xpath=/root/feed/entry/im_u003A_contentType/attributes/term/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_contentType/attributes/label/
+    unescaped_xpath=/root/feed/entry/im:contentType/attributes/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/im_u003A_contentType/attributes/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_contentType/attributes/term/
+    unescaped_xpath=/root/feed/entry/im:contentType/attributes/term/
+    element_name=term
+    unescaped_element_name=term
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/im_u003A_contentType/attributes/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_rating/
+    unescaped_xpath=/root/feed/entry/im:rating/
+    element_name=im_u003A_rating
+    unescaped_element_name=im:rating
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/im_u003A_rating/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_rating/label/
+    unescaped_xpath=/root/feed/entry/im:rating/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/im_u003A_rating/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_version/
+    unescaped_xpath=/root/feed/entry/im:version/
+    element_name=im_u003A_version
+    unescaped_element_name=im:version
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/im_u003A_version/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_version/label/
+    unescaped_xpath=/root/feed/entry/im:version/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/im_u003A_version/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_voteCount/
+    unescaped_xpath=/root/feed/entry/im:voteCount/
+    element_name=im_u003A_voteCount
+    unescaped_element_name=im:voteCount
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/im_u003A_voteCount/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_voteCount/label/
+    unescaped_xpath=/root/feed/entry/im:voteCount/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/im_u003A_voteCount/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_voteSum/
+    unescaped_xpath=/root/feed/entry/im:voteSum/
+    element_name=im_u003A_voteSum
+    unescaped_element_name=im:voteSum
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/im_u003A_voteSum/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/im_u003A_voteSum/label/
+    unescaped_xpath=/root/feed/entry/im:voteSum/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/im_u003A_voteSum/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/link/
+    unescaped_xpath=/root/feed/entry/link/
+    element_name=link
+    unescaped_element_name=link
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/link/attributes/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/link/attributes/
+    unescaped_xpath=/root/feed/entry/link/attributes/
+    element_name=attributes
+    unescaped_element_name=attributes
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/feed/entry/link/
+    Children
+        xpath=/root/feed/entry/link/attributes/href/
+        xpath=/root/feed/entry/link/attributes/rel/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/link/attributes/href/
+    unescaped_xpath=/root/feed/entry/link/attributes/href/
+    element_name=href
+    unescaped_element_name=href
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/link/attributes/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/link/attributes/rel/
+    unescaped_xpath=/root/feed/entry/link/attributes/rel/
+    element_name=rel
+    unescaped_element_name=rel
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/link/attributes/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/title/
+    unescaped_xpath=/root/feed/entry/title/
+    element_name=title
+    unescaped_element_name=title
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/title/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/title/label/
+    unescaped_xpath=/root/feed/entry/title/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/title/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/updated/
+    unescaped_xpath=/root/feed/entry/updated/
+    element_name=updated
+    unescaped_element_name=updated
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/entry/
+    Children
+        xpath=/root/feed/entry/updated/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/entry/updated/label/
+    unescaped_xpath=/root/feed/entry/updated/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/entry/updated/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/icon/
+    unescaped_xpath=/root/feed/icon/
+    element_name=icon
+    unescaped_element_name=icon
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/
+    Children
+        xpath=/root/feed/icon/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/icon/label/
+    unescaped_xpath=/root/feed/icon/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/icon/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/id/
+    unescaped_xpath=/root/feed/id/
+    element_name=id
+    unescaped_element_name=id
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/
+    Children
+        xpath=/root/feed/id/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/id/label/
+    unescaped_xpath=/root/feed/id/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/id/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/link/
+    unescaped_xpath=/root/feed/link/
+    element_name=link
+    unescaped_element_name=link
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/
+    Children
+        xpath=/root/feed/link/attributes/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/link/attributes/
+    unescaped_xpath=/root/feed/link/attributes/
+    element_name=attributes
+    unescaped_element_name=attributes
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/feed/link/
+    Children
+        xpath=/root/feed/link/attributes/href/
+        xpath=/root/feed/link/attributes/rel/
+        xpath=/root/feed/link/attributes/type/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/link/attributes/href/
+    unescaped_xpath=/root/feed/link/attributes/href/
+    element_name=href
+    unescaped_element_name=href
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/link/attributes/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/link/attributes/rel/
+    unescaped_xpath=/root/feed/link/attributes/rel/
+    element_name=rel
+    unescaped_element_name=rel
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/link/attributes/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/link/attributes/type/
+    unescaped_xpath=/root/feed/link/attributes/type/
+    element_name=type
+    unescaped_element_name=type
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/link/attributes/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/rights/
+    unescaped_xpath=/root/feed/rights/
+    element_name=rights
+    unescaped_element_name=rights
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/
+    Children
+        xpath=/root/feed/rights/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/rights/label/
+    unescaped_xpath=/root/feed/rights/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/rights/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/title/
+    unescaped_xpath=/root/feed/title/
+    element_name=title
+    unescaped_element_name=title
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/
+    Children
+        xpath=/root/feed/title/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/title/label/
+    unescaped_xpath=/root/feed/title/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/title/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/updated/
+    unescaped_xpath=/root/feed/updated/
+    element_name=updated
+    unescaped_element_name=updated
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/feed/
+    Children
+        xpath=/root/feed/updated/label/
+    XML_attributes
+        None
+-------------------------------------
+/root/feed/updated/label/
+    unescaped_xpath=/root/feed/updated/label/
+    element_name=label
+    unescaped_element_name=label
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/feed/updated/
+    Children
+        None
+    XML_attributes
+        None

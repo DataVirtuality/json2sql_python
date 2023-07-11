@@ -1,0 +1,87 @@
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <root>
+        <myint xsi:type="decimal">987</myint>
+    </root>
+    <root>
+        <myint xsi:type="decimal">1</myint>
+        <myfloat xsi:type="decimal">3.1415</myfloat>
+        <glossary>
+            <title>example glossary</title>
+            <keywords>a</keywords>
+            <keywords>b</keywords>
+            <list>
+                <list xsi:type="decimal">1</list>
+                <list xsi:type="decimal">2</list>
+                <list xsi:type="decimal">3</list>
+            </list>
+            <list>
+                <list xsi:type="decimal">4</list>
+                <list xsi:type="decimal">5</list>
+                <list xsi:type="decimal">6</list>
+            </list>
+        </glossary>
+    </root>
+    <root>
+        <myint xsi:type="decimal">71</myint>
+        <myfloat xsi:type="decimal">73.1415</myfloat>
+        <glossary>
+            <title>7example glossary</title>
+            <keywords>7a</keywords>
+            <keywords>7b</keywords>
+            <keywords>7c</keywords>
+            <list_objs>
+                <servlet-name>cofaxAdmin</servlet-name>
+                <servlet-class>org.cofax.cds.AdminServlet</servlet-class>
+            </list_objs>
+            <list_objs>
+                <servlet-name>fileServlet</servlet-name>
+                <servlet-class>org.cofax.cds.FileServlet</servlet-class>
+            </list_objs>
+            <list_objs>
+                <servlet-name>servlet-fileServlet</servlet-name>
+                <servlet-class>servlet-org.cofax.cds.FileServlet</servlet-class>
+            </list_objs>
+            <list_objs>
+                <servlet-name>7 servlet-fileServlet</servlet-name>
+                <servlet-class>7 servlet-org.cofax.cds.FileServlet</servlet-class>
+            </list_objs>
+        </glossary>
+    </root>
+    <root>
+        <myint xsi:type="decimal">556</myint>
+        <myfloat xsi:type="decimal">89.345</myfloat>
+        <glossary>
+            <title>345example glossary</title>
+            <keywords>4g</keywords>
+            <keywords>7df</keywords>
+            <keywords>34f</keywords>
+            <list>
+                <list xsi:type="decimal">21</list>
+                <list xsi:type="decimal">22</list>
+                <list>
+                    <list xsi:type="decimal">33</list>
+                    <list xsi:type="decimal">34</list>
+                    <list xsi:type="decimal">35</list>
+                    <list xsi:type="decimal">36</list>
+                </list>
+            </list>
+            <list>
+                <list xsi:type="decimal">24</list>
+                <list xsi:type="decimal">25</list>
+                <list xsi:type="decimal">26</list>
+            </list>
+            <list_objs>
+                <servlet-name>66 cofaxAdmin</servlet-name>
+                <servlet-class>77  org.cofax.cds.AdminServlet</servlet-class>
+            </list_objs>
+            <list_objs>
+                <servlet-name>88 fileServlet</servlet-name>
+                <servlet-class>99 org.cofax.cds.FileServlet</servlet-class>
+            </list_objs>
+            <list_objs>
+                <servlet-name>657 fileServlet</servlet-name>
+                <servlet-class>575467 org.cofax.cds.FileServlet</servlet-class>
+            </list_objs>
+        </glossary>
+    </root>
+</root>

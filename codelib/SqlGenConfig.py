@@ -54,9 +54,17 @@ class SqlGenConfig:
     See https://docs.python.org/3/library/re.html
     """
 
+    col_name_path_separator: str
+    """
+    Specify the path separator used for the column names. \n
+        Eg if separator=. then /root/root/col1/ -> .root.root.col1. \n
+        Eg if separator=- then /root/root/col1/ -> -root-root-col1- \n
+        Eg if separator=| then /root/root/col1/ -> |root|root|col1|
+    """
+
     col_name_replace_prefix: Optional[str] = None
     """
-    Replace the leading slash from the column name with the specified string. \n 
+    Replace the leading slash from the column name with the specified string. \n
         Eg prefix='' /root/root/col1/ -> root/root/col1/  \n
         Eg prefix='[' /root/root/col1/ -> [root/root/col1/
     """
@@ -68,7 +76,7 @@ class SqlGenConfig:
         Eg suffix='' /root/root/col1/ -> /root/root/col1 \n
         Eg suffix=']' /root/root/col1/ -> /root/root/col1] \n
         NO change if last character is not a / \n
-        Eg suffix=']' /root/root/col1/@type -> /root/root/col1/@type 
+        Eg suffix=']' /root/root/col1/@type -> /root/root/col1/@type
     """
 
     col_name_replace_root: Optional[str] = None
@@ -78,14 +86,6 @@ class SqlGenConfig:
         Eg replace_rootroot='' /root/root/col1/ -> /col1/ \n
         Eg replace_rootroot='srcName' /root/col1/ -> srcName/col1/ \n
         Eg replace_rootroot='srcName' /root/root/col1/ -> srcName/col1/
-    """
-
-    col_name_path_separator: Optional[str] = None
-    """
-    Specify the path separator used for the column names. \n
-        Eg if separator=. then /root/root/col1/ -> .root.root.col1. \n
-        Eg if separator=- then /root/root/col1/ -> -root-root-col1- \n
-        Eg if separator=| then /root/root/col1/ -> |root|root|col1|
     """
 
     col_name_regex: Optional[str] = None

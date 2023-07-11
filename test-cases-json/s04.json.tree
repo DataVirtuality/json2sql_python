@@ -1,0 +1,268 @@
+=====================================
+TreeNodeInfo
+-------------------------------------
+Indexes
+    /root/
+    /root/quiz/
+    /root/quiz/maths/
+    /root/quiz/maths/q1/
+    /root/quiz/maths/q1/answer/
+    /root/quiz/maths/q1/options/
+    /root/quiz/maths/q1/question/
+    /root/quiz/maths/q2/
+    /root/quiz/maths/q2/answer/
+    /root/quiz/maths/q2/options/
+    /root/quiz/maths/q2/question/
+    /root/quiz/sport/
+    /root/quiz/sport/q1/
+    /root/quiz/sport/q1/answer/
+    /root/quiz/sport/q1/options/
+    /root/quiz/sport/q1/question/
+-------------------------------------
+/root/
+    unescaped_xpath=/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=0
+    has_been_processed=False
+    num_of_children=1
+    parent=None
+    Children
+        xpath=/root/quiz/
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/
+    unescaped_xpath=/root/quiz/
+    element_name=quiz
+    unescaped_element_name=quiz
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=1
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/
+    Children
+        xpath=/root/quiz/maths/
+        xpath=/root/quiz/sport/
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/maths/
+    unescaped_xpath=/root/quiz/maths/
+    element_name=maths
+    unescaped_element_name=maths
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/quiz/
+    Children
+        xpath=/root/quiz/maths/q1/
+        xpath=/root/quiz/maths/q2/
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/maths/q1/
+    unescaped_xpath=/root/quiz/maths/q1/
+    element_name=q1
+    unescaped_element_name=q1
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/quiz/maths/
+    Children
+        xpath=/root/quiz/maths/q1/answer/
+        xpath=/root/quiz/maths/q1/options/
+        xpath=/root/quiz/maths/q1/question/
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/maths/q1/answer/
+    unescaped_xpath=/root/quiz/maths/q1/answer/
+    element_name=answer
+    unescaped_element_name=answer
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/quiz/maths/q1/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/maths/q1/options/
+    unescaped_xpath=/root/quiz/maths/q1/options/
+    element_name=options
+    unescaped_element_name=options
+    datatype=DataTypes.STR
+    node_type=NodeTypes.LIST
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/quiz/maths/q1/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/maths/q1/question/
+    unescaped_xpath=/root/quiz/maths/q1/question/
+    element_name=question
+    unescaped_element_name=question
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/quiz/maths/q1/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/maths/q2/
+    unescaped_xpath=/root/quiz/maths/q2/
+    element_name=q2
+    unescaped_element_name=q2
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/quiz/maths/
+    Children
+        xpath=/root/quiz/maths/q2/answer/
+        xpath=/root/quiz/maths/q2/options/
+        xpath=/root/quiz/maths/q2/question/
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/maths/q2/answer/
+    unescaped_xpath=/root/quiz/maths/q2/answer/
+    element_name=answer
+    unescaped_element_name=answer
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/quiz/maths/q2/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/maths/q2/options/
+    unescaped_xpath=/root/quiz/maths/q2/options/
+    element_name=options
+    unescaped_element_name=options
+    datatype=DataTypes.STR
+    node_type=NodeTypes.LIST
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/quiz/maths/q2/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/maths/q2/question/
+    unescaped_xpath=/root/quiz/maths/q2/question/
+    element_name=question
+    unescaped_element_name=question
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/quiz/maths/q2/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/sport/
+    unescaped_xpath=/root/quiz/sport/
+    element_name=sport
+    unescaped_element_name=sport
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/quiz/
+    Children
+        xpath=/root/quiz/sport/q1/
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/sport/q1/
+    unescaped_xpath=/root/quiz/sport/q1/
+    element_name=q1
+    unescaped_element_name=q1
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/quiz/sport/
+    Children
+        xpath=/root/quiz/sport/q1/answer/
+        xpath=/root/quiz/sport/q1/options/
+        xpath=/root/quiz/sport/q1/question/
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/sport/q1/answer/
+    unescaped_xpath=/root/quiz/sport/q1/answer/
+    element_name=answer
+    unescaped_element_name=answer
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/quiz/sport/q1/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/sport/q1/options/
+    unescaped_xpath=/root/quiz/sport/q1/options/
+    element_name=options
+    unescaped_element_name=options
+    datatype=DataTypes.STR
+    node_type=NodeTypes.LIST
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/quiz/sport/q1/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/quiz/sport/q1/question/
+    unescaped_xpath=/root/quiz/sport/q1/question/
+    element_name=question
+    unescaped_element_name=question
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/quiz/sport/q1/
+    Children
+        None
+    XML_attributes
+        None

@@ -1,0 +1,251 @@
+=====================================
+TreeNodeInfo
+-------------------------------------
+Indexes
+    /root/
+    /root/brewing/
+    /root/brewing/country/
+    /root/brewing/country/company/
+    /root/brewing/country/id/
+    /root/brewing/region/
+    /root/brewing/region/id/
+    /root/brewing/region/name/
+    /root/coffee/
+    /root/coffee/country/
+    /root/coffee/country/company/
+    /root/coffee/country/id/
+    /root/coffee/region/
+    /root/coffee/region/id/
+    /root/coffee/region/name/
+-------------------------------------
+/root/
+    unescaped_xpath=/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=0
+    has_been_processed=False
+    num_of_children=2
+    parent=None
+    Children
+        xpath=/root/brewing/
+        xpath=/root/coffee/
+    XML_attributes
+        None
+-------------------------------------
+/root/brewing/
+    unescaped_xpath=/root/brewing/
+    element_name=brewing
+    unescaped_element_name=brewing
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=1
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/
+    Children
+        xpath=/root/brewing/country/
+        xpath=/root/brewing/region/
+    XML_attributes
+        None
+-------------------------------------
+/root/brewing/country/
+    unescaped_xpath=/root/brewing/country/
+    element_name=country
+    unescaped_element_name=country
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/brewing/
+    Children
+        xpath=/root/brewing/country/company/
+        xpath=/root/brewing/country/id/
+    XML_attributes
+        None
+-------------------------------------
+/root/brewing/country/company/
+    unescaped_xpath=/root/brewing/country/company/
+    element_name=company
+    unescaped_element_name=company
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/brewing/country/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/brewing/country/id/
+    unescaped_xpath=/root/brewing/country/id/
+    element_name=id
+    unescaped_element_name=id
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/brewing/country/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/brewing/region/
+    unescaped_xpath=/root/brewing/region/
+    element_name=region
+    unescaped_element_name=region
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=2
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/brewing/
+    Children
+        xpath=/root/brewing/region/id/
+        xpath=/root/brewing/region/name/
+    XML_attributes
+        None
+-------------------------------------
+/root/brewing/region/id/
+    unescaped_xpath=/root/brewing/region/id/
+    element_name=id
+    unescaped_element_name=id
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/brewing/region/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/brewing/region/name/
+    unescaped_xpath=/root/brewing/region/name/
+    element_name=name
+    unescaped_element_name=name
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/brewing/region/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/coffee/
+    unescaped_xpath=/root/coffee/
+    element_name=coffee
+    unescaped_element_name=coffee
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=1
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/
+    Children
+        xpath=/root/coffee/country/
+        xpath=/root/coffee/region/
+    XML_attributes
+        None
+-------------------------------------
+/root/coffee/country/
+    unescaped_xpath=/root/coffee/country/
+    element_name=country
+    unescaped_element_name=country
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/coffee/
+    Children
+        xpath=/root/coffee/country/company/
+        xpath=/root/coffee/country/id/
+    XML_attributes
+        None
+-------------------------------------
+/root/coffee/country/company/
+    unescaped_xpath=/root/coffee/country/company/
+    element_name=company
+    unescaped_element_name=company
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/coffee/country/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/coffee/country/id/
+    unescaped_xpath=/root/coffee/country/id/
+    element_name=id
+    unescaped_element_name=id
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/coffee/country/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/coffee/region/
+    unescaped_xpath=/root/coffee/region/
+    element_name=region
+    unescaped_element_name=region
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=2
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/coffee/
+    Children
+        xpath=/root/coffee/region/id/
+        xpath=/root/coffee/region/name/
+    XML_attributes
+        None
+-------------------------------------
+/root/coffee/region/id/
+    unescaped_xpath=/root/coffee/region/id/
+    element_name=id
+    unescaped_element_name=id
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/coffee/region/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/coffee/region/name/
+    unescaped_xpath=/root/coffee/region/name/
+    element_name=name
+    unescaped_element_name=name
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/coffee/region/
+    Children
+        None
+    XML_attributes
+        None

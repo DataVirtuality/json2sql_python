@@ -19,10 +19,80 @@
             "program": "main.py",
             "args": [
                 "--files",
-                "sample-data/s01.json",
+                "sample-data-json/s01.json",
                 "--recurse",
                 "--dsname",
-                "dv_sample_data"
+                "dv_sample_data",
+                "--output_folder",
+                "test-cases-json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "S02 json files",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--files",
+                "sample-data-json/s02.json",
+                "--recurse",
+                "--dsname",
+                "dv_sample_data",
+                "--output_folder",
+                "test-cases-json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "S01 xml files",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--files",
+                "sample-data-json/s01.xml",
+                "--recurse",
+                "--dsname",
+                "dv_sample_data",
+                "--output_folder",
+                "test-cases-xml"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "S02 xml files",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--files",
+                "sample-data-json/s02.xml",
+                "--recurse",
+                "--dsname",
+                "dv_sample_data",
+                "--output_folder",
+                "test-cases-xml"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "S10 json files",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--files",
+                "sample-data-json/s10.json",
+                "--recurse",
+                "--dsname",
+                "dv_sample_data",
+                "--output_folder",
+                "test-cases-json"
             ],
             "console": "integratedTerminal",
             "justMyCode": true
@@ -34,10 +104,29 @@
             "program": "main.py",
             "args": [
                 "--files",
-                "sample-data/*.json",
+                "sample-data-json/*.json",
                 "--recurse",
-                "-dsname",
-                "dv_sample_data"
+                "--dsname",
+                "dv_sample_data",
+                "--output_folder",
+                "test-cases-json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "create test case files",
+            "type": "python",
+            "request": "launch",
+            "program": "create_test_cases.py",
+            "args": [
+                "--files",
+                "sample-data-json/*.json",
+                "--recurse",
+                "--dsname",
+                "dv_sample_data",
+                "--output_folder",
+                "test-cases-json"
             ],
             "console": "integratedTerminal",
             "justMyCode": true
@@ -51,9 +140,9 @@
                 "-dsname",
                 "MY_DATASOURCE",
                 "-dspath",
-                "./sample-data/s01.xml",
+                "./sample-data-json/s01.xml",
                 "-infile",
-                "./sample-data/s01.xml",
+                "./sample-data-json/s01.xml",
                 "-outfile",
                 "s01.sql",
                 "-root",

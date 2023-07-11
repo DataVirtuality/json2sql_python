@@ -1,0 +1,433 @@
+=====================================
+TreeNodeInfo
+-------------------------------------
+Indexes
+    /root/
+    /root/problems/
+    /root/problems/Asthma/
+    /root/problems/Diabetes/
+    /root/problems/Diabetes/labs/
+    /root/problems/Diabetes/labs/missing_field/
+    /root/problems/Diabetes/medications/
+    /root/problems/Diabetes/medications/medicationsClasses/
+    /root/problems/Diabetes/medications/medicationsClasses/className/
+    /root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/
+    /root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/dose/
+    /root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/name/
+    /root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/strength/
+    /root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/
+    /root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/dose/
+    /root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/name/
+    /root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/strength/
+    /root/problems/Diabetes/medications/medicationsClasses/className2/
+    /root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/
+    /root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/dose/
+    /root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/name/
+    /root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/strength/
+    /root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/
+    /root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/dose/
+    /root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/name/
+    /root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/strength/
+-------------------------------------
+/root/
+    unescaped_xpath=/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=0
+    has_been_processed=False
+    num_of_children=1
+    parent=None
+    Children
+        xpath=/root/problems/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/
+    unescaped_xpath=/root/problems/
+    element_name=problems
+    unescaped_element_name=problems
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=1
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/
+    Children
+        xpath=/root/problems/Asthma/
+        xpath=/root/problems/Diabetes/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Asthma/
+    unescaped_xpath=/root/problems/Asthma/
+    element_name=Asthma
+    unescaped_element_name=Asthma
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=2
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/
+    unescaped_xpath=/root/problems/Diabetes/
+    element_name=Diabetes
+    unescaped_element_name=Diabetes
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=2
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/problems/
+    Children
+        xpath=/root/problems/Diabetes/labs/
+        xpath=/root/problems/Diabetes/medications/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/labs/
+    unescaped_xpath=/root/problems/Diabetes/labs/
+    element_name=labs
+    unescaped_element_name=labs
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/problems/Diabetes/
+    Children
+        xpath=/root/problems/Diabetes/labs/missing_field/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/labs/missing_field/
+    unescaped_xpath=/root/problems/Diabetes/labs/missing_field/
+    element_name=missing_field
+    unescaped_element_name=missing_field
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/labs/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/
+    unescaped_xpath=/root/problems/Diabetes/medications/
+    element_name=medications
+    unescaped_element_name=medications
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=3
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/problems/Diabetes/
+    Children
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/
+    element_name=medicationsClasses
+    unescaped_element_name=medicationsClasses
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=4
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/problems/Diabetes/medications/
+    Children
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className/
+    element_name=className
+    unescaped_element_name=className
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=5
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/problems/Diabetes/medications/medicationsClasses/
+    Children
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/
+    element_name=associatedDrug
+    unescaped_element_name=associatedDrug
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=6
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className/
+    Children
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/dose/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/name/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/strength/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/dose/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/dose/
+    element_name=dose
+    unescaped_element_name=dose
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/name/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/name/
+    element_name=name
+    unescaped_element_name=name
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/strength/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/strength/
+    element_name=strength
+    unescaped_element_name=strength
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug#2/
+    element_name=associatedDrug_u0023_2
+    unescaped_element_name=associatedDrug#2
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=6
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className/
+    Children
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/dose/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/name/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/strength/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/dose/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug#2/dose/
+    element_name=dose
+    unescaped_element_name=dose
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/name/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug#2/name/
+    element_name=name
+    unescaped_element_name=name
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/strength/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug#2/strength/
+    element_name=strength
+    unescaped_element_name=strength
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className2/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/
+    element_name=className2
+    unescaped_element_name=className2
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=5
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/problems/Diabetes/medications/medicationsClasses/
+    Children
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/
+    element_name=associatedDrug
+    unescaped_element_name=associatedDrug
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=6
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className2/
+    Children
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/dose/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/name/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/strength/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/dose/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/dose/
+    element_name=dose
+    unescaped_element_name=dose
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/name/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/name/
+    element_name=name
+    unescaped_element_name=name
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/strength/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/strength/
+    element_name=strength
+    unescaped_element_name=strength
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug#2/
+    element_name=associatedDrug_u0023_2
+    unescaped_element_name=associatedDrug#2
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=6
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className2/
+    Children
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/dose/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/name/
+        xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/strength/
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/dose/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug#2/dose/
+    element_name=dose
+    unescaped_element_name=dose
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/name/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug#2/name/
+    element_name=name
+    unescaped_element_name=name
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/strength/
+    unescaped_xpath=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug#2/strength/
+    element_name=strength
+    unescaped_element_name=strength
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=7
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/
+    Children
+        None
+    XML_attributes
+        None

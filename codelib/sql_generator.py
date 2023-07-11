@@ -103,9 +103,6 @@ class SqlGenerator:
         if self.config.col_name_replace_suffix is not None:
             col_name = col_name[:-1] + self.config.col_name_replace_suffix
 
-        if self.config.col_name_path_separator is not None:
-            col_name = self._regex_path_separator.sub(self.config.col_name_path_separator, col_name)
-
         if self.col_name_regex_compiled is None and self.config.col_name_regex is not None:
             self.col_name_regex_compiled = re.compile(
                 self.config.col_name_regex,
@@ -174,33 +171,33 @@ class SqlGenerator:
 
         xml_tables: List[TreeNodeInfo] = []
         if tni.has_data():
-            self.sql_select.append(f'    "{current_sql_table_name}"."{self.mod_col_name(tni.xpath)}",')
+            self.sql_select.append(f'    "{current_sql_table_name}"."{self.mod_col_name(tni.unescaped_xpath)}",')
 
             if tni.is_list():
-                self.sql_from.append(f"               \"{self.mod_col_name(tni.xpath)}\" {self.get_sql_datatype(tni)} PATH '.',")
+                self.sql_from.append(f"               \"{self.mod_col_name(tni.unescaped_xpath)}\" {self.get_sql_datatype(tni)} PATH '.',")
 
                 if tni.is_datatype_numeric():
-                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{tni.xpath}@type")}",')
-                    self.sql_from.append(f"               \"{self.mod_col_name(f'{tni.xpath}@type')}\" STRING PATH './@xsi:type',")
+                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{tni.unescaped_xpath}@type")}",')
+                    self.sql_from.append(f"               \"{self.mod_col_name(f'{tni.unescaped_xpath}@type')}\" STRING PATH './@xsi:type',")
             else:
-                self.sql_from.append(f"               \"{self.mod_col_name(tni.xpath)}\" {self.get_sql_datatype(tni)} PATH '{tni.element_name}',")
+                self.sql_from.append(f"               \"{self.mod_col_name(tni.unescaped_xpath)}\" {self.get_sql_datatype(tni)} PATH '{tni.element_name}',")
 
                 if tni.is_datatype_numeric():
-                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{tni.xpath}@type")}",')
-                    self.sql_from.append(f"               \"{self.mod_col_name(f'{tni.xpath}@type')}\" STRING PATH '{tni.element_name}/@xsi:type',")
+                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{tni.unescaped_xpath}@type")}",')
+                    self.sql_from.append(f"               \"{self.mod_col_name(f'{tni.unescaped_xpath}@type')}\" STRING PATH '{tni.element_name}/@xsi:type',")
 
         for child in tni.children:
             if child.make_subtable():
-                self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(child.xpath)}",')
-                self.sql_from.append(f'               "{self.mod_col_name(child.xpath)}" xml PATH \'{child.element_name}\',')
+                self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(child.unescaped_xpath)}",')
+                self.sql_from.append(f'               "{self.mod_col_name(child.unescaped_xpath)}" xml PATH \'{child.element_name}\',')
                 xml_tables.append(child)
             else:
                 if child.is_datatype_numeric():
-                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{child.xpath}@type")}",')
-                    self.sql_from.append(f"               \"{self.mod_col_name(f'{child.xpath}@type')}\" STRING PATH '{child.element_name}/@xsi:type',")
+                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{child.unescaped_xpath}@type")}",')
+                    self.sql_from.append(f"               \"{self.mod_col_name(f'{child.unescaped_xpath}@type')}\" STRING PATH '{child.element_name}/@xsi:type',")
 
-                self.sql_select.append(f'    "{current_sql_table_name}"."{self.mod_col_name(child.xpath)}",')
-                self.sql_from.append(f'               "{self.mod_col_name(child.xpath)}" {self.get_sql_datatype(child)} PATH \'{child.element_name}\',')
+                self.sql_select.append(f'    "{current_sql_table_name}"."{self.mod_col_name(child.unescaped_xpath)}",')
+                self.sql_from.append(f'               "{self.mod_col_name(child.unescaped_xpath)}" {self.get_sql_datatype(child)} PATH \'{child.element_name}\',')
 
         # Remove comma from last entry
         self.sql_from[-1] = remove_last_char_from_str(self.sql_from[-1])

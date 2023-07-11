@@ -1,0 +1,28 @@
+[
+    {
+        "all bool": [
+            true,
+            true,
+            true,
+            true
+        ],
+        "bool, bool, int, bool": [
+            true,
+            true,
+            5,
+            true
+        ],
+        "bool, int, str, bool": [
+            true,
+            5,
+            "True",
+            true
+        ],
+        "str, int, str, bool": [
+            "false",
+            5,
+            "True",
+            false
+        ]
+    }
+]

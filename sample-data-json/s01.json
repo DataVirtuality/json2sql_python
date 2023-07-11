@@ -1,0 +1,101 @@
+[
+    {
+        "myint": 987
+    },
+    {
+        "myint": 1,
+        "myfloat": 3.1415,
+        "glossary": {
+            "title": "example glossary",
+            "keywords": [
+                "a",
+                "b"
+            ],
+            "list": [
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    4,
+                    5,
+                    6
+                ]
+            ]
+        }
+    },
+    {
+        "myint": 71,
+        "myfloat": 73.1415,
+        "glossary": {
+            "title": "7example glossary",
+            "keywords": [
+                "7a",
+                "7b",
+                "7c"
+            ],
+            "list_objs": [
+                {
+                    "servlet-name": "cofaxAdmin",
+                    "servlet-class": "org.cofax.cds.AdminServlet"
+                },
+                {
+                    "servlet-name": "fileServlet",
+                    "servlet-class": "org.cofax.cds.FileServlet"
+                },
+                {
+                    "servlet-name": "servlet-fileServlet",
+                    "servlet-class": "servlet-org.cofax.cds.FileServlet"
+                },
+                {
+                    "servlet-name": "7 servlet-fileServlet",
+                    "servlet-class": "7 servlet-org.cofax.cds.FileServlet"
+                }
+            ]
+        }
+    },
+    {
+        "myint": 556,
+        "myfloat": 89.345,
+        "glossary": {
+            "title": "345example glossary",
+            "keywords": [
+                "4g",
+                "7df",
+                "34f"
+            ],
+            "list": [
+                [
+                    21,
+                    22,
+                    [
+                        33,
+                        34,
+                        35,
+                        36
+                    ]
+                ],
+                [
+                    24,
+                    25,
+                    26
+                ]
+            ],
+            "list_objs": [
+                {
+                    "servlet-name": "66 cofaxAdmin",
+                    "servlet-class": "77  org.cofax.cds.AdminServlet"
+                },
+                {
+                    "servlet-name": "88 fileServlet",
+                    "servlet-class": "99 org.cofax.cds.FileServlet"
+                },
+                {
+                    "servlet-name": "657 fileServlet",
+                    "servlet-class": "575467 org.cofax.cds.FileServlet"
+                }
+            ]
+        }
+    }
+]

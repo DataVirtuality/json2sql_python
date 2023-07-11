@@ -7,6 +7,9 @@ from typing import Any, Dict, List, Optional, Self
 from enum import Enum
 # import pandas as pd
 import copy
+from codelib.SqlGenConfig import SqlGenConfig
+
+from codelib.xml_escape_name import xml_escape_name
 
 
 class NodeTypes(Enum):
@@ -30,9 +33,9 @@ def determine_node_type(obj: Any) -> NodeTypes:
     Returns:
         NodeTypes: Returns the type of node.
     """
-    if isinstance(obj, list):
+    if isinstance(obj, List):
         return NodeTypes.LIST
-    if isinstance(obj, dict):
+    if isinstance(obj, Dict):
         return NodeTypes.DICT
     return NodeTypes.DATA
 
@@ -44,9 +47,10 @@ class DataTypes(Enum):
     This description does not refer to the XML attributes.
     """
     UNKNOWN = 'unknown'
-    STR = 'string'
-    INT = 'integer'
-    FLOAT = 'float'
+    STR = 'STRING'
+    INT = 'INTEGER'
+    FLOAT = 'FLOAT'
+    BOOLEAN = 'BOOLEAN'
 
 
 class DataTypeWrapper:
@@ -89,14 +93,15 @@ class DataTypeWrapper:
         promote the data type to string.
 
         Truth table
-        |Current Data Type      | New Data Type        | Result            |
-        |-----------------------|----------------------|-------------------|
-        |same                   | same                 | no change         |
-        |unknown                | str, int, float      | new value         |
-        |str, int, float        | unknown              | no change         |
-        |int                    | float                | float             |
-        |float                  | int                  | float             |
-        |int, float             | str                  | str               |
+        |Current Data Type             | New Data Type                 | Result            |
+        |------------------------------|-------------------------------|-------------------|
+        |same                          | same                          | no change         |
+        |unknown                       | str, int, float, bool         | new value         |
+        |str, int, float, bool         | unknown                       | no change         |
+        |int                           | float                         | float             |
+        |float                         | int                           | float             |
+        |int, float                    | str                           | str               |
+        |bool                          | str, int, float               | str               |
 
         Args:
             datatype (DataTypes): new data type
@@ -109,6 +114,8 @@ class DataTypeWrapper:
             elif datatype == DataTypes.FLOAT and self._datatype == DataTypes.INT:
                 self._datatype = DataTypes.FLOAT
             elif datatype == DataTypes.STR and self._datatype in (DataTypes.INT, DataTypes.FLOAT):
+                self._datatype = DataTypes.STR
+            elif datatype == DataTypes.BOOLEAN or self._datatype == DataTypes.BOOLEAN:
                 self._datatype = DataTypes.STR
 
     def __repr__(self):
@@ -137,6 +144,8 @@ def determine_data_type(obj: Any) -> DataTypes:
         return DataTypes.UNKNOWN
     if isinstance(obj, (list, dict)):
         return DataTypes.UNKNOWN
+    if isinstance(obj, bool):
+        return DataTypes.BOOLEAN
     if isinstance(obj, str):
         return DataTypes.STR
     if isinstance(obj, float):
@@ -152,24 +161,21 @@ class TreeNodeInfo(DataTypeWrapper):
     Abstract representation of the JSON or XML file.
     """
 
-    xpath_index: Dict[str, Self] = {}
-    """
-    Index to all the nodes using the xpath of each node.
-    """
-
     def __init__(
             self,
             element_name: str,
+            unescaped_element_name: str,
             xpath: str,
+            unescaped_xpath: str,
             parent: Optional[Self],
-            parent_xpath: Optional[str],
             node_type: NodeTypes,
+            depth: int,
             data_type: DataTypes = DataTypes.UNKNOWN,
             xml_attributes: Optional[Dict[str, DataTypeWrapper]] = None,
             has_been_processed: bool = False
     ) -> None:
         """
-        Initializer
+        Initializer: Do NOT call directly. Use the factory method.
 
         Args:
             element_name (str): name of the current element
@@ -195,7 +201,12 @@ class TreeNodeInfo(DataTypeWrapper):
 
         self.element_name: str = element_name
         """
-        name of the current element
+        name of the current element escaped
+        """
+
+        self.unescaped_element_name: str = unescaped_element_name
+        """
+        The original unescaped element name.
         """
 
         self.xpath: str = xpath
@@ -203,14 +214,14 @@ class TreeNodeInfo(DataTypeWrapper):
         xpath of the current element
         """
 
+        self.unescaped_xpath: str = unescaped_xpath
+        """
+        xpath of the current element using the unescaped element name custom path separator.
+        """
+
         self.parent: Optional[Self] = parent
         """
         Reference to this node's parent. If this node is the root, then the value is None.
-        """
-
-        self.parent_xpath: Optional[str] = parent_xpath
-        """
-        XPath of the this node's parent. If this node is the root, then the value is None.
         """
 
         self.xml_attributes: Optional[Dict[str, DataTypeWrapper]] = xml_attributes
@@ -223,6 +234,14 @@ class TreeNodeInfo(DataTypeWrapper):
         List of immediate children.
         """
 
+        self._depth = depth
+        """
+        Depth in the tree.
+
+        ROOT is zero. Increments by 1 the farther from ROOT.
+
+        """
+
         self.node_type: NodeTypes = node_type
         """
         A node may be a list, dictionary, or data type
@@ -233,17 +252,31 @@ class TreeNodeInfo(DataTypeWrapper):
         Indicates if this node has been processed.
         """
 
+        self.xpath_index: Dict[str, Self]
+        """
+        Index to all the nodes using the xpath of each node.
+
+        If this is the ROOT node, create an index to all of the child nodes.
+
+        If this is a child node, point this to the index of ROOT.
+        """
+        if parent is None:
+            # This is the ROOT node. Create a single instance for the tree.
+            self.xpath_index = {}
+            self.xpath_index[xpath] = self
+        else:
+            # Point to the parent node. Which is the ROOT's xpath index.
+            self.xpath_index = parent.xpath_index
+
     @classmethod
     def factory(
         cls,
         element_name: str,
-        xpath: str,
         parent: Optional[Self],
-        parent_xpath: Optional[str],
         xml_attributes: Optional[Dict[str, DataTypeWrapper]],
         node_type: NodeTypes,
         data_type: DataTypes,
-        has_been_processed: bool = False
+        config: SqlGenConfig
     ) -> Self:
         """
         Retrieve an existing instance or create a new instance of class.
@@ -268,44 +301,60 @@ class TreeNodeInfo(DataTypeWrapper):
         Returns:
             Self: new instance of TreeNodeInfo or existing instance
         """
+        assert element_name[0] != '/'
+        assert element_name[-1] != '/'
+
+        xpath: str
+        unescaped_xpath: str
+        unescaped_element_name: str = element_name  # store the unescaped name
+        element_name = xml_escape_name(element_name)
+        if parent is None:
+            xpath = f"/{element_name}/"
+            unescaped_xpath = f"{config.col_name_path_separator}{unescaped_element_name}{config.col_name_path_separator}"
+        else:
+            xpath = f"{parent.xpath}{element_name}/"
+            unescaped_xpath = f"{parent.unescaped_xpath}{unescaped_element_name}{config.col_name_path_separator}"
+
         assert xpath[0] == '/'
         assert xpath[-1] == '/'
 
-        if TreeNodeInfo.exists(xpath):
-            tni = TreeNodeInfo.get_via_xpath(xpath)
+        if parent is not None and parent.exists(xpath):
+            tni = parent.get_via_xpath(xpath)
             tni.datatype = data_type  # update the data type
             # add any missing XML attributes
             tni.xml_attributes = TreeNodeInfo.merge_xml_attributes(tni.xml_attributes, xml_attributes)
 
-            assert tni.parent == parent
-            assert tni.parent_xpath == parent_xpath
+            assert parent is None or (parent is not None and tni.parent == parent)
             assert tni.has_been_processed is False
             assert tni.xpath[0] == '/'
             assert tni.xpath[-1] == '/'
 
             return tni
         else:
+            depth: int = 0
+            if parent is not None:
+                depth = parent.depth() + 1
             tni = TreeNodeInfo(
                 element_name=element_name,
+                unescaped_element_name=unescaped_element_name,
                 xpath=xpath,
+                unescaped_xpath=unescaped_xpath,
                 parent=parent,
-                parent_xpath=parent_xpath,
+                depth=depth,
                 node_type=node_type,
                 data_type=data_type,
-                xml_attributes=xml_attributes,
-                has_been_processed=has_been_processed
+                xml_attributes=xml_attributes
             )
-            TreeNodeInfo.xpath_index[xpath] = tni
             if parent is not None:
                 parent.children.append(tni)
+                parent.xpath_index[xpath] = tni
 
             assert tni.xpath[0] == '/'
             assert tni.xpath[-1] == '/'
 
             return tni
 
-    @classmethod
-    def get_via_xpath(cls, xpath: str) -> Self:
+    def get_via_xpath(self, xpath: str) -> Self:
         """
         Return the instance associated with the xpath.
 
@@ -318,11 +367,10 @@ class TreeNodeInfo(DataTypeWrapper):
         assert xpath[0] == '/'
         assert xpath[-1] == '/'
 
-        assert xpath in TreeNodeInfo.xpath_index
-        return TreeNodeInfo.xpath_index[xpath]
+        assert xpath in self.xpath_index
+        return self.xpath_index[xpath]
 
-    @classmethod
-    def exists(cls, xpath: str) -> bool:
+    def exists(self, xpath: str) -> bool:
         """
         Check if an object exists in the index.
 
@@ -334,16 +382,24 @@ class TreeNodeInfo(DataTypeWrapper):
                 True - if an object is associated with the xpath. \n
                 False - if an object is NOT associated with the xpath.
         """
-        return xpath in TreeNodeInfo.xpath_index
+        return xpath in self.xpath_index
+
+    def is_root(self) -> bool:
+        return self.depth() == 0
 
     def depth(self) -> int:
         """
         Indicates the depth from the root.
 
+        Depth is zero based and increments by 1 the farther it is from the ROOT.
+
+        ROOT has a depth of zero.
+
         Returns:
             int: depth is zero based
         """
-        return self.xpath.count('/') - 2
+        assert self._depth >= 0
+        return self._depth
 
     def has_children(self) -> bool:
         """
@@ -507,3 +563,103 @@ class TreeNodeInfo(DataTypeWrapper):
 
         elif dict2 is not None:
             return copy.deepcopy(dict2)
+
+    def to_str_list(self) -> List[str]:
+        """
+        Pretty print this node to a list of strings
+
+        Returns:
+            List[str]: Pretty printted node
+        """
+        str_builder: List[str] = []
+
+        str_builder.append(f"{self.xpath}")
+        str_builder.append(f"    unescaped_xpath={self.unescaped_xpath}")
+        str_builder.append(f"    element_name={self.element_name}")
+        str_builder.append(f"    unescaped_element_name={self.unescaped_element_name}")
+        str_builder.append(f"    datatype={self.datatype}")
+        str_builder.append(f"    node_type={self.node_type}")
+        str_builder.append(f"    depth={self.depth()}")
+        str_builder.append(f"    has_been_processed={self.has_been_processed}")
+        str_builder.append(f"    num_of_children={self.num_of_children()}")
+        str_builder.append(f"    parent={self.parent.xpath if self.parent is not None else 'None'}")
+
+        str_builder.append("    Children")
+        if self.has_children():
+            children_xpaths: List[str] = sorted([x.xpath for x in self.children])
+            for c in children_xpaths:
+                str_builder.append(f"        xpath={c}")
+        else:
+            str_builder.append("        None")
+
+        str_builder.append("    XML_attributes")
+        if self.has_xml_attributes():
+            assert self.xml_attributes is not None
+            sorted_xml_attr = sorted(self.xml_attributes.items())
+            for x in sorted_xml_attr:
+                str_builder.append(f"        datatype={x[1]} attr={x[0]}")
+        else:
+            str_builder.append("        None")
+
+        return str_builder
+
+    def __str__(self):
+        return '\n'.join(self.to_str_list()) + '\n'
+
+
+def find_root(tni: TreeNodeInfo) -> TreeNodeInfo:
+    """
+    Find the root node
+
+    Args:
+        tni (TreeNodeInfo): A tree node anywhere in the hierarchy
+
+    Returns:
+        TreeNodeInfo: Returns the root node
+    """
+    root_keys = [k for k, v in tni.xpath_index.items() if v.is_root()]
+    assert len(root_keys) == 1
+
+    return tni.get_via_xpath(root_keys[0])
+
+
+def pretty_print_entire_tree(tni: TreeNodeInfo, full_info: bool = True) -> List[str]:
+    """
+    Pretty print the entire tree as a list of strings
+
+    Args:
+        tni (TreeNodeInfo): Any node in the tree
+
+    Returns:
+        List[str]: list of strings
+    """
+    output: List[str] = []
+
+    output.append('=====================================')
+    output.append('TreeNodeInfo')
+    output.append('-------------------------------------')
+    output.append('Indexes')
+    for k in sorted(tni.xpath_index.keys()):
+        output.append(f'    {k}')
+
+    if full_info:
+        # Print out the individual nodes
+        for k in sorted(tni.xpath_index.keys()):
+            output.append('-------------------------------------')
+            node = tni.get_via_xpath(k)
+            output.extend(node.to_str_list())
+
+    return output
+
+
+def pretty_print_entire_tree_as_str(tni: TreeNodeInfo, full_info: bool = True) -> str:
+    """
+    Pretty print the entire tree as a single string
+
+    Args:
+        tni (TreeNodeInfo): Any node in the tree
+
+    Returns:
+        str: Single string
+    """
+    return '\n'.join(pretty_print_entire_tree(tni, full_info)) + '\n'

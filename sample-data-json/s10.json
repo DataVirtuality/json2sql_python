@@ -1,0 +1,41 @@
+[
+    {
+        "bool_first": {
+            "bool_true": true,
+            "int_0": 0,
+            "int_1": 1,
+            "bool_false": false
+        },
+        "bool_first_int5_last": {
+            "bool_true": true,
+            "int_0": 0,
+            "int_1": 1,
+            "bool_false": false,
+            "int_5": 5
+        },
+        "int_first": {
+            "int_0": 0,
+            "bool_true": true,
+            "bool_false": false,
+            "int_1": 1,
+            "int_5": 5
+        },
+        "str_last": {
+            "int_0": 0,
+            "bool_true": true,
+            "bool_false": false,
+            "int_1": 1,
+            "int_5": 5,
+            "str_last": "True"
+        },
+        "str_first": {
+            "str_first": "false",
+            "int_0": 0,
+            "bool_true": true,
+            "bool_false": false,
+            "int_1": 1,
+            "int_5": 5,
+            "str_last": "True"
+        }
+    }
+]

@@ -1,0 +1,38 @@
+<root>
+    <problems>
+        <Diabetes>
+            <medications>
+                <medicationsClasses>
+                    <className>
+                        <associatedDrug>
+                            <name>asprin</name>
+                            <dose />
+                            <strength>500 mg</strength>
+                        </associatedDrug>
+                        <associatedDrug_u0023_2>
+                            <name>somethingElse</name>
+                            <dose />
+                            <strength>500 mg</strength>
+                        </associatedDrug_u0023_2>
+                    </className>
+                    <className2>
+                        <associatedDrug>
+                            <name>asprin</name>
+                            <dose />
+                            <strength>500 mg</strength>
+                        </associatedDrug>
+                        <associatedDrug_u0023_2>
+                            <name>somethingElse</name>
+                            <dose />
+                            <strength>500 mg</strength>
+                        </associatedDrug_u0023_2>
+                    </className2>
+                </medicationsClasses>
+            </medications>
+            <labs>
+                <missing_field>missing_value</missing_field>
+            </labs>
+        </Diabetes>
+        <Asthma />
+    </problems>
+</root>

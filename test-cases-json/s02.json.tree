@@ -1,0 +1,1204 @@
+=====================================
+TreeNodeInfo
+-------------------------------------
+Indexes
+    /root/
+    /root/web-app/
+    /root/web-app/servlet-mapping/
+    /root/web-app/servlet-mapping/cofaxAdmin/
+    /root/web-app/servlet-mapping/cofaxCDS/
+    /root/web-app/servlet-mapping/cofaxEmail/
+    /root/web-app/servlet-mapping/cofaxTools/
+    /root/web-app/servlet-mapping/fileServlet/
+    /root/web-app/servlet/
+    /root/web-app/servlet/init-param/
+    /root/web-app/servlet/init-param/adminGroupID/
+    /root/web-app/servlet/init-param/betaServer/
+    /root/web-app/servlet/init-param/cachePackageTagsRefresh/
+    /root/web-app/servlet/init-param/cachePackageTagsStore/
+    /root/web-app/servlet/init-param/cachePackageTagsTrack/
+    /root/web-app/servlet/init-param/cachePagesDirtyRead/
+    /root/web-app/servlet/init-param/cachePagesRefresh/
+    /root/web-app/servlet/init-param/cachePagesStore/
+    /root/web-app/servlet/init-param/cachePagesTrack/
+    /root/web-app/servlet/init-param/cacheTemplatesRefresh/
+    /root/web-app/servlet/init-param/cacheTemplatesStore/
+    /root/web-app/servlet/init-param/cacheTemplatesTrack/
+    /root/web-app/servlet/init-param/configGlossary_u003A_adminEmail/
+    /root/web-app/servlet/init-param/configGlossary_u003A_installationAt/
+    /root/web-app/servlet/init-param/configGlossary_u003A_poweredBy/
+    /root/web-app/servlet/init-param/configGlossary_u003A_poweredByIcon/
+    /root/web-app/servlet/init-param/configGlossary_u003A_staticPath/
+    /root/web-app/servlet/init-param/dataLog/
+    /root/web-app/servlet/init-param/dataLogLocation/
+    /root/web-app/servlet/init-param/dataLogMaxSize/
+    /root/web-app/servlet/init-param/dataStoreClass/
+    /root/web-app/servlet/init-param/dataStoreConnUsageLimit/
+    /root/web-app/servlet/init-param/dataStoreDriver/
+    /root/web-app/servlet/init-param/dataStoreInitConns/
+    /root/web-app/servlet/init-param/dataStoreLogFile/
+    /root/web-app/servlet/init-param/dataStoreLogLevel/
+    /root/web-app/servlet/init-param/dataStoreMaxConns/
+    /root/web-app/servlet/init-param/dataStoreName/
+    /root/web-app/servlet/init-param/dataStorePassword/
+    /root/web-app/servlet/init-param/dataStoreTestQuery/
+    /root/web-app/servlet/init-param/dataStoreUrl/
+    /root/web-app/servlet/init-param/dataStoreUser/
+    /root/web-app/servlet/init-param/defaultFileTemplate/
+    /root/web-app/servlet/init-param/defaultListTemplate/
+    /root/web-app/servlet/init-param/fileTransferFolder/
+    /root/web-app/servlet/init-param/jspFileTemplate/
+    /root/web-app/servlet/init-param/jspListTemplate/
+    /root/web-app/servlet/init-param/log/
+    /root/web-app/servlet/init-param/logLocation/
+    /root/web-app/servlet/init-param/logMaxSize/
+    /root/web-app/servlet/init-param/lookInContext/
+    /root/web-app/servlet/init-param/mailHost/
+    /root/web-app/servlet/init-param/mailHostOverride/
+    /root/web-app/servlet/init-param/maxUrlLength/
+    /root/web-app/servlet/init-param/redirectionClass/
+    /root/web-app/servlet/init-param/removePageCache/
+    /root/web-app/servlet/init-param/removeTemplateCache/
+    /root/web-app/servlet/init-param/searchEngineFileTemplate/
+    /root/web-app/servlet/init-param/searchEngineListTemplate/
+    /root/web-app/servlet/init-param/searchEngineRobotsDb/
+    /root/web-app/servlet/init-param/templateLoaderClass/
+    /root/web-app/servlet/init-param/templateOverridePath/
+    /root/web-app/servlet/init-param/templatePath/
+    /root/web-app/servlet/init-param/templateProcessorClass/
+    /root/web-app/servlet/init-param/useDataStore/
+    /root/web-app/servlet/init-param/useJSP/
+    /root/web-app/servlet/servlet-class/
+    /root/web-app/servlet/servlet-name/
+    /root/web-app/taglib/
+    /root/web-app/taglib/taglib-location/
+    /root/web-app/taglib/taglib-uri/
+-------------------------------------
+/root/
+    unescaped_xpath=/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=0
+    has_been_processed=False
+    num_of_children=1
+    parent=None
+    Children
+        xpath=/root/web-app/
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/
+    unescaped_xpath=/root/web-app/
+    element_name=web-app
+    unescaped_element_name=web-app
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=1
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/
+    Children
+        xpath=/root/web-app/servlet-mapping/
+        xpath=/root/web-app/servlet/
+        xpath=/root/web-app/taglib/
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet-mapping/
+    unescaped_xpath=/root/web-app/servlet-mapping/
+    element_name=servlet-mapping
+    unescaped_element_name=servlet-mapping
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=5
+    parent=/root/web-app/
+    Children
+        xpath=/root/web-app/servlet-mapping/cofaxAdmin/
+        xpath=/root/web-app/servlet-mapping/cofaxCDS/
+        xpath=/root/web-app/servlet-mapping/cofaxEmail/
+        xpath=/root/web-app/servlet-mapping/cofaxTools/
+        xpath=/root/web-app/servlet-mapping/fileServlet/
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet-mapping/cofaxAdmin/
+    unescaped_xpath=/root/web-app/servlet-mapping/cofaxAdmin/
+    element_name=cofaxAdmin
+    unescaped_element_name=cofaxAdmin
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet-mapping/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet-mapping/cofaxCDS/
+    unescaped_xpath=/root/web-app/servlet-mapping/cofaxCDS/
+    element_name=cofaxCDS
+    unescaped_element_name=cofaxCDS
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet-mapping/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet-mapping/cofaxEmail/
+    unescaped_xpath=/root/web-app/servlet-mapping/cofaxEmail/
+    element_name=cofaxEmail
+    unescaped_element_name=cofaxEmail
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet-mapping/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet-mapping/cofaxTools/
+    unescaped_xpath=/root/web-app/servlet-mapping/cofaxTools/
+    element_name=cofaxTools
+    unescaped_element_name=cofaxTools
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet-mapping/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet-mapping/fileServlet/
+    unescaped_xpath=/root/web-app/servlet-mapping/fileServlet/
+    element_name=fileServlet
+    unescaped_element_name=fileServlet
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet-mapping/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/
+    unescaped_xpath=/root/web-app/servlet/
+    element_name=servlet
+    unescaped_element_name=servlet
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=2
+    has_been_processed=False
+    num_of_children=3
+    parent=/root/web-app/
+    Children
+        xpath=/root/web-app/servlet/init-param/
+        xpath=/root/web-app/servlet/servlet-class/
+        xpath=/root/web-app/servlet/servlet-name/
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/
+    unescaped_xpath=/root/web-app/servlet/init-param/
+    element_name=init-param
+    unescaped_element_name=init-param
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=3
+    has_been_processed=False
+    num_of_children=56
+    parent=/root/web-app/servlet/
+    Children
+        xpath=/root/web-app/servlet/init-param/adminGroupID/
+        xpath=/root/web-app/servlet/init-param/betaServer/
+        xpath=/root/web-app/servlet/init-param/cachePackageTagsRefresh/
+        xpath=/root/web-app/servlet/init-param/cachePackageTagsStore/
+        xpath=/root/web-app/servlet/init-param/cachePackageTagsTrack/
+        xpath=/root/web-app/servlet/init-param/cachePagesDirtyRead/
+        xpath=/root/web-app/servlet/init-param/cachePagesRefresh/
+        xpath=/root/web-app/servlet/init-param/cachePagesStore/
+        xpath=/root/web-app/servlet/init-param/cachePagesTrack/
+        xpath=/root/web-app/servlet/init-param/cacheTemplatesRefresh/
+        xpath=/root/web-app/servlet/init-param/cacheTemplatesStore/
+        xpath=/root/web-app/servlet/init-param/cacheTemplatesTrack/
+        xpath=/root/web-app/servlet/init-param/configGlossary_u003A_adminEmail/
+        xpath=/root/web-app/servlet/init-param/configGlossary_u003A_installationAt/
+        xpath=/root/web-app/servlet/init-param/configGlossary_u003A_poweredBy/
+        xpath=/root/web-app/servlet/init-param/configGlossary_u003A_poweredByIcon/
+        xpath=/root/web-app/servlet/init-param/configGlossary_u003A_staticPath/
+        xpath=/root/web-app/servlet/init-param/dataLog/
+        xpath=/root/web-app/servlet/init-param/dataLogLocation/
+        xpath=/root/web-app/servlet/init-param/dataLogMaxSize/
+        xpath=/root/web-app/servlet/init-param/dataStoreClass/
+        xpath=/root/web-app/servlet/init-param/dataStoreConnUsageLimit/
+        xpath=/root/web-app/servlet/init-param/dataStoreDriver/
+        xpath=/root/web-app/servlet/init-param/dataStoreInitConns/
+        xpath=/root/web-app/servlet/init-param/dataStoreLogFile/
+        xpath=/root/web-app/servlet/init-param/dataStoreLogLevel/
+        xpath=/root/web-app/servlet/init-param/dataStoreMaxConns/
+        xpath=/root/web-app/servlet/init-param/dataStoreName/
+        xpath=/root/web-app/servlet/init-param/dataStorePassword/
+        xpath=/root/web-app/servlet/init-param/dataStoreTestQuery/
+        xpath=/root/web-app/servlet/init-param/dataStoreUrl/
+        xpath=/root/web-app/servlet/init-param/dataStoreUser/
+        xpath=/root/web-app/servlet/init-param/defaultFileTemplate/
+        xpath=/root/web-app/servlet/init-param/defaultListTemplate/
+        xpath=/root/web-app/servlet/init-param/fileTransferFolder/
+        xpath=/root/web-app/servlet/init-param/jspFileTemplate/
+        xpath=/root/web-app/servlet/init-param/jspListTemplate/
+        xpath=/root/web-app/servlet/init-param/log/
+        xpath=/root/web-app/servlet/init-param/logLocation/
+        xpath=/root/web-app/servlet/init-param/logMaxSize/
+        xpath=/root/web-app/servlet/init-param/lookInContext/
+        xpath=/root/web-app/servlet/init-param/mailHost/
+        xpath=/root/web-app/servlet/init-param/mailHostOverride/
+        xpath=/root/web-app/servlet/init-param/maxUrlLength/
+        xpath=/root/web-app/servlet/init-param/redirectionClass/
+        xpath=/root/web-app/servlet/init-param/removePageCache/
+        xpath=/root/web-app/servlet/init-param/removeTemplateCache/
+        xpath=/root/web-app/servlet/init-param/searchEngineFileTemplate/
+        xpath=/root/web-app/servlet/init-param/searchEngineListTemplate/
+        xpath=/root/web-app/servlet/init-param/searchEngineRobotsDb/
+        xpath=/root/web-app/servlet/init-param/templateLoaderClass/
+        xpath=/root/web-app/servlet/init-param/templateOverridePath/
+        xpath=/root/web-app/servlet/init-param/templatePath/
+        xpath=/root/web-app/servlet/init-param/templateProcessorClass/
+        xpath=/root/web-app/servlet/init-param/useDataStore/
+        xpath=/root/web-app/servlet/init-param/useJSP/
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/adminGroupID/
+    unescaped_xpath=/root/web-app/servlet/init-param/adminGroupID/
+    element_name=adminGroupID
+    unescaped_element_name=adminGroupID
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/betaServer/
+    unescaped_xpath=/root/web-app/servlet/init-param/betaServer/
+    element_name=betaServer
+    unescaped_element_name=betaServer
+    datatype=DataTypes.BOOLEAN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cachePackageTagsRefresh/
+    unescaped_xpath=/root/web-app/servlet/init-param/cachePackageTagsRefresh/
+    element_name=cachePackageTagsRefresh
+    unescaped_element_name=cachePackageTagsRefresh
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cachePackageTagsStore/
+    unescaped_xpath=/root/web-app/servlet/init-param/cachePackageTagsStore/
+    element_name=cachePackageTagsStore
+    unescaped_element_name=cachePackageTagsStore
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cachePackageTagsTrack/
+    unescaped_xpath=/root/web-app/servlet/init-param/cachePackageTagsTrack/
+    element_name=cachePackageTagsTrack
+    unescaped_element_name=cachePackageTagsTrack
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cachePagesDirtyRead/
+    unescaped_xpath=/root/web-app/servlet/init-param/cachePagesDirtyRead/
+    element_name=cachePagesDirtyRead
+    unescaped_element_name=cachePagesDirtyRead
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cachePagesRefresh/
+    unescaped_xpath=/root/web-app/servlet/init-param/cachePagesRefresh/
+    element_name=cachePagesRefresh
+    unescaped_element_name=cachePagesRefresh
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cachePagesStore/
+    unescaped_xpath=/root/web-app/servlet/init-param/cachePagesStore/
+    element_name=cachePagesStore
+    unescaped_element_name=cachePagesStore
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cachePagesTrack/
+    unescaped_xpath=/root/web-app/servlet/init-param/cachePagesTrack/
+    element_name=cachePagesTrack
+    unescaped_element_name=cachePagesTrack
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cacheTemplatesRefresh/
+    unescaped_xpath=/root/web-app/servlet/init-param/cacheTemplatesRefresh/
+    element_name=cacheTemplatesRefresh
+    unescaped_element_name=cacheTemplatesRefresh
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cacheTemplatesStore/
+    unescaped_xpath=/root/web-app/servlet/init-param/cacheTemplatesStore/
+    element_name=cacheTemplatesStore
+    unescaped_element_name=cacheTemplatesStore
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/cacheTemplatesTrack/
+    unescaped_xpath=/root/web-app/servlet/init-param/cacheTemplatesTrack/
+    element_name=cacheTemplatesTrack
+    unescaped_element_name=cacheTemplatesTrack
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/configGlossary_u003A_adminEmail/
+    unescaped_xpath=/root/web-app/servlet/init-param/configGlossary:adminEmail/
+    element_name=configGlossary_u003A_adminEmail
+    unescaped_element_name=configGlossary:adminEmail
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/configGlossary_u003A_installationAt/
+    unescaped_xpath=/root/web-app/servlet/init-param/configGlossary:installationAt/
+    element_name=configGlossary_u003A_installationAt
+    unescaped_element_name=configGlossary:installationAt
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/configGlossary_u003A_poweredBy/
+    unescaped_xpath=/root/web-app/servlet/init-param/configGlossary:poweredBy/
+    element_name=configGlossary_u003A_poweredBy
+    unescaped_element_name=configGlossary:poweredBy
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/configGlossary_u003A_poweredByIcon/
+    unescaped_xpath=/root/web-app/servlet/init-param/configGlossary:poweredByIcon/
+    element_name=configGlossary_u003A_poweredByIcon
+    unescaped_element_name=configGlossary:poweredByIcon
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/configGlossary_u003A_staticPath/
+    unescaped_xpath=/root/web-app/servlet/init-param/configGlossary:staticPath/
+    element_name=configGlossary_u003A_staticPath
+    unescaped_element_name=configGlossary:staticPath
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataLog/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataLog/
+    element_name=dataLog
+    unescaped_element_name=dataLog
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataLogLocation/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataLogLocation/
+    element_name=dataLogLocation
+    unescaped_element_name=dataLogLocation
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataLogMaxSize/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataLogMaxSize/
+    element_name=dataLogMaxSize
+    unescaped_element_name=dataLogMaxSize
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreClass/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreClass/
+    element_name=dataStoreClass
+    unescaped_element_name=dataStoreClass
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreConnUsageLimit/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreConnUsageLimit/
+    element_name=dataStoreConnUsageLimit
+    unescaped_element_name=dataStoreConnUsageLimit
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreDriver/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreDriver/
+    element_name=dataStoreDriver
+    unescaped_element_name=dataStoreDriver
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreInitConns/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreInitConns/
+    element_name=dataStoreInitConns
+    unescaped_element_name=dataStoreInitConns
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreLogFile/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreLogFile/
+    element_name=dataStoreLogFile
+    unescaped_element_name=dataStoreLogFile
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreLogLevel/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreLogLevel/
+    element_name=dataStoreLogLevel
+    unescaped_element_name=dataStoreLogLevel
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreMaxConns/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreMaxConns/
+    element_name=dataStoreMaxConns
+    unescaped_element_name=dataStoreMaxConns
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreName/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreName/
+    element_name=dataStoreName
+    unescaped_element_name=dataStoreName
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStorePassword/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStorePassword/
+    element_name=dataStorePassword
+    unescaped_element_name=dataStorePassword
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreTestQuery/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreTestQuery/
+    element_name=dataStoreTestQuery
+    unescaped_element_name=dataStoreTestQuery
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreUrl/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreUrl/
+    element_name=dataStoreUrl
+    unescaped_element_name=dataStoreUrl
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/dataStoreUser/
+    unescaped_xpath=/root/web-app/servlet/init-param/dataStoreUser/
+    element_name=dataStoreUser
+    unescaped_element_name=dataStoreUser
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/defaultFileTemplate/
+    unescaped_xpath=/root/web-app/servlet/init-param/defaultFileTemplate/
+    element_name=defaultFileTemplate
+    unescaped_element_name=defaultFileTemplate
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/defaultListTemplate/
+    unescaped_xpath=/root/web-app/servlet/init-param/defaultListTemplate/
+    element_name=defaultListTemplate
+    unescaped_element_name=defaultListTemplate
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/fileTransferFolder/
+    unescaped_xpath=/root/web-app/servlet/init-param/fileTransferFolder/
+    element_name=fileTransferFolder
+    unescaped_element_name=fileTransferFolder
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/jspFileTemplate/
+    unescaped_xpath=/root/web-app/servlet/init-param/jspFileTemplate/
+    element_name=jspFileTemplate
+    unescaped_element_name=jspFileTemplate
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/jspListTemplate/
+    unescaped_xpath=/root/web-app/servlet/init-param/jspListTemplate/
+    element_name=jspListTemplate
+    unescaped_element_name=jspListTemplate
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/log/
+    unescaped_xpath=/root/web-app/servlet/init-param/log/
+    element_name=log
+    unescaped_element_name=log
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/logLocation/
+    unescaped_xpath=/root/web-app/servlet/init-param/logLocation/
+    element_name=logLocation
+    unescaped_element_name=logLocation
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/logMaxSize/
+    unescaped_xpath=/root/web-app/servlet/init-param/logMaxSize/
+    element_name=logMaxSize
+    unescaped_element_name=logMaxSize
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/lookInContext/
+    unescaped_xpath=/root/web-app/servlet/init-param/lookInContext/
+    element_name=lookInContext
+    unescaped_element_name=lookInContext
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/mailHost/
+    unescaped_xpath=/root/web-app/servlet/init-param/mailHost/
+    element_name=mailHost
+    unescaped_element_name=mailHost
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/mailHostOverride/
+    unescaped_xpath=/root/web-app/servlet/init-param/mailHostOverride/
+    element_name=mailHostOverride
+    unescaped_element_name=mailHostOverride
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/maxUrlLength/
+    unescaped_xpath=/root/web-app/servlet/init-param/maxUrlLength/
+    element_name=maxUrlLength
+    unescaped_element_name=maxUrlLength
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/redirectionClass/
+    unescaped_xpath=/root/web-app/servlet/init-param/redirectionClass/
+    element_name=redirectionClass
+    unescaped_element_name=redirectionClass
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/removePageCache/
+    unescaped_xpath=/root/web-app/servlet/init-param/removePageCache/
+    element_name=removePageCache
+    unescaped_element_name=removePageCache
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/removeTemplateCache/
+    unescaped_xpath=/root/web-app/servlet/init-param/removeTemplateCache/
+    element_name=removeTemplateCache
+    unescaped_element_name=removeTemplateCache
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/searchEngineFileTemplate/
+    unescaped_xpath=/root/web-app/servlet/init-param/searchEngineFileTemplate/
+    element_name=searchEngineFileTemplate
+    unescaped_element_name=searchEngineFileTemplate
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/searchEngineListTemplate/
+    unescaped_xpath=/root/web-app/servlet/init-param/searchEngineListTemplate/
+    element_name=searchEngineListTemplate
+    unescaped_element_name=searchEngineListTemplate
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/searchEngineRobotsDb/
+    unescaped_xpath=/root/web-app/servlet/init-param/searchEngineRobotsDb/
+    element_name=searchEngineRobotsDb
+    unescaped_element_name=searchEngineRobotsDb
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/templateLoaderClass/
+    unescaped_xpath=/root/web-app/servlet/init-param/templateLoaderClass/
+    element_name=templateLoaderClass
+    unescaped_element_name=templateLoaderClass
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/templateOverridePath/
+    unescaped_xpath=/root/web-app/servlet/init-param/templateOverridePath/
+    element_name=templateOverridePath
+    unescaped_element_name=templateOverridePath
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/templatePath/
+    unescaped_xpath=/root/web-app/servlet/init-param/templatePath/
+    element_name=templatePath
+    unescaped_element_name=templatePath
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/templateProcessorClass/
+    unescaped_xpath=/root/web-app/servlet/init-param/templateProcessorClass/
+    element_name=templateProcessorClass
+    unescaped_element_name=templateProcessorClass
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/useDataStore/
+    unescaped_xpath=/root/web-app/servlet/init-param/useDataStore/
+    element_name=useDataStore
+    unescaped_element_name=useDataStore
+    datatype=DataTypes.BOOLEAN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/init-param/useJSP/
+    unescaped_xpath=/root/web-app/servlet/init-param/useJSP/
+    element_name=useJSP
+    unescaped_element_name=useJSP
+    datatype=DataTypes.BOOLEAN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/init-param/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/servlet-class/
+    unescaped_xpath=/root/web-app/servlet/servlet-class/
+    element_name=servlet-class
+    unescaped_element_name=servlet-class
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/servlet/servlet-name/
+    unescaped_xpath=/root/web-app/servlet/servlet-name/
+    element_name=servlet-name
+    unescaped_element_name=servlet-name
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/servlet/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/taglib/
+    unescaped_xpath=/root/web-app/taglib/
+    element_name=taglib
+    unescaped_element_name=taglib
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/web-app/
+    Children
+        xpath=/root/web-app/taglib/taglib-location/
+        xpath=/root/web-app/taglib/taglib-uri/
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/taglib/taglib-location/
+    unescaped_xpath=/root/web-app/taglib/taglib-location/
+    element_name=taglib-location
+    unescaped_element_name=taglib-location
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/taglib/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/web-app/taglib/taglib-uri/
+    unescaped_xpath=/root/web-app/taglib/taglib-uri/
+    element_name=taglib-uri
+    unescaped_element_name=taglib-uri
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/web-app/taglib/
+    Children
+        None
+    XML_attributes
+        None

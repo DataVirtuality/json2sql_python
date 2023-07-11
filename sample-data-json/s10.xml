@@ -1,0 +1,41 @@
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <root>
+        <bool_first>
+            <bool_true xsi:type="boolean">true</bool_true>
+            <int_0 xsi:type="decimal">0</int_0>
+            <int_1 xsi:type="decimal">1</int_1>
+            <bool_false xsi:type="boolean">false</bool_false>
+        </bool_first>
+        <bool_first_int5_last>
+            <bool_true xsi:type="boolean">true</bool_true>
+            <int_0 xsi:type="decimal">0</int_0>
+            <int_1 xsi:type="decimal">1</int_1>
+            <bool_false xsi:type="boolean">false</bool_false>
+            <int_5 xsi:type="decimal">5</int_5>
+        </bool_first_int5_last>
+        <int_first>
+            <int_0 xsi:type="decimal">0</int_0>
+            <bool_true xsi:type="boolean">true</bool_true>
+            <bool_false xsi:type="boolean">false</bool_false>
+            <int_1 xsi:type="decimal">1</int_1>
+            <int_5 xsi:type="decimal">5</int_5>
+        </int_first>
+        <str_last>
+            <int_0 xsi:type="decimal">0</int_0>
+            <bool_true xsi:type="boolean">true</bool_true>
+            <bool_false xsi:type="boolean">false</bool_false>
+            <int_1 xsi:type="decimal">1</int_1>
+            <int_5 xsi:type="decimal">5</int_5>
+            <str_last>True</str_last>
+        </str_last>
+        <str_first>
+            <str_first>false</str_first>
+            <int_0 xsi:type="decimal">0</int_0>
+            <bool_true xsi:type="boolean">true</bool_true>
+            <bool_false xsi:type="boolean">false</bool_false>
+            <int_1 xsi:type="decimal">1</int_1>
+            <int_5 xsi:type="decimal">5</int_5>
+            <str_last>True</str_last>
+        </str_first>
+    </root>
+</root>

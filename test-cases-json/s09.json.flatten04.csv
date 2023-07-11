@@ -1,0 +1,9 @@
+glossary.title,glossary.GlossDiv.title,glossary.GlossDiv.GlossList.GlossEntry.ID,glossary.GlossDiv.GlossList.GlossEntry.SortAs,glossary.GlossDiv.GlossList.GlossEntry.GlossTerm,glossary.GlossDiv.GlossList.GlossEntry.Acronym,glossary.GlossDiv.GlossList.GlossEntry.Abbrev,glossary.GlossDiv.GlossList.GlossEntry.GlossDef.para,glossary.GlossDiv.GlossList.GlossEntry.GlossSee,glossary.keywords,glossary.GlossDiv.GlossList.GlossEntry.GlossDef.GlossSeeAlso
+example glossary,S,SGML,SGML,Standard Generalized Markup Language,SGML,ISO 8879:1986,"A meta-markup language, used to create markup languages such as DocBook.",markup,a,GML
+example glossary,S,SGML,SGML,Standard Generalized Markup Language,SGML,ISO 8879:1986,"A meta-markup language, used to create markup languages such as DocBook.",markup,a,XML
+example glossary,S,SGML,SGML,Standard Generalized Markup Language,SGML,ISO 8879:1986,"A meta-markup language, used to create markup languages such as DocBook.",markup,b,GML
+example glossary,S,SGML,SGML,Standard Generalized Markup Language,SGML,ISO 8879:1986,"A meta-markup language, used to create markup languages such as DocBook.",markup,b,XML
+example glossary 2,S,SGML,SGML,Standard Generalized Markup Language,SGML,ISO 8879:1986,"A meta-markup language, used to create markup languages such as DocBook.",markup,a,GML
+example glossary 2,S,SGML,SGML,Standard Generalized Markup Language,SGML,ISO 8879:1986,"A meta-markup language, used to create markup languages such as DocBook.",markup,a,XML
+example glossary 2,S,SGML,SGML,Standard Generalized Markup Language,SGML,ISO 8879:1986,"A meta-markup language, used to create markup languages such as DocBook.",markup,b,GML
+example glossary 2,S,SGML,SGML,Standard Generalized Markup Language,SGML,ISO 8879:1986,"A meta-markup language, used to create markup languages such as DocBook.",markup,b,XML

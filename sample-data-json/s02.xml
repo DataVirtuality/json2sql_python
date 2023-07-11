@@ -1,0 +1,98 @@
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <web-app>
+        <servlet>
+            <servlet-name>cofaxCDS</servlet-name>
+            <servlet-class>org.cofax.cds.CDSServlet</servlet-class>
+            <init-param>
+                <configGlossary_u003A_installationAt>Philadelphia, PA</configGlossary_u003A_installationAt>
+                <configGlossary_u003A_adminEmail>ksm@pobox.com</configGlossary_u003A_adminEmail>
+                <configGlossary_u003A_poweredBy>Cofax</configGlossary_u003A_poweredBy>
+                <configGlossary_u003A_poweredByIcon>/images/cofax.gif</configGlossary_u003A_poweredByIcon>
+                <configGlossary_u003A_staticPath>/content/static</configGlossary_u003A_staticPath>
+                <templateProcessorClass>org.cofax.WysiwygTemplate</templateProcessorClass>
+                <templateLoaderClass>org.cofax.FilesTemplateLoader</templateLoaderClass>
+                <templatePath>templates</templatePath>
+                <templateOverridePath />
+                <defaultListTemplate>listTemplate.htm</defaultListTemplate>
+                <defaultFileTemplate>articleTemplate.htm</defaultFileTemplate>
+                <useJSP xsi:type="boolean">false</useJSP>
+                <jspListTemplate>listTemplate.jsp</jspListTemplate>
+                <jspFileTemplate>articleTemplate.jsp</jspFileTemplate>
+                <cachePackageTagsTrack xsi:type="decimal">200</cachePackageTagsTrack>
+                <cachePackageTagsStore xsi:type="decimal">200</cachePackageTagsStore>
+                <cachePackageTagsRefresh xsi:type="decimal">60</cachePackageTagsRefresh>
+                <cacheTemplatesTrack xsi:type="decimal">100</cacheTemplatesTrack>
+                <cacheTemplatesStore xsi:type="decimal">50</cacheTemplatesStore>
+                <cacheTemplatesRefresh xsi:type="decimal">15</cacheTemplatesRefresh>
+                <cachePagesTrack xsi:type="decimal">200</cachePagesTrack>
+                <cachePagesStore xsi:type="decimal">100</cachePagesStore>
+                <cachePagesRefresh xsi:type="decimal">10</cachePagesRefresh>
+                <cachePagesDirtyRead xsi:type="decimal">10</cachePagesDirtyRead>
+                <searchEngineListTemplate>forSearchEnginesList.htm</searchEngineListTemplate>
+                <searchEngineFileTemplate>forSearchEngines.htm</searchEngineFileTemplate>
+                <searchEngineRobotsDb>WEB-INF/robots.db</searchEngineRobotsDb>
+                <useDataStore xsi:type="boolean">true</useDataStore>
+                <dataStoreClass>org.cofax.SqlDataStore</dataStoreClass>
+                <redirectionClass>org.cofax.SqlRedirection</redirectionClass>
+                <dataStoreName>cofax</dataStoreName>
+                <dataStoreDriver>com.microsoft.jdbc.sqlserver.SQLServerDriver</dataStoreDriver>
+                <dataStoreUrl>jdbc:microsoft:sqlserver://LOCALHOST:1433;DatabaseName=goon</dataStoreUrl>
+                <dataStoreUser>sa</dataStoreUser>
+                <dataStorePassword>dataStoreTestQuery</dataStorePassword>
+                <dataStoreTestQuery>SET NOCOUNT ON;select test='test';</dataStoreTestQuery>
+                <dataStoreLogFile>/usr/local/tomcat/logs/datastore.log</dataStoreLogFile>
+                <dataStoreInitConns xsi:type="decimal">10</dataStoreInitConns>
+                <dataStoreMaxConns xsi:type="decimal">100</dataStoreMaxConns>
+                <dataStoreConnUsageLimit xsi:type="decimal">100</dataStoreConnUsageLimit>
+                <dataStoreLogLevel>debug</dataStoreLogLevel>
+                <maxUrlLength xsi:type="decimal">500</maxUrlLength>
+            </init-param>
+        </servlet>
+        <servlet>
+            <servlet-name>cofaxEmail</servlet-name>
+            <servlet-class>org.cofax.cds.EmailServlet</servlet-class>
+            <init-param>
+                <mailHost>mail1</mailHost>
+                <mailHostOverride>mail2</mailHostOverride>
+            </init-param>
+        </servlet>
+        <servlet>
+            <servlet-name>cofaxAdmin</servlet-name>
+            <servlet-class>org.cofax.cds.AdminServlet</servlet-class>
+        </servlet>
+        <servlet>
+            <servlet-name>fileServlet</servlet-name>
+            <servlet-class>org.cofax.cds.FileServlet</servlet-class>
+        </servlet>
+        <servlet>
+            <servlet-name>cofaxTools</servlet-name>
+            <servlet-class>org.cofax.cms.CofaxToolsServlet</servlet-class>
+            <init-param>
+                <templatePath>toolstemplates/</templatePath>
+                <log xsi:type="decimal">1</log>
+                <logLocation>/usr/local/tomcat/logs/CofaxTools.log</logLocation>
+                <logMaxSize />
+                <dataLog xsi:type="decimal">1</dataLog>
+                <dataLogLocation>/usr/local/tomcat/logs/dataLog.log</dataLogLocation>
+                <dataLogMaxSize />
+                <removePageCache>/content/admin/remove?cache=pages&amp;id=</removePageCache>
+                <removeTemplateCache>/content/admin/remove?cache=templates&amp;id=</removeTemplateCache>
+                <fileTransferFolder>/usr/local/tomcat/webapps/content/fileTransferFolder</fileTransferFolder>
+                <lookInContext xsi:type="decimal">1</lookInContext>
+                <adminGroupID xsi:type="decimal">4</adminGroupID>
+                <betaServer xsi:type="boolean">true</betaServer>
+            </init-param>
+        </servlet>
+        <servlet-mapping>
+            <cofaxCDS>/</cofaxCDS>
+            <cofaxEmail>/cofaxutil/aemail/*</cofaxEmail>
+            <cofaxAdmin>/admin/*</cofaxAdmin>
+            <fileServlet>/static/*</fileServlet>
+            <cofaxTools>/tools/*</cofaxTools>
+        </servlet-mapping>
+        <taglib>
+            <taglib-uri>cofax.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tlds/cofax.tld</taglib-location>
+        </taglib>
+    </web-app>
+</root>

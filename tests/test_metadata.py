@@ -1,6 +1,6 @@
 import unittest
-
-from codelib.metadata import DataTypeWrapper, DataTypes, NodeTypes, TreeNodeInfo, determine_node_type, determine_data_type
+from codelib.SqlGenConfig import SqlGenConfig
+from codelib.metadata import DataTypeWrapper, DataTypes, NodeTypes, TreeNodeInfo, determine_data_type, determine_node_type
 
 
 class TestMetadata(unittest.TestCase):
@@ -8,59 +8,75 @@ class TestMetadata(unittest.TestCase):
     node1_0: TreeNodeInfo
     node1_1: TreeNodeInfo
     node2_0: TreeNodeInfo
+    config: SqlGenConfig
 
     @classmethod
     def setUpClass(cls):
+        cls.config = SqlGenConfig(
+            dv_datasource_filepath='/',
+            dv_datasource_name='ds_name',
+            col_name_path_separator='/',
+            col_name_regex=None,
+            col_name_regex_ignore_case=True,
+            col_name_regex_replacement='',
+            col_name_replace_prefix=None,
+            col_name_replace_root=None,
+            col_name_replace_suffix=None,
+            dv_path_separator='\\',
+            explode_arrays=False,
+            file_amalgamation=False,
+            force_data_types_to_string=True,
+            json_xml_file_to_parse='file.json',
+            sql_table_alias='XmlTable'
+        )
+
         TestMetadata.root = TreeNodeInfo.factory(
             element_name='root',
-            xpath='/root/',
             parent=None,
-            parent_xpath=None,
             node_type=NodeTypes.DICT,
             data_type=DataTypes.UNKNOWN,
+            config=cls.config,
             xml_attributes=None
         )
 
-        assert len(TreeNodeInfo.xpath_index) == 1
+        assert len(TestMetadata.root.xpath_index) == 1
 
         TestMetadata.node1_0 = TreeNodeInfo.factory(
             element_name='node1_0',
-            xpath='/root/node1_0/',
             parent=TestMetadata.root,
-            parent_xpath=TestMetadata.root.xpath,
             node_type=NodeTypes.DATA,
             data_type=DataTypes.FLOAT,
             xml_attributes=None,
-            has_been_processed=False
+            config=cls.config
         )
 
-        assert len(TreeNodeInfo.xpath_index) == 2
+        assert len(TestMetadata.root.xpath_index) == 2
 
         TestMetadata.node1_1 = TreeNodeInfo.factory(
             element_name='node1_1',
-            xpath='/root/node1_0/node1_1/',
             parent=TestMetadata.node1_0,
-            parent_xpath=TestMetadata.node1_0.xpath,
             node_type=NodeTypes.LIST,
             data_type=DataTypes.INT,
             xml_attributes={"test": DataTypeWrapper(DataTypes.STR)},
-            has_been_processed=True
+            config=cls.config
         )
 
-        assert len(TreeNodeInfo.xpath_index) == 3
+        assert len(TestMetadata.root.xpath_index) == 3
 
         TestMetadata.node2_0 = TreeNodeInfo.factory(
             element_name='node2_0',
-            xpath='/root/node2_0/',
             parent=TestMetadata.root,
-            parent_xpath=TestMetadata.root.xpath,
             node_type=NodeTypes.DICT,
             data_type=DataTypes.STR,
             xml_attributes=None,
-            has_been_processed=False
+            config=cls.config
         )
 
-        assert len(TreeNodeInfo.xpath_index) == 4
+        assert len(TestMetadata.root.xpath_index) == 4
+
+        assert TestMetadata.root is TestMetadata.node1_0
+        assert TestMetadata.root is TestMetadata.node1_1
+        assert TestMetadata.root is TestMetadata.node2_0
 
     def test_determine_node_type(self):
         self.assertEqual(NodeTypes.DATA, determine_node_type(5))
@@ -75,6 +91,8 @@ class TestMetadata(unittest.TestCase):
         self.assertEqual(determine_data_type([]), DataTypes.UNKNOWN)
         self.assertEqual(determine_data_type("abc"), DataTypes.STR)
         self.assertEqual(determine_data_type(1.5), DataTypes.FLOAT)
+        self.assertEqual(determine_data_type(True), DataTypes.BOOLEAN)
+        self.assertEqual(determine_data_type(False), DataTypes.BOOLEAN)
         with self.assertRaises(Exception):
             determine_data_type(set("abc"))
 
@@ -83,7 +101,6 @@ class TestMetadata(unittest.TestCase):
         self.assertEqual(self.root.element_name, 'root')
         self.assertEqual(self.root.xpath, '/root/')
         self.assertIsNone(self.root.parent)
-        self.assertIsNone(self.root.parent_xpath)
         self.assertEqual(self.root.node_type, NodeTypes.DICT)
         self.assertEqual(self.root.datatype, DataTypes.UNKNOWN)
         self.assertIsNone(self.root.xml_attributes)
@@ -91,19 +108,18 @@ class TestMetadata(unittest.TestCase):
         self.assertEqual(len(self.root.children), 2)
 
         # Make sure there isn't any issues between class variables and instance variables
-        self.assertEqual(len(TreeNodeInfo.xpath_index), 4)
+        self.assertEqual(len(TestMetadata.root.xpath_index), 4)
         self.assertEqual(len(self.root.xpath_index), 4)
 
-        self.assertDictEqual(TreeNodeInfo.xpath_index, self.root.xpath_index)
-        self.assertDictEqual(TreeNodeInfo.xpath_index, self.node1_0.xpath_index)
-        self.assertDictEqual(TreeNodeInfo.xpath_index, self.node1_1.xpath_index)
-        self.assertDictEqual(TreeNodeInfo.xpath_index, self.node2_0.xpath_index)
+        self.assertDictEqual(TestMetadata.root.xpath_index, self.root.xpath_index)
+        self.assertDictEqual(TestMetadata.root.xpath_index, self.node1_0.xpath_index)
+        self.assertDictEqual(TestMetadata.root.xpath_index, self.node1_1.xpath_index)
+        self.assertDictEqual(TestMetadata.root.xpath_index, self.node2_0.xpath_index)
 
         # Test node1_0
         self.assertEqual(self.node1_0.element_name, 'node1_0')
         self.assertEqual(self.node1_0.xpath, '/root/node1_0/')
         self.assertIs(self.node1_0.parent, self.root)
-        self.assertIs(self.node1_0.parent_xpath, self.root.xpath)
         self.assertEqual(self.node1_0.node_type, NodeTypes.DATA)
         self.assertEqual(self.node1_0.datatype, DataTypes.FLOAT)
         self.assertIsNone(self.node1_0.xml_attributes)
@@ -114,7 +130,6 @@ class TestMetadata(unittest.TestCase):
         self.assertEqual(self.node1_1.element_name, 'node1_1')
         self.assertEqual(self.node1_1.xpath, '/root/node1_0/node1_1/')
         self.assertIs(self.node1_1.parent, self.node1_0)
-        self.assertIs(self.node1_1.parent_xpath, self.node1_0.xpath)
         self.assertEqual(self.node1_1.node_type, NodeTypes.LIST)
         self.assertEqual(self.node1_1.datatype, DataTypes.INT)
         self.assertIsNotNone(self.node1_1.xml_attributes)
@@ -122,17 +137,17 @@ class TestMetadata(unittest.TestCase):
         self.assertEqual(self.node1_1.has_been_processed, True)
 
     def test_exists(self):
-        self.assertTrue(TreeNodeInfo.exists('/root/'))
-        self.assertTrue(TreeNodeInfo.exists('/root/node1_0/'))
-        self.assertTrue(TreeNodeInfo.exists('/root/node1_0/node1_1/'))
-        self.assertFalse(TreeNodeInfo.exists('/fake/node1_0/node1_1/'))
+        self.assertTrue(TestMetadata.root.exists('/root/'))
+        self.assertTrue(TestMetadata.root.exists('/root/node1_0/'))
+        self.assertTrue(TestMetadata.root.exists('/root/node1_0/node1_1/'))
+        self.assertFalse(TestMetadata.root.exists('/fake/node1_0/node1_1/'))
 
     def test_get_via_xpath(self):
-        self.assertIs(self.root, TreeNodeInfo.get_via_xpath('/root/'))
-        self.assertIs(self.node1_0, TreeNodeInfo.get_via_xpath('/root/node1_0/'))  # todo
-        self.assertIs(self.node1_1, TreeNodeInfo.get_via_xpath('/root/node1_0/node1_1/'))
+        self.assertIs(self.root, TestMetadata.root.get_via_xpath('/root/'))
+        self.assertIs(self.node1_0, TestMetadata.root.get_via_xpath('/root/node1_0/'))  # todo
+        self.assertIs(self.node1_1, TestMetadata.root.get_via_xpath('/root/node1_0/node1_1/'))
         with self.assertRaises(Exception):
-            self.assertIsNone(TreeNodeInfo.get_via_xpath('/fake/node1_0/node1_1/'))
+            self.assertIsNone(TestMetadata.root.get_via_xpath('/fake/node1_0/node1_1/'))
 
     def test_has_children(self):
         self.assertTrue(self.root.has_children())
@@ -187,6 +202,12 @@ class TestMetadata(unittest.TestCase):
         self.assertFalse(self.node1_0.make_subtable())
         self.assertTrue(self.node1_1.make_subtable())
         self.assertTrue(self.node2_0.make_subtable())
+
+    def test_is_root(self):
+        self.assertTrue(self.root.is_root())
+        self.assertFalse(self.node1_0.is_root())
+        self.assertFalse(self.node1_1.is_root())
+        self.assertFalse(self.node2_0.is_root())
 
     def test_is_list(self):
         self.assertFalse(self.root.is_list())

@@ -14,7 +14,8 @@ from codelib.sql_generator import SqlGenerator
 # import pandas as pd
 # from gen_csv_files import gen_csv_files
 from codelib.args import parse_args
-from flatten.flatten04 import flatten_nested_json
+from codelib.metadata import TreeNodeInfo
+from codelib.xml_parser import parse_xml_file
 
 
 def ExtractConfigFromArgs(args: argparse.Namespace) -> SqlGenConfig:
@@ -44,11 +45,23 @@ if args.stdio is True:
     json_obj = json.loads(str_data)  # type: ignore
     # print(generate_dv_sql(json_obj, 'stdio', args.dsname))
 else:
-    for file_name in glob.iglob(args.files, recursive=args.recurse, include_hidden=args.include_hidden):
-        config.json_xml_file_to_parse = os.path.basename(file_name)
-        treenodeinfo = parse_json_file(file_name)
-        sqlgen = SqlGenerator(config=config, treenodeinfo=treenodeinfo)
-        with open(f'{file_name}.sql', 'wt', encoding='UTF-8') as fsql:
-            fsql.write(sqlgen.generate_dv_sql())
+    for file_path in glob.iglob(args.files, recursive=args.recurse, include_hidden=args.include_hidden):
+        file_name: str = os.path.basename(file_path)
+        config.json_xml_file_to_parse = file_name
 
-        flatten_nested_json(file_name, f'{file_name}.04.csv')
+        treenodeinfo: TreeNodeInfo
+        if file_name.lower().endswith('.xml'):
+            treenodeinfo = parse_xml_file(file_path, config)
+        elif file_name.lower().endswith('.json'):
+            treenodeinfo = parse_json_file(file_path, config)
+        else:
+            print("Unsupported file type [{file_name}]")
+            continue
+
+        assert treenodeinfo is not None
+        sqlgen = SqlGenerator(config=config, treenodeinfo=treenodeinfo)
+
+        dest_file_path = os.path.join(args.output_folder, f'{file_name}.sql')
+        with open(dest_file_path, 'wt', encoding='UTF-8') as fsql:
+            dv_sql = sqlgen.generate_dv_sql()
+            fsql.write(dv_sql)

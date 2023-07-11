@@ -1,0 +1,20 @@
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <root>
+        <all_u0020_bool xsi:type="boolean">true</all_u0020_bool>
+        <all_u0020_bool xsi:type="boolean">true</all_u0020_bool>
+        <all_u0020_bool xsi:type="boolean">true</all_u0020_bool>
+        <all_u0020_bool xsi:type="boolean">true</all_u0020_bool>
+        <bool_u002C__u0020_bool_u002C__u0020_int_u002C__u0020_bool xsi:type="boolean">true</bool_u002C__u0020_bool_u002C__u0020_int_u002C__u0020_bool>
+        <bool_u002C__u0020_bool_u002C__u0020_int_u002C__u0020_bool xsi:type="boolean">true</bool_u002C__u0020_bool_u002C__u0020_int_u002C__u0020_bool>
+        <bool_u002C__u0020_bool_u002C__u0020_int_u002C__u0020_bool xsi:type="decimal">5</bool_u002C__u0020_bool_u002C__u0020_int_u002C__u0020_bool>
+        <bool_u002C__u0020_bool_u002C__u0020_int_u002C__u0020_bool xsi:type="boolean">true</bool_u002C__u0020_bool_u002C__u0020_int_u002C__u0020_bool>
+        <bool_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool xsi:type="boolean">true</bool_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>
+        <bool_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool xsi:type="decimal">5</bool_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>
+        <bool_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>True</bool_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>
+        <bool_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool xsi:type="boolean">true</bool_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>
+        <str_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>false</str_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>
+        <str_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool xsi:type="decimal">5</str_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>
+        <str_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>True</str_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>
+        <str_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool xsi:type="boolean">false</str_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool>
+    </root>
+</root>

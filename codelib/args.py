@@ -120,6 +120,12 @@ def parse_args() -> argparse.Namespace:
             "The substitution text used in the regex replacement. The default is an empty string."
         ))
 
+    parser.add_argument(
+        "--output_folder", required=False, default='.',
+        help=(
+            "The solution with the DV SQL file(s) will be placed here."
+        ))
+
     group_list = parser.add_mutually_exclusive_group()
     group_list.add_argument(
         '--list_as_rows', action='store_false',
