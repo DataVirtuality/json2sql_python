@@ -1,7 +1,7 @@
 from typing import Final, List, Optional
 import re
 from codelib.SqlGenConfig import SqlGenConfig
-from codelib.metadata import TreeNodeInfo
+from codelib.metadata import DataTypes, TreeNodeInfo
 # import copy
 # from enum import Enum
 # import pandas as pd
@@ -257,4 +257,9 @@ class SqlGenerator:
         if self.config.force_data_types_to_string:
             return "STRING"
         else:
-            return tni.datatype.value
+            if tni.datatype == DataTypes.UNKNOWN:
+                # Force the datatype to string
+                # this happens when we have NULL or empty values
+                return "STRING"
+            else:
+                return tni.datatype.value
