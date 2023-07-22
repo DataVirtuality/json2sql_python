@@ -503,7 +503,7 @@ class TreeNodeInfo(DataTypeWrapper):
         """
         return self.node_type in [NodeTypes.LIST, NodeTypes.DICT]
 
-    def is_list(self) -> bool:
+    def is_node_list(self) -> bool:
         """
         Is the node is a list?
 
@@ -514,7 +514,18 @@ class TreeNodeInfo(DataTypeWrapper):
         """
         return self.node_type == NodeTypes.LIST
 
-    def is_dict(self) -> bool:
+    def is_node_data(self) -> bool:
+        """
+        Is the node is a data type?
+
+        Returns:
+            bool:
+                TRUE - The node is a data type.\n
+                FALSE - The node is NOT a data type.
+        """
+        return self.node_type == NodeTypes.DATA
+
+    def is_node_dict(self) -> bool:
         """
         Is the node is a dict?
 

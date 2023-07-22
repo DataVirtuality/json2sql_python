@@ -3,7 +3,7 @@ with "XmlTable001" as (
         uuid() as dv_xml_wrapper_id_001,
         JSONTOXML('root', to_chars(f.file,'UTF-8')) as xmldata
     FROM
-        "dv_sample_data".getFiles('./s11.json') f
+        "sample_data_json".getFiles('./s11.json') f
 )
 select
     --"XmlTable001"."dv_xml_wrapper_id_001",
@@ -63,7 +63,7 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable002"."dv_xml_wrapper_id_002" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable002"."/root/root/all_u0020_bool/"
+                    "XmlTable002"."/root/root/all bool/"
                )
 		    COLUMNS
                "idColumn_003" FOR ORDINALITY,
@@ -82,7 +82,7 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable002"."dv_xml_wrapper_id_002" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable002"."/root/root/bool_u002C__u0020_bool_u002C__u0020_int_u002C__u0020_bool/"
+                    "XmlTable002"."/root/root/bool, bool, int, bool/"
                )
 		    COLUMNS
                "idColumn_004" FOR ORDINALITY,
@@ -101,7 +101,7 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable002"."dv_xml_wrapper_id_002" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable002"."/root/root/bool_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool/"
+                    "XmlTable002"."/root/root/bool, int, str, bool/"
                )
 		    COLUMNS
                "idColumn_005" FOR ORDINALITY,
@@ -120,7 +120,7 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable002"."dv_xml_wrapper_id_002" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable002"."/root/root/str_u002C__u0020_int_u002C__u0020_str_u002C__u0020_bool/"
+                    "XmlTable002"."/root/root/str, int, str, bool/"
                )
 		    COLUMNS
                "idColumn_006" FOR ORDINALITY,

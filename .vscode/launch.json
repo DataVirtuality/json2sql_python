@@ -22,7 +22,7 @@
                 "sample-data-json/s01.json",
                 "--recurse",
                 "--dsname",
-                "dv_sample_data",
+                "sample_data_json",
                 "--output_folder",
                 "test-cases-json"
             ],
@@ -39,7 +39,41 @@
                 "sample-data-json/s02.json",
                 "--recurse",
                 "--dsname",
-                "dv_sample_data",
+                "sample_data_json",
+                "--output_folder",
+                "test-cases-json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "S06 json files",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--files",
+                "sample-data-json/s06.json",
+                "--recurse",
+                "--dsname",
+                "sample_data_json",
+                "--output_folder",
+                "test-cases-json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "S07 json files",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--files",
+                "sample-data-json/s07.json",
+                "--recurse",
+                "--dsname",
+                "sample_data_json",
                 "--output_folder",
                 "test-cases-json"
             ],
@@ -56,7 +90,7 @@
                 "sample-data-json/s01.xml",
                 "--recurse",
                 "--dsname",
-                "dv_sample_data",
+                "sample_data_json",
                 "--output_folder",
                 "test-cases-xml"
             ],
@@ -73,7 +107,7 @@
                 "sample-data-json/s02.xml",
                 "--recurse",
                 "--dsname",
-                "dv_sample_data",
+                "sample_data_json",
                 "--output_folder",
                 "test-cases-xml"
             ],
@@ -90,7 +124,7 @@
                 "sample-data-json/s10.json",
                 "--recurse",
                 "--dsname",
-                "dv_sample_data",
+                "sample_data_json",
                 "--output_folder",
                 "test-cases-json"
             ],
@@ -107,7 +141,7 @@
                 "sample-data-json/*.json",
                 "--recurse",
                 "--dsname",
-                "dv_sample_data",
+                "sample_data_json",
                 "--output_folder",
                 "test-cases-json"
             ],
@@ -124,10 +158,19 @@
                 "sample-data-json/*.json",
                 "--recurse",
                 "--dsname",
-                "dv_sample_data",
+                "sample_data_json",
                 "--output_folder",
                 "test-cases-json"
             ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "no args",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [],
             "console": "integratedTerminal",
             "justMyCode": true
         },

@@ -86,7 +86,9 @@ class SqlGenerator:
         Returns:
             str: Modified column name
         """
-        # Make a backup copy of the original name
+
+        # Make a backup copy of the original name in case the modifications
+        # result in an empty string
         original_col_name = col_name
 
         assert len(col_name) > 3  # minimum string length is 3. Eg. /a/
@@ -114,6 +116,7 @@ class SqlGenerator:
 
         col_name = col_name.strip()
 
+        # If the length results in and empty string, use the original name as part of an error msg
         if len(col_name) == 0:
             col_name = f'ERROR__{original_col_name}__col_mods_resulted_in_empty_str'
 
@@ -125,34 +128,47 @@ class SqlGenerator:
             relative_xpath: str,
             sql_parent_table: str,
             sql_parent_xml_column: str,
+            sql_parent_unescaped_xml_column: str,
             parent_table_number: int
     ) -> None:
-        '''
-        alias_num - Python doesn't allow pass by reference so we use a class wrapper to get around this.
-        '''
+        """
+        This method generates the LEFT LATERAL JOIN
 
+        Args:
+            tni (TreeNodeInfo): The current node we will be generating a LEFT LATERAL JOIN for.
+            relative_xpath (str): The path of this tni NODE.
+            sql_parent_table (str): Name of the SQL parent table.
+            sql_parent_xml_column (str): The name of the SQL column name with XML data
+            parent_table_number (int): The number of the parent table.
+        """
         current_table_number: Final[int] = self.alias_num
         current_sql_table_name: Final[str] = f'{self.config.sql_table_alias}{self.alias_num:03}'
 
         if tni.has_single_child() is True and tni.has_data() is False:
             # branch: has a single child
+            # Don't generate a LEFT JOIN LATERL for this node. It would have no purpose.
+            # Just skip it.
             self.helper_top_down(
                 tni=tni.children[0],
                 relative_xpath=relative_xpath,
                 sql_parent_table=sql_parent_table,
                 sql_parent_xml_column=sql_parent_xml_column,
+                sql_parent_unescaped_xml_column=sql_parent_unescaped_xml_column,
                 parent_table_number=parent_table_number
             )
             return
 
+        # Get the relative path of the current node minus the parent xpath
         xpath_from_wrapper = remove_last_char_from_str(substract_string(relative_xpath, tni.xpath))
-        xpath_relative_to_wrapper = xpath_from_wrapper.count('/') + 1
+        xpath_relative_to_wrapper = xpath_from_wrapper.count('/') + 1  # Used to determine the number of ../ to use
         x_path_move_back = '../' * xpath_relative_to_wrapper
 
+        # Add these columns in the SELECT clause. Useful for debugging.
         self.sql_select.append(f'    -- "{current_sql_table_name}"."idColumn_{current_table_number:03}",')
         self.sql_select.append(f'    -- "{current_sql_table_name}"."dv_xml_wrapper_parent_id",')
         self.sql_select.append(f'    -- "{current_sql_table_name}"."dv_xml_wrapper_id_{current_table_number:03}",')
 
+        # Build the LEFT JOIN LATERAL clause
         self.sql_from.append('left join lateral(')
         self.sql_from.append('   select')
         self.sql_from.append(f'       uuid() as "dv_xml_wrapper_id_{current_table_number:03}",')
@@ -163,35 +179,45 @@ class SqlGenerator:
         self.sql_from.append('               XMLELEMENT(NAME "DV_default_xml_wrapper",')
         self.sql_from.append("                   XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as \"xsi\" ),")
         self.sql_from.append(f'                   XMLATTRIBUTES("{sql_parent_table}"."dv_xml_wrapper_id_{parent_table_number:03}" AS "dv_xml_wrapper_parent_id"),')
-        self.sql_from.append(f'                    "{sql_parent_table}"."{sql_parent_xml_column}"')
+        self.sql_from.append(f'                    "{sql_parent_table}"."{sql_parent_unescaped_xml_column}"')
         self.sql_from.append('               )')
         self.sql_from.append('		    COLUMNS')
         self.sql_from.append(f'               "idColumn_{current_table_number:03}" FOR ORDINALITY,')
         self.sql_from.append(f"               \"dv_xml_wrapper_parent_id\" string path '{x_path_move_back}@dv_xml_wrapper_parent_id',")
 
-        xml_tables: List[TreeNodeInfo] = []
+        xml_tables: List[TreeNodeInfo] = []  # List of columns that need to be turned into a LEFT JOIN LATERAL
         if tni.has_data():
             self.sql_select.append(f'    "{current_sql_table_name}"."{self.mod_col_name(tni.unescaped_xpath)}",')
 
-            if tni.is_list():
+            # The LIST and non-LIST code is very similar. Could be folded into a single code path. Separate it to
+            # make it easier to maintain.
+            # Edge case: If the xpath_from_wrapper includes the current element name, we need to use '.'
+            if tni.is_node_list() or tni.is_node_data():
+                # Treat LISTS differently. Use the '.' to get the data
                 self.sql_from.append(f"               \"{self.mod_col_name(tni.unescaped_xpath)}\" {self.get_sql_datatype(tni)} PATH '.',")
 
+                # If this is numeric then DV includes the data type when it converts it to XML.
                 if tni.is_datatype_numeric():
                     self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{tni.unescaped_xpath}@type")}",')
                     self.sql_from.append(f"               \"{self.mod_col_name(f'{tni.unescaped_xpath}@type')}\" STRING PATH './@xsi:type',")
-            else:
-                self.sql_from.append(f"               \"{self.mod_col_name(tni.unescaped_xpath)}\" {self.get_sql_datatype(tni)} PATH '{tni.element_name}',")
+            # else:
+            #     # Use the element name to get the data
+            #     self.sql_from.append(f"               \"{self.mod_col_name(tni.unescaped_xpath)}\" {self.get_sql_datatype(tni)} PATH '{tni.element_name}',")
 
-                if tni.is_datatype_numeric():
-                    self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{tni.unescaped_xpath}@type")}",')
-                    self.sql_from.append(f"               \"{self.mod_col_name(f'{tni.unescaped_xpath}@type')}\" STRING PATH '{tni.element_name}/@xsi:type',")
+            #     # If this is numeric then DV includes the data type when it converts it to XML.
+            #     if tni.is_datatype_numeric():
+            #         self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{tni.unescaped_xpath}@type")}",')
+            #         self.sql_from.append(f"               \"{self.mod_col_name(f'{tni.unescaped_xpath}@type')}\" STRING PATH '{tni.element_name}/@xsi:type',")
 
+        # Process any children this node has
         for child in tni.children:
             if child.make_subtable():
+                # This column will be an XML data type and be be a new sub-query
                 self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(child.unescaped_xpath)}",')
                 self.sql_from.append(f'               "{self.mod_col_name(child.unescaped_xpath)}" xml PATH \'{child.element_name}\',')
-                xml_tables.append(child)
+                xml_tables.append(child)  # We will need to recursively process this later.
             else:
+                # Just process this child as a simple column
                 if child.is_datatype_numeric():
                     self.sql_select.append(f'    -- "{current_sql_table_name}"."{self.mod_col_name(f"{child.unescaped_xpath}@type")}",')
                     self.sql_from.append(f"               \"{self.mod_col_name(f'{child.unescaped_xpath}@type')}\" STRING PATH '{child.element_name}/@xsi:type',")
@@ -202,25 +228,37 @@ class SqlGenerator:
         # Remove comma from last entry
         self.sql_from[-1] = remove_last_char_from_str(self.sql_from[-1])
 
+        # Close the LEFT JOIN LATERAL
         self.sql_from.append('        ) xt')
         self.sql_from.append(f') "{current_sql_table_name}"')
         self.sql_from.append(f'    on "{sql_parent_table}"."dv_xml_wrapper_id_{parent_table_number:03}" = "{current_sql_table_name}"."dv_xml_wrapper_parent_id"')
         self.alias_num += 1
 
         for child in xml_tables:
+            # Recursively process columns marked as XML
             self.helper_top_down(
                 tni=child,
                 relative_xpath=tni.xpath,
                 sql_parent_table=f'{current_sql_table_name}',
                 sql_parent_xml_column=child.xpath,
+                sql_parent_unescaped_xml_column=child.unescaped_xpath,
                 parent_table_number=current_table_number
             )
 
     def top_down_sql_generation(self) -> None:
-        self.alias_num = 1
+        """
+        This method generates the initial part of the DV SQL.
+        This also generates the CTE (Common Table Expression)
+
+        The algorithm uses two Lists of strings.
+        The 1st list is for the SELECT clauses
+        The 2nd list is for the FROM clauses
+        """
+        self.alias_num = 1  # Reset the alias number in case we want to run the algorithm more than once.
         current_sql_table: Final[str] = f'{self.config.sql_table_alias}{self.alias_num:03}'
         current_table_number: Final[int] = self.alias_num
 
+        # Create the SELECT clauses
         self.sql_select.append(f'with "{current_sql_table}" as (')
         self.sql_select.append("    SELECT")
         self.sql_select.append(f"        uuid() as dv_xml_wrapper_id_{current_table_number:03},")
@@ -231,35 +269,87 @@ class SqlGenerator:
         self.sql_select.append("select")
         self.sql_select.append(f'    --"{current_sql_table}"."dv_xml_wrapper_id_{current_table_number:03}",')
 
+        # Create the FROM clauses
         self.sql_from.append(f'from "{current_sql_table}"')
 
+        # Now recurse through the rest of the tree
         self.alias_num += 1
         self.helper_top_down(
             tni=self.treenodeinfo,
             relative_xpath='/',
             sql_parent_table=f'{current_sql_table}',
-            sql_parent_xml_column='xmldata',
+            sql_parent_xml_column='xmldata',  # column name defined in the CTE (Common Table Expression) block
+            sql_parent_unescaped_xml_column='xmldata',  # column name defined in the CTE (Common Table Expression) block
             parent_table_number=current_table_number
         )
 
-        # Remove comma from last entry
-        self.sql_select[-1] = remove_last_char_from_str(self.sql_select[-1])
+        # Remove comma from last uncommented SQL column
+        self.remove_comma_from_last_uncommented_column()
 
+        # Join the SELECT and FROM clauses. NOTE: we will need a line break between the SELECT and FROM clauses
         self.sql_final_result = '\n'.join(self.sql_select) + '\n' + '\n'.join(self.sql_from)
 
+    def remove_comma_from_last_uncommented_column(self) -> None:
+        """
+        Find the last uncommented column and remove the trailing ','
+
+        Example:
+            Select
+                -- col1,
+                -- col2,
+                col3,     <- remove this comma
+                -- col4
+        """
+
+        # Remove comma from last entry
+        # Traverse the list in reverse order maintaing the original index
+        for idx, sql_col in reversed(list(enumerate(self.sql_select))):
+            if sql_col.startswith('    -- ') is True:
+                # This column is commented out. Keep looking
+                continue
+
+            if sql_col == 'select':
+                # All of the columns are commented out
+                # Strange situation.
+                # To make this valid SQL, add a dummy column
+                self.sql_select.append('    "DummyColumn" as DummyColumn')
+                return
+
+            # This is the last uncommented SQL column. Remove the trailing ','
+            self.sql_select[idx] = remove_last_char_from_str(self.sql_select[idx])
+            return
+
     def generate_dv_sql(self) -> str:
+        """
+        Generate the DV SQL statements.
+
+        This method will only generate the DV SQL once. And cache the DV SQL as a list of strings
+        and as a single string.
+
+        Returns:
+            str: Returns the DV SQL as a single string.
+        """
         if len(self.sql_final_result) == 0:
             # generate the SQL code
             self.top_down_sql_generation()
         return self.sql_final_result
 
     def get_sql_datatype(self, tni: TreeNodeInfo) -> str:
+        """
+        Determine the DV datatype we will be using.
+
+        Args:
+            tni (TreeNodeInfo): The node we will be calculating a datatype for
+
+        Returns:
+            str: String name of the DV datatype
+        """
         if self.config.force_data_types_to_string:
-            return "STRING"
+            return DataTypes.STR.value
         else:
             if tni.datatype == DataTypes.UNKNOWN:
                 # Force the datatype to string
                 # this happens when we have NULL or empty values
-                return "STRING"
+                return DataTypes.STR.value
             else:
                 return tni.datatype.value

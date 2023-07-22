@@ -3,7 +3,7 @@ with "XmlTable001" as (
         uuid() as dv_xml_wrapper_id_001,
         JSONTOXML('root', to_chars(f.file,'UTF-8')) as xmldata
     FROM
-        "dv_sample_data".getFiles('./s07.json') f
+        "sample_data_json".getFiles('./s07.json') f
 )
 select
     --"XmlTable001"."dv_xml_wrapper_id_001",
@@ -60,7 +60,7 @@ left join lateral(
                "/root/key_with_description/" STRING PATH 'key_with_description',
                "/root/key_with_line-break/" STRING PATH 'key_with_line-break',
                "/root/nested/" xml PATH 'nested',
-               "/root/null_translation/" unknown PATH 'null_translation',
+               "/root/null_translation/" STRING PATH 'null_translation',
                "/root/pluralized_key/" xml PATH 'pluralized_key',
                "/root/sample_collection/" xml PATH 'sample_collection',
                "/root/simple_key/" STRING PATH 'simple_key',
@@ -103,7 +103,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_004" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/nested/deeply/key/" STRING PATH 'key'
+               "/root/nested/deeply/key/" STRING PATH '.'
         ) xt
 ) "XmlTable004"
     on "XmlTable003"."dv_xml_wrapper_id_003" = "XmlTable004"."dv_xml_wrapper_parent_id"

@@ -3,7 +3,7 @@ with "XmlTable001" as (
         uuid() as dv_xml_wrapper_id_001,
         JSONTOXML('root', to_chars(f.file,'UTF-8')) as xmldata
     FROM
-        "dv_sample_data".getFiles('./s02.json') f
+        "sample_data_json".getFiles('./s02.json') f
 )
 select
     --"XmlTable001"."dv_xml_wrapper_id_001",

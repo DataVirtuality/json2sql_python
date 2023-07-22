@@ -3,7 +3,7 @@ with "XmlTable001" as (
         uuid() as dv_xml_wrapper_id_001,
         JSONTOXML('root', to_chars(f.file,'UTF-8')) as xmldata
     FROM
-        "dv_sample_data".getFiles('./s06.json') f
+        "sample_data_json".getFiles('./s06.json') f
 )
 select
     --"XmlTable001"."dv_xml_wrapper_id_001",
@@ -59,10 +59,10 @@ select
     -- "XmlTable011"."idColumn_011",
     -- "XmlTable011"."dv_xml_wrapper_parent_id",
     -- "XmlTable011"."dv_xml_wrapper_id_011",
-    "XmlTable011"."/root/problems/Diabetes/labs/missing_field/",
+    "XmlTable011"."/root/problems/Diabetes/labs/missing_field/"
     -- "XmlTable012"."idColumn_012",
     -- "XmlTable012"."dv_xml_wrapper_parent_id",
-    -- "XmlTable012"."dv_xml_wrapper_id_012"
+    -- "XmlTable012"."dv_xml_wrapper_id_012",
 from "XmlTable001"
 left join lateral(
    select
@@ -175,7 +175,7 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable005"."dv_xml_wrapper_id_005" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable005"."/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug_u0023_2/"
+                    "XmlTable005"."/root/problems/Diabetes/medications/medicationsClasses/className/associatedDrug#2/"
                )
 		    COLUMNS
                "idColumn_007" FOR ORDINALITY,
@@ -237,7 +237,7 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable008"."dv_xml_wrapper_id_008" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable008"."/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug_u0023_2/"
+                    "XmlTable008"."/root/problems/Diabetes/medications/medicationsClasses/className2/associatedDrug#2/"
                )
 		    COLUMNS
                "idColumn_010" FOR ORDINALITY,
@@ -263,7 +263,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_011" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/problems/Diabetes/labs/missing_field/" STRING PATH 'missing_field'
+               "/root/problems/Diabetes/labs/missing_field/" STRING PATH '.'
         ) xt
 ) "XmlTable011"
     on "XmlTable003"."dv_xml_wrapper_id_003" = "XmlTable011"."dv_xml_wrapper_parent_id"

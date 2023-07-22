@@ -74,10 +74,6 @@ class TestMetadata(unittest.TestCase):
 
         assert len(TestMetadata.root.xpath_index) == 4
 
-        assert TestMetadata.root is TestMetadata.node1_0
-        assert TestMetadata.root is TestMetadata.node1_1
-        assert TestMetadata.root is TestMetadata.node2_0
-
     def test_determine_node_type(self):
         self.assertEqual(NodeTypes.DATA, determine_node_type(5))
         self.assertEqual(NodeTypes.DATA, determine_node_type("a"))
@@ -134,7 +130,16 @@ class TestMetadata(unittest.TestCase):
         self.assertEqual(self.node1_1.datatype, DataTypes.INT)
         self.assertIsNotNone(self.node1_1.xml_attributes)
         self.assertDictEqual(self.node1_1.xml_attributes, {"test": DataTypeWrapper(DataTypes.STR)})  # type: ignore
-        self.assertEqual(self.node1_1.has_been_processed, True)
+        self.assertEqual(self.node1_1.has_been_processed, False)
+
+        # Test node2_0
+        self.assertEqual(self.node2_0.element_name, 'node2_0')
+        self.assertEqual(self.node2_0.xpath, '/root/node2_0/')
+        self.assertIs(self.node2_0.parent, self.root)
+        self.assertEqual(self.node2_0.node_type, NodeTypes.DICT)
+        self.assertEqual(self.node2_0.datatype, DataTypes.STR)
+        self.assertIsNone(self.node2_0.xml_attributes)
+        self.assertEqual(self.node2_0.has_been_processed, False)
 
     def test_exists(self):
         self.assertTrue(TestMetadata.root.exists('/root/'))
@@ -210,16 +215,16 @@ class TestMetadata(unittest.TestCase):
         self.assertFalse(self.node2_0.is_root())
 
     def test_is_list(self):
-        self.assertFalse(self.root.is_list())
-        self.assertFalse(self.node1_0.is_list())
-        self.assertTrue(self.node1_1.is_list())
-        self.assertFalse(self.node2_0.is_list())
+        self.assertFalse(self.root.is_node_list())
+        self.assertFalse(self.node1_0.is_node_list())
+        self.assertTrue(self.node1_1.is_node_list())
+        self.assertFalse(self.node2_0.is_node_list())
 
     def test_is_dict(self):
-        self.assertTrue(self.root.is_dict())
-        self.assertFalse(self.node1_0.is_dict())
-        self.assertFalse(self.node1_1.is_dict())
-        self.assertTrue(self.node2_0.is_dict())
+        self.assertTrue(self.root.is_node_dict())
+        self.assertFalse(self.node1_0.is_node_dict())
+        self.assertFalse(self.node1_1.is_node_dict())
+        self.assertTrue(self.node2_0.is_node_dict())
 
     def test_merge_xml_attributes(self):
         t1 = {"d1": DataTypeWrapper(DataTypes.STR)}

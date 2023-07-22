@@ -24,23 +24,23 @@ def parse_args() -> argparse.Namespace:
 
     parser.add_argument(
         "--stdio", action="store_true",
-        help="Read json from STDIN.")
+        help="Read JSON from STDIN. Not yet implemented.")
 
     parser.add_argument(
-        "-f", "--files", default='*.json', required=False,
-        help="Read json files. Supports wildcards. Case insensitive search.")
+        "-f", "--files", default='*.json', required=True,
+        help="Name of the JSON to read. Or a pattern to read many JSON files. Supports wildcards. Case insensitive search.")
 
     parser.add_argument(
         "-r", "--recurse", action="store_true", required=False,
-        help="Recursively search subfolders for json files.")
+        help="Recursively search subfolders for JSON files.")
 
     parser.add_argument(
         "--file_amalgamation", action="store_true", required=False,
-        help="Recursively search subfolders for json files.")
+        help="Treat all of the files found as part of a single schema. Not yet implemented.")
 
     parser.add_argument(
         "-ih", "--include_hidden", action="store_true",
-        required=False, help="Include hidden json files.")
+        required=False, help="Include hidden JSON files.")
 
     parser.add_argument(
         "--dsname", required=False, default='Data_Source_Name',
@@ -56,7 +56,7 @@ def parse_args() -> argparse.Namespace:
 
     parser.add_argument(
         "--force_strings", required=False, action='store_true',
-        help="Is the file path of the XML file within the Data source.")
+        help="Force all of the data types to string. This is a safe method for parsing JSON if you suspect the data types will change.")
 
     parser.add_argument(
         "--sqlalias", required=False, default="XmlTable",

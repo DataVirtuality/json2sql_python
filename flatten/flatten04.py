@@ -1,8 +1,18 @@
 # type: ignore
 import pandas as pd
+# from pandas.io.json import json_normalize
+# import json
+# from typing import Any
 
 
 def flatten_nested_json(input_json_file: str, output_csv_file: str) -> None:
+    # To avoid getting the exception: Mixing dicts with non-Series may lead to ambiguous ordering.
+    # Load the JSON then call json_normalize
+    # json_obj: Any
+    # json_normalized: Any
+    # with open(input_json_file, 'rt', encoding='UTF-8') as f:
+    #     json_obj = json.load(f)
+    #     json_normalized = pd.json_normalize(json_obj)
     df = pd.read_json(input_json_file)
     df = flatten_nested_json_df(df)
     df.to_csv(output_csv_file, index=False)
@@ -41,6 +51,9 @@ def flatten_nested_json_df(
             new_columns.extend(horiz_exploded.columns)  # inplace
 
         for col in list_columns:
+            # The column may have already been processed. See if it still exists.
+            if col not in df.columns:
+                continue
             if verbose:
                 print(f"exploding: {col}")
             # explode lists vertically, adding new columns

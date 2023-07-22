@@ -3,7 +3,7 @@ with "XmlTable001" as (
         uuid() as dv_xml_wrapper_id_001,
         JSONTOXML('root', to_chars(f.file,'UTF-8')) as xmldata
     FROM
-        "dv_sample_data".getFiles('./s08.json') f
+        "sample_data_json".getFiles('./s08.json') f
 )
 select
     --"XmlTable001"."dv_xml_wrapper_id_001",
@@ -194,7 +194,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_004" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/author/name/label/" STRING PATH 'label'
+               "/root/feed/author/name/label/" STRING PATH '.'
         ) xt
 ) "XmlTable004"
     on "XmlTable003"."dv_xml_wrapper_id_003" = "XmlTable004"."dv_xml_wrapper_parent_id"
@@ -213,7 +213,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_005" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/author/uri/label/" STRING PATH 'label'
+               "/root/feed/author/uri/label/" STRING PATH '.'
         ) xt
 ) "XmlTable005"
     on "XmlTable003"."dv_xml_wrapper_id_003" = "XmlTable005"."dv_xml_wrapper_parent_id"
@@ -282,7 +282,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_008" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/author/uri/label/" STRING PATH 'label'
+               "/root/feed/entry/author/uri/label/" STRING PATH '.'
         ) xt
 ) "XmlTable008"
     on "XmlTable007"."dv_xml_wrapper_id_007" = "XmlTable008"."dv_xml_wrapper_parent_id"
@@ -301,7 +301,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_009" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/author/name/label/" STRING PATH 'label'
+               "/root/feed/entry/author/name/label/" STRING PATH '.'
         ) xt
 ) "XmlTable009"
     on "XmlTable007"."dv_xml_wrapper_id_007" = "XmlTable009"."dv_xml_wrapper_parent_id"
@@ -320,7 +320,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_010" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/updated/label/" STRING PATH 'label'
+               "/root/feed/entry/updated/label/" STRING PATH '.'
         ) xt
 ) "XmlTable010"
     on "XmlTable006"."dv_xml_wrapper_id_006" = "XmlTable010"."dv_xml_wrapper_parent_id"
@@ -334,12 +334,12 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable006"."dv_xml_wrapper_id_006" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable006"."/root/feed/entry/im_u003A_rating/"
+                    "XmlTable006"."/root/feed/entry/im:rating/"
                )
 		    COLUMNS
                "idColumn_011" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/im:rating/label/" STRING PATH 'label'
+               "/root/feed/entry/im:rating/label/" STRING PATH '.'
         ) xt
 ) "XmlTable011"
     on "XmlTable006"."dv_xml_wrapper_id_006" = "XmlTable011"."dv_xml_wrapper_parent_id"
@@ -353,12 +353,12 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable006"."dv_xml_wrapper_id_006" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable006"."/root/feed/entry/im_u003A_version/"
+                    "XmlTable006"."/root/feed/entry/im:version/"
                )
 		    COLUMNS
                "idColumn_012" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/im:version/label/" STRING PATH 'label'
+               "/root/feed/entry/im:version/label/" STRING PATH '.'
         ) xt
 ) "XmlTable012"
     on "XmlTable006"."dv_xml_wrapper_id_006" = "XmlTable012"."dv_xml_wrapper_parent_id"
@@ -377,7 +377,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_013" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/id/label/" STRING PATH 'label'
+               "/root/feed/entry/id/label/" STRING PATH '.'
         ) xt
 ) "XmlTable013"
     on "XmlTable006"."dv_xml_wrapper_id_006" = "XmlTable013"."dv_xml_wrapper_parent_id"
@@ -396,7 +396,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_014" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/title/label/" STRING PATH 'label'
+               "/root/feed/entry/title/label/" STRING PATH '.'
         ) xt
 ) "XmlTable014"
     on "XmlTable006"."dv_xml_wrapper_id_006" = "XmlTable014"."dv_xml_wrapper_parent_id"
@@ -435,7 +435,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_016" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/content/attributes/type/" STRING PATH 'type'
+               "/root/feed/entry/content/attributes/type/" STRING PATH '.'
         ) xt
 ) "XmlTable016"
     on "XmlTable015"."dv_xml_wrapper_id_015" = "XmlTable016"."dv_xml_wrapper_parent_id"
@@ -469,12 +469,12 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable006"."dv_xml_wrapper_id_006" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable006"."/root/feed/entry/im_u003A_voteSum/"
+                    "XmlTable006"."/root/feed/entry/im:voteSum/"
                )
 		    COLUMNS
                "idColumn_018" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/im:voteSum/label/" STRING PATH 'label'
+               "/root/feed/entry/im:voteSum/label/" STRING PATH '.'
         ) xt
 ) "XmlTable018"
     on "XmlTable006"."dv_xml_wrapper_id_006" = "XmlTable018"."dv_xml_wrapper_parent_id"
@@ -488,7 +488,7 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable006"."dv_xml_wrapper_id_006" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable006"."/root/feed/entry/im_u003A_contentType/"
+                    "XmlTable006"."/root/feed/entry/im:contentType/"
                )
 		    COLUMNS
                "idColumn_019" FOR ORDINALITY,
@@ -508,12 +508,12 @@ left join lateral(
                XMLELEMENT(NAME "DV_default_xml_wrapper",
                    XMLNAMESPACES('http://www.w3.org/2001/XMLSchema-instance' as "xsi" ),
                    XMLATTRIBUTES("XmlTable006"."dv_xml_wrapper_id_006" AS "dv_xml_wrapper_parent_id"),
-                    "XmlTable006"."/root/feed/entry/im_u003A_voteCount/"
+                    "XmlTable006"."/root/feed/entry/im:voteCount/"
                )
 		    COLUMNS
                "idColumn_020" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/entry/im:voteCount/label/" STRING PATH 'label'
+               "/root/feed/entry/im:voteCount/label/" STRING PATH '.'
         ) xt
 ) "XmlTable020"
     on "XmlTable006"."dv_xml_wrapper_id_006" = "XmlTable020"."dv_xml_wrapper_parent_id"
@@ -532,7 +532,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_021" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/updated/label/" STRING PATH 'label'
+               "/root/feed/updated/label/" STRING PATH '.'
         ) xt
 ) "XmlTable021"
     on "XmlTable002"."dv_xml_wrapper_id_002" = "XmlTable021"."dv_xml_wrapper_parent_id"
@@ -551,7 +551,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_022" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/rights/label/" STRING PATH 'label'
+               "/root/feed/rights/label/" STRING PATH '.'
         ) xt
 ) "XmlTable022"
     on "XmlTable002"."dv_xml_wrapper_id_002" = "XmlTable022"."dv_xml_wrapper_parent_id"
@@ -570,7 +570,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_023" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/title/label/" STRING PATH 'label'
+               "/root/feed/title/label/" STRING PATH '.'
         ) xt
 ) "XmlTable023"
     on "XmlTable002"."dv_xml_wrapper_id_002" = "XmlTable023"."dv_xml_wrapper_parent_id"
@@ -589,7 +589,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_024" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/icon/label/" STRING PATH 'label'
+               "/root/feed/icon/label/" STRING PATH '.'
         ) xt
 ) "XmlTable024"
     on "XmlTable002"."dv_xml_wrapper_id_002" = "XmlTable024"."dv_xml_wrapper_parent_id"
@@ -629,7 +629,7 @@ left join lateral(
 		    COLUMNS
                "idColumn_026" FOR ORDINALITY,
                "dv_xml_wrapper_parent_id" string path '../../@dv_xml_wrapper_parent_id',
-               "/root/feed/id/label/" STRING PATH 'label'
+               "/root/feed/id/label/" STRING PATH '.'
         ) xt
 ) "XmlTable026"
     on "XmlTable002"."dv_xml_wrapper_id_002" = "XmlTable026"."dv_xml_wrapper_parent_id"

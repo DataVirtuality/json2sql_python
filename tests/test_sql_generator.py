@@ -100,3 +100,39 @@ class TestSqlGenerator(unittest.TestCase):
         self.config.col_name_regex_ignore_case = True
         self.config.col_name_regex_replacement = 'X'
         self.assertEqual('/XooX/XooX/foo/baX/', self.sqlgen.mod_col_name('/root/root/foo/bar/'))
+
+    def test_get_sql_datatype_force_to_string(self):
+        self.config.force_data_types_to_string = False
+
+        self.tni._datatype = DataTypes.FLOAT
+        self.assertEqual(DataTypes.FLOAT.value, self.sqlgen.get_sql_datatype(self.tni))
+
+        self.tni._datatype = DataTypes.BOOLEAN
+        self.assertEqual(DataTypes.BOOLEAN.value, self.sqlgen.get_sql_datatype(self.tni))
+
+        self.tni._datatype = DataTypes.INT
+        self.assertEqual(DataTypes.INT.value, self.sqlgen.get_sql_datatype(self.tni))
+
+        self.tni._datatype = DataTypes.STR
+        self.assertEqual(DataTypes.STR.value, self.sqlgen.get_sql_datatype(self.tni))
+
+        self.tni._datatype = DataTypes.UNKNOWN
+        self.assertEqual(DataTypes.STR.value, self.sqlgen.get_sql_datatype(self.tni))
+
+    def test_get_sql_datatype(self):
+        self.config.force_data_types_to_string = True
+
+        self.tni._datatype = DataTypes.FLOAT
+        self.assertEqual(DataTypes.STR.value, self.sqlgen.get_sql_datatype(self.tni))
+
+        self.tni._datatype = DataTypes.BOOLEAN
+        self.assertEqual(DataTypes.STR.value, self.sqlgen.get_sql_datatype(self.tni))
+
+        self.tni._datatype = DataTypes.INT
+        self.assertEqual(DataTypes.STR.value, self.sqlgen.get_sql_datatype(self.tni))
+
+        self.tni._datatype = DataTypes.STR
+        self.assertEqual(DataTypes.STR.value, self.sqlgen.get_sql_datatype(self.tni))
+
+        self.tni._datatype = DataTypes.UNKNOWN
+        self.assertEqual(DataTypes.STR.value, self.sqlgen.get_sql_datatype(self.tni))
