@@ -132,6 +132,23 @@
             "justMyCode": true
         },
         {
+            "name": "S12 json files",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--files",
+                "sample-data-json/s12.json",
+                "--recurse",
+                "--dsname",
+                "sample_data_json",
+                "--output_folder",
+                "test-cases-json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
             "name": "all json files",
             "type": "python",
             "request": "launch",
