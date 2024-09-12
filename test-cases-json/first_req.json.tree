@@ -1,0 +1,102 @@
+=====================================
+TreeNodeInfo
+-------------------------------------
+Indexes
+    /root/
+    /root/query/
+    /root/variables/
+    /root/variables/filter/
+    /root/variables/filter/pageSize/
+    /root/variables/tenantId/
+-------------------------------------
+/root/
+    unescaped_xpath=/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=0
+    has_been_processed=False
+    num_of_children=2
+    parent=None
+    Children
+        xpath=/root/query/
+        xpath=/root/variables/
+    XML_attributes
+        None
+-------------------------------------
+/root/query/
+    unescaped_xpath=/root/query/
+    element_name=query
+    unescaped_element_name=query
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=1
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/variables/
+    unescaped_xpath=/root/variables/
+    element_name=variables
+    unescaped_element_name=variables
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=1
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/
+    Children
+        xpath=/root/variables/filter/
+        xpath=/root/variables/tenantId/
+    XML_attributes
+        None
+-------------------------------------
+/root/variables/filter/
+    unescaped_xpath=/root/variables/filter/
+    element_name=filter
+    unescaped_element_name=filter
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/variables/
+    Children
+        xpath=/root/variables/filter/pageSize/
+    XML_attributes
+        None
+-------------------------------------
+/root/variables/filter/pageSize/
+    unescaped_xpath=/root/variables/filter/pageSize/
+    element_name=pageSize
+    unescaped_element_name=pageSize
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=3
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/variables/filter/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/variables/tenantId/
+    unescaped_xpath=/root/variables/tenantId/
+    element_name=tenantId
+    unescaped_element_name=tenantId
+    datatype=DataTypes.INT
+    node_type=NodeTypes.DATA
+    depth=2
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/variables/
+    Children
+        None
+    XML_attributes
+        None

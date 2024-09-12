@@ -1,0 +1,9 @@
+{
+    "query": "\n    query Records($tenantId: ID!, $filter: GetEventListFilter) {\n      runTradeReport(tenantId: $tenantId, filter: $filter) {\n        pageInfo {\n          forwardCursor\n          hasNextPage\n        }\n        records {\n          knowledgeTime\n          validTime\n          type\n          knowledgeEndTime\n          assetType\n          aexeoOrderId\n          clientOrderId\n          summa_id\n          portfolioName\n          brokerName\n          basketName\n          strategyName\n          custodianAccountName\n          custodianName\n          managerName\n          quantity\n          price\n          cost\n          secFeeAmount\n          exFeeAmount\n          brokerCommissionAmount\n          legalFeeAmount\n          totalExpenseAmount\n          actualSettleDate\n          contractualSettleDate\n        }\n      }\n    }   \n    ",
+    "variables": {
+        "tenantId": 1,
+        "filter": {
+            "pageSize": 1000
+        }
+    }
+}

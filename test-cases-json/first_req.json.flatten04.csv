@@ -1,0 +1,75 @@
+query,variables.pageSize
+"
+    query Records($tenantId: ID!, $filter: GetEventListFilter) {
+      runTradeReport(tenantId: $tenantId, filter: $filter) {
+        pageInfo {
+          forwardCursor
+          hasNextPage
+        }
+        records {
+          knowledgeTime
+          validTime
+          type
+          knowledgeEndTime
+          assetType
+          aexeoOrderId
+          clientOrderId
+          summa_id
+          portfolioName
+          brokerName
+          basketName
+          strategyName
+          custodianAccountName
+          custodianName
+          managerName
+          quantity
+          price
+          cost
+          secFeeAmount
+          exFeeAmount
+          brokerCommissionAmount
+          legalFeeAmount
+          totalExpenseAmount
+          actualSettleDate
+          contractualSettleDate
+        }
+      }
+    }   
+    ",1000.0
+"
+    query Records($tenantId: ID!, $filter: GetEventListFilter) {
+      runTradeReport(tenantId: $tenantId, filter: $filter) {
+        pageInfo {
+          forwardCursor
+          hasNextPage
+        }
+        records {
+          knowledgeTime
+          validTime
+          type
+          knowledgeEndTime
+          assetType
+          aexeoOrderId
+          clientOrderId
+          summa_id
+          portfolioName
+          brokerName
+          basketName
+          strategyName
+          custodianAccountName
+          custodianName
+          managerName
+          quantity
+          price
+          cost
+          secFeeAmount
+          exFeeAmount
+          brokerCommissionAmount
+          legalFeeAmount
+          totalExpenseAmount
+          actualSettleDate
+          contractualSettleDate
+        }
+      }
+    }   
+    ",

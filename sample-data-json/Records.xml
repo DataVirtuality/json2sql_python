@@ -1,0 +1,630 @@
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <data>
+        <runTradeReport>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:22:04.607530Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_USD_EQUITY</symbol>
+                    <description>DEV_USD_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:12:08.686033Z</knowledgeTime>
+                <validTime>2022-02-01T12:00:00Z</validTime>
+                <type>OPEN_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7941</summa_id>
+                <quantity>10000</quantity>
+                <price>100</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-02-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy>
+                    <strategyName>DEV_ROUNDTRIP</strategyName>
+                    <strategyAexeosId xsi:nil="true" />
+                </strategy>
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:23:37.149238Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_JPY_EQUITY</symbol>
+                    <description>DEV_JPY_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:13:36.881665Z</knowledgeTime>
+                <validTime>2022-02-01T12:00:00Z</validTime>
+                <type>OPEN_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7942</summa_id>
+                <quantity>10000</quantity>
+                <price>10000</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-02-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy>
+                    <strategyName>DEV_ROUNDTRIP</strategyName>
+                    <strategyAexeosId xsi:nil="true" />
+                </strategy>
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:23:37.149238Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_JPY_EQUITY</symbol>
+                    <description>DEV_JPY_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:13:48.171995Z</knowledgeTime>
+                <validTime>2022-02-01T12:00:00Z</validTime>
+                <type>OPEN_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7943</summa_id>
+                <quantity>10000</quantity>
+                <price>10000</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-02-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy xsi:nil="true" />
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:22:04.607530Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_USD_EQUITY</symbol>
+                    <description>DEV_USD_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:14:02.157976Z</knowledgeTime>
+                <validTime>2022-02-01T12:00:00Z</validTime>
+                <type>OPEN_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7944</summa_id>
+                <quantity>10000</quantity>
+                <price>100</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-02-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy xsi:nil="true" />
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:22:04.607530Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_USD_EQUITY</symbol>
+                    <description>DEV_USD_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:15:45.174085Z</knowledgeTime>
+                <validTime>2022-04-01T12:00:00Z</validTime>
+                <type>CLOSE_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7945</summa_id>
+                <quantity>2000</quantity>
+                <price>102</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-04-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy>
+                    <strategyName>DEV_ROUNDTRIP</strategyName>
+                    <strategyAexeosId xsi:nil="true" />
+                </strategy>
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:22:04.607530Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_USD_EQUITY</symbol>
+                    <description>DEV_USD_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:15:45.174085Z</knowledgeTime>
+                <validTime>2022-05-01T12:00:00Z</validTime>
+                <type>CLOSE_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7946</summa_id>
+                <quantity>7000</quantity>
+                <price>103</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-05-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy>
+                    <strategyName>DEV_ROUNDTRIP</strategyName>
+                    <strategyAexeosId xsi:nil="true" />
+                </strategy>
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:22:04.607530Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_USD_EQUITY</symbol>
+                    <description>DEV_USD_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:15:45.174085Z</knowledgeTime>
+                <validTime>2022-03-01T12:00:00Z</validTime>
+                <type>CLOSE_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7947</summa_id>
+                <quantity>1000</quantity>
+                <price>101</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-03-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy>
+                    <strategyName>DEV_ROUNDTRIP</strategyName>
+                    <strategyAexeosId xsi:nil="true" />
+                </strategy>
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:23:37.149238Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_JPY_EQUITY</symbol>
+                    <description>DEV_JPY_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:16:35.932159Z</knowledgeTime>
+                <validTime>2022-04-01T12:00:00Z</validTime>
+                <type>CLOSE_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7948</summa_id>
+                <quantity>2000</quantity>
+                <price>102</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-04-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy>
+                    <strategyName>DEV_ROUNDTRIP</strategyName>
+                    <strategyAexeosId xsi:nil="true" />
+                </strategy>
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:23:37.149238Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_JPY_EQUITY</symbol>
+                    <description>DEV_JPY_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:16:35.932159Z</knowledgeTime>
+                <validTime>2022-05-01T12:00:00Z</validTime>
+                <type>CLOSE_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7949</summa_id>
+                <quantity>7000</quantity>
+                <price>103</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-05-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy>
+                    <strategyName>DEV_ROUNDTRIP</strategyName>
+                    <strategyAexeosId xsi:nil="true" />
+                </strategy>
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+            <records>
+                <asset>
+                    <assetName xsi:nil="true" />
+                    <assetKnowledgeTime>2023-04-25T20:23:37.149238Z</assetKnowledgeTime>
+                    <cusip xsi:nil="true" />
+                    <isin xsi:nil="true" />
+                    <sedol xsi:nil="true" />
+                    <priceFactor>1</priceFactor>
+                    <tradeQuantityFactor>1</tradeQuantityFactor>
+                    <tid xsi:nil="true" />
+                    <symbol>DEV_JPY_EQUITY</symbol>
+                    <description>DEV_JPY_EQUITY_DESCRIPTION</description>
+                    <bloomberg_rt xsi:nil="true" />
+                    <assetAexeosId xsi:nil="true" />
+                    <option>
+                        <callPut xsi:nil="true" />
+                        <contractSize xsi:nil="true" />
+                        <expirationDate xsi:nil="true" />
+                        <strikePrice xsi:nil="true" />
+                    </option>
+                </asset>
+                <knowledgeTime>2023-04-25T17:16:35.932159Z</knowledgeTime>
+                <validTime>2022-03-01T12:00:00Z</validTime>
+                <type>CLOSE_LONG</type>
+                <knowledgeEndTime xsi:nil="true" />
+                <assetType>EQUITY</assetType>
+                <clientOrderId xsi:nil="true" />
+                <summa_id>7950</summa_id>
+                <quantity>1000</quantity>
+                <price>101</price>
+                <cost xsi:nil="true" />
+                <actualSettleDate xsi:nil="true" />
+                <contractualSettleDate>2022-03-01</contractualSettleDate>
+                <aexeosId xsi:nil="true" />
+                <standardSECFees xsi:nil="true" />
+                <standardMiscellaneousFees xsi:nil="true" />
+                <standardMiscellaneousExpenses xsi:nil="true" />
+                <standardExpenses xsi:nil="true" />
+                <standardCommissions xsi:nil="true" />
+                <broker>
+                    <brokerName>DEV_BROKER</brokerName>
+                    <brokerAexeosId xsi:nil="true" />
+                </broker>
+                <basket xsi:nil="true" />
+                <strategy>
+                    <strategyName>DEV_ROUNDTRIP</strategyName>
+                    <strategyAexeosId xsi:nil="true" />
+                </strategy>
+                <custodianAccount>
+                    <custodianAccountName xsi:nil="true" />
+                    <custodianAccountShortName>DEV_CUSTODIAN_ACCOUNT</custodianAccountShortName>
+                    <custodianAccountLongName>DEV_CUSTODIAN_ACCOUNT</custodianAccountLongName>
+                    <custodianAccountAexeoSId xsi:nil="true" />
+                </custodianAccount>
+                <manager>
+                    <managerName>DEV_MANAGER</managerName>
+                    <managerAexeoSId xsi:nil="true" />
+                </manager>
+                <portfolio>
+                    <portfolioName>PROXY_DEV</portfolioName>
+                    <portfolioAexeoSId xsi:nil="true" />
+                </portfolio>
+            </records>
+        </runTradeReport>
+    </data>
+</root>

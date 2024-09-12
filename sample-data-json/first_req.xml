@@ -1,0 +1,45 @@
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <query>
+    query Records($tenantId: ID!, $filter: GetEventListFilter) {
+      runTradeReport(tenantId: $tenantId, filter: $filter) {
+        pageInfo {
+          forwardCursor
+          hasNextPage
+        }
+        records {
+          knowledgeTime
+          validTime
+          type
+          knowledgeEndTime
+          assetType
+          aexeoOrderId
+          clientOrderId
+          summa_id
+          portfolioName
+          brokerName
+          basketName
+          strategyName
+          custodianAccountName
+          custodianName
+          managerName
+          quantity
+          price
+          cost
+          secFeeAmount
+          exFeeAmount
+          brokerCommissionAmount
+          legalFeeAmount
+          totalExpenseAmount
+          actualSettleDate
+          contractualSettleDate
+        }
+      }
+    }   
+    </query>
+    <variables>
+        <tenantId xsi:type="decimal">1</tenantId>
+        <filter>
+            <pageSize xsi:type="decimal">1000</pageSize>
+        </filter>
+    </variables>
+</root>

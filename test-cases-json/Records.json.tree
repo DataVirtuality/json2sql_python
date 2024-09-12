@@ -1,0 +1,978 @@
+=====================================
+TreeNodeInfo
+-------------------------------------
+Indexes
+    /root/
+    /root/data/
+    /root/data/runTradeReport/
+    /root/data/runTradeReport/records/
+    /root/data/runTradeReport/records/actualSettleDate/
+    /root/data/runTradeReport/records/aexeosId/
+    /root/data/runTradeReport/records/asset/
+    /root/data/runTradeReport/records/asset/assetAexeosId/
+    /root/data/runTradeReport/records/asset/assetKnowledgeTime/
+    /root/data/runTradeReport/records/asset/assetName/
+    /root/data/runTradeReport/records/asset/bloomberg_rt/
+    /root/data/runTradeReport/records/asset/cusip/
+    /root/data/runTradeReport/records/asset/description/
+    /root/data/runTradeReport/records/asset/isin/
+    /root/data/runTradeReport/records/asset/option/
+    /root/data/runTradeReport/records/asset/option/callPut/
+    /root/data/runTradeReport/records/asset/option/contractSize/
+    /root/data/runTradeReport/records/asset/option/expirationDate/
+    /root/data/runTradeReport/records/asset/option/strikePrice/
+    /root/data/runTradeReport/records/asset/priceFactor/
+    /root/data/runTradeReport/records/asset/sedol/
+    /root/data/runTradeReport/records/asset/symbol/
+    /root/data/runTradeReport/records/asset/tid/
+    /root/data/runTradeReport/records/asset/tradeQuantityFactor/
+    /root/data/runTradeReport/records/assetType/
+    /root/data/runTradeReport/records/basket/
+    /root/data/runTradeReport/records/broker/
+    /root/data/runTradeReport/records/broker/brokerAexeosId/
+    /root/data/runTradeReport/records/broker/brokerName/
+    /root/data/runTradeReport/records/clientOrderId/
+    /root/data/runTradeReport/records/contractualSettleDate/
+    /root/data/runTradeReport/records/cost/
+    /root/data/runTradeReport/records/custodianAccount/
+    /root/data/runTradeReport/records/custodianAccount/custodianAccountAexeoSId/
+    /root/data/runTradeReport/records/custodianAccount/custodianAccountLongName/
+    /root/data/runTradeReport/records/custodianAccount/custodianAccountName/
+    /root/data/runTradeReport/records/custodianAccount/custodianAccountShortName/
+    /root/data/runTradeReport/records/knowledgeEndTime/
+    /root/data/runTradeReport/records/knowledgeTime/
+    /root/data/runTradeReport/records/manager/
+    /root/data/runTradeReport/records/manager/managerAexeoSId/
+    /root/data/runTradeReport/records/manager/managerName/
+    /root/data/runTradeReport/records/portfolio/
+    /root/data/runTradeReport/records/portfolio/portfolioAexeoSId/
+    /root/data/runTradeReport/records/portfolio/portfolioName/
+    /root/data/runTradeReport/records/price/
+    /root/data/runTradeReport/records/quantity/
+    /root/data/runTradeReport/records/standardCommissions/
+    /root/data/runTradeReport/records/standardExpenses/
+    /root/data/runTradeReport/records/standardMiscellaneousExpenses/
+    /root/data/runTradeReport/records/standardMiscellaneousFees/
+    /root/data/runTradeReport/records/standardSECFees/
+    /root/data/runTradeReport/records/strategy/
+    /root/data/runTradeReport/records/strategy/strategyAexeosId/
+    /root/data/runTradeReport/records/strategy/strategyName/
+    /root/data/runTradeReport/records/summa_id/
+    /root/data/runTradeReport/records/type/
+    /root/data/runTradeReport/records/validTime/
+-------------------------------------
+/root/
+    unescaped_xpath=/root/
+    element_name=root
+    unescaped_element_name=root
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=0
+    has_been_processed=False
+    num_of_children=1
+    parent=None
+    Children
+        xpath=/root/data/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/
+    unescaped_xpath=/root/data/
+    element_name=data
+    unescaped_element_name=data
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=1
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/
+    Children
+        xpath=/root/data/runTradeReport/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/
+    unescaped_xpath=/root/data/runTradeReport/
+    element_name=runTradeReport
+    unescaped_element_name=runTradeReport
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=2
+    has_been_processed=False
+    num_of_children=1
+    parent=/root/data/
+    Children
+        xpath=/root/data/runTradeReport/records/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/
+    unescaped_xpath=/root/data/runTradeReport/records/
+    element_name=records
+    unescaped_element_name=records
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.LIST
+    depth=3
+    has_been_processed=False
+    num_of_children=25
+    parent=/root/data/runTradeReport/
+    Children
+        xpath=/root/data/runTradeReport/records/actualSettleDate/
+        xpath=/root/data/runTradeReport/records/aexeosId/
+        xpath=/root/data/runTradeReport/records/asset/
+        xpath=/root/data/runTradeReport/records/assetType/
+        xpath=/root/data/runTradeReport/records/basket/
+        xpath=/root/data/runTradeReport/records/broker/
+        xpath=/root/data/runTradeReport/records/clientOrderId/
+        xpath=/root/data/runTradeReport/records/contractualSettleDate/
+        xpath=/root/data/runTradeReport/records/cost/
+        xpath=/root/data/runTradeReport/records/custodianAccount/
+        xpath=/root/data/runTradeReport/records/knowledgeEndTime/
+        xpath=/root/data/runTradeReport/records/knowledgeTime/
+        xpath=/root/data/runTradeReport/records/manager/
+        xpath=/root/data/runTradeReport/records/portfolio/
+        xpath=/root/data/runTradeReport/records/price/
+        xpath=/root/data/runTradeReport/records/quantity/
+        xpath=/root/data/runTradeReport/records/standardCommissions/
+        xpath=/root/data/runTradeReport/records/standardExpenses/
+        xpath=/root/data/runTradeReport/records/standardMiscellaneousExpenses/
+        xpath=/root/data/runTradeReport/records/standardMiscellaneousFees/
+        xpath=/root/data/runTradeReport/records/standardSECFees/
+        xpath=/root/data/runTradeReport/records/strategy/
+        xpath=/root/data/runTradeReport/records/summa_id/
+        xpath=/root/data/runTradeReport/records/type/
+        xpath=/root/data/runTradeReport/records/validTime/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/actualSettleDate/
+    unescaped_xpath=/root/data/runTradeReport/records/actualSettleDate/
+    element_name=actualSettleDate
+    unescaped_element_name=actualSettleDate
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/aexeosId/
+    unescaped_xpath=/root/data/runTradeReport/records/aexeosId/
+    element_name=aexeosId
+    unescaped_element_name=aexeosId
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/
+    element_name=asset
+    unescaped_element_name=asset
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=13
+    parent=/root/data/runTradeReport/records/
+    Children
+        xpath=/root/data/runTradeReport/records/asset/assetAexeosId/
+        xpath=/root/data/runTradeReport/records/asset/assetKnowledgeTime/
+        xpath=/root/data/runTradeReport/records/asset/assetName/
+        xpath=/root/data/runTradeReport/records/asset/bloomberg_rt/
+        xpath=/root/data/runTradeReport/records/asset/cusip/
+        xpath=/root/data/runTradeReport/records/asset/description/
+        xpath=/root/data/runTradeReport/records/asset/isin/
+        xpath=/root/data/runTradeReport/records/asset/option/
+        xpath=/root/data/runTradeReport/records/asset/priceFactor/
+        xpath=/root/data/runTradeReport/records/asset/sedol/
+        xpath=/root/data/runTradeReport/records/asset/symbol/
+        xpath=/root/data/runTradeReport/records/asset/tid/
+        xpath=/root/data/runTradeReport/records/asset/tradeQuantityFactor/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/assetAexeosId/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/assetAexeosId/
+    element_name=assetAexeosId
+    unescaped_element_name=assetAexeosId
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/assetKnowledgeTime/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/assetKnowledgeTime/
+    element_name=assetKnowledgeTime
+    unescaped_element_name=assetKnowledgeTime
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/assetName/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/assetName/
+    element_name=assetName
+    unescaped_element_name=assetName
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/bloomberg_rt/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/bloomberg_rt/
+    element_name=bloomberg_rt
+    unescaped_element_name=bloomberg_rt
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/cusip/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/cusip/
+    element_name=cusip
+    unescaped_element_name=cusip
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/description/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/description/
+    element_name=description
+    unescaped_element_name=description
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/isin/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/isin/
+    element_name=isin
+    unescaped_element_name=isin
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/option/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/option/
+    element_name=option
+    unescaped_element_name=option
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=5
+    has_been_processed=False
+    num_of_children=4
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        xpath=/root/data/runTradeReport/records/asset/option/callPut/
+        xpath=/root/data/runTradeReport/records/asset/option/contractSize/
+        xpath=/root/data/runTradeReport/records/asset/option/expirationDate/
+        xpath=/root/data/runTradeReport/records/asset/option/strikePrice/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/option/callPut/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/option/callPut/
+    element_name=callPut
+    unescaped_element_name=callPut
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/option/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/option/contractSize/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/option/contractSize/
+    element_name=contractSize
+    unescaped_element_name=contractSize
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/option/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/option/expirationDate/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/option/expirationDate/
+    element_name=expirationDate
+    unescaped_element_name=expirationDate
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/option/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/option/strikePrice/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/option/strikePrice/
+    element_name=strikePrice
+    unescaped_element_name=strikePrice
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=6
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/option/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/priceFactor/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/priceFactor/
+    element_name=priceFactor
+    unescaped_element_name=priceFactor
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/sedol/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/sedol/
+    element_name=sedol
+    unescaped_element_name=sedol
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/symbol/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/symbol/
+    element_name=symbol
+    unescaped_element_name=symbol
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/tid/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/tid/
+    element_name=tid
+    unescaped_element_name=tid
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/asset/tradeQuantityFactor/
+    unescaped_xpath=/root/data/runTradeReport/records/asset/tradeQuantityFactor/
+    element_name=tradeQuantityFactor
+    unescaped_element_name=tradeQuantityFactor
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/asset/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/assetType/
+    unescaped_xpath=/root/data/runTradeReport/records/assetType/
+    element_name=assetType
+    unescaped_element_name=assetType
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/basket/
+    unescaped_xpath=/root/data/runTradeReport/records/basket/
+    element_name=basket
+    unescaped_element_name=basket
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/broker/
+    unescaped_xpath=/root/data/runTradeReport/records/broker/
+    element_name=broker
+    unescaped_element_name=broker
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/data/runTradeReport/records/
+    Children
+        xpath=/root/data/runTradeReport/records/broker/brokerAexeosId/
+        xpath=/root/data/runTradeReport/records/broker/brokerName/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/broker/brokerAexeosId/
+    unescaped_xpath=/root/data/runTradeReport/records/broker/brokerAexeosId/
+    element_name=brokerAexeosId
+    unescaped_element_name=brokerAexeosId
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/broker/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/broker/brokerName/
+    unescaped_xpath=/root/data/runTradeReport/records/broker/brokerName/
+    element_name=brokerName
+    unescaped_element_name=brokerName
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/broker/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/clientOrderId/
+    unescaped_xpath=/root/data/runTradeReport/records/clientOrderId/
+    element_name=clientOrderId
+    unescaped_element_name=clientOrderId
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/contractualSettleDate/
+    unescaped_xpath=/root/data/runTradeReport/records/contractualSettleDate/
+    element_name=contractualSettleDate
+    unescaped_element_name=contractualSettleDate
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/cost/
+    unescaped_xpath=/root/data/runTradeReport/records/cost/
+    element_name=cost
+    unescaped_element_name=cost
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/custodianAccount/
+    unescaped_xpath=/root/data/runTradeReport/records/custodianAccount/
+    element_name=custodianAccount
+    unescaped_element_name=custodianAccount
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=4
+    parent=/root/data/runTradeReport/records/
+    Children
+        xpath=/root/data/runTradeReport/records/custodianAccount/custodianAccountAexeoSId/
+        xpath=/root/data/runTradeReport/records/custodianAccount/custodianAccountLongName/
+        xpath=/root/data/runTradeReport/records/custodianAccount/custodianAccountName/
+        xpath=/root/data/runTradeReport/records/custodianAccount/custodianAccountShortName/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/custodianAccount/custodianAccountAexeoSId/
+    unescaped_xpath=/root/data/runTradeReport/records/custodianAccount/custodianAccountAexeoSId/
+    element_name=custodianAccountAexeoSId
+    unescaped_element_name=custodianAccountAexeoSId
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/custodianAccount/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/custodianAccount/custodianAccountLongName/
+    unescaped_xpath=/root/data/runTradeReport/records/custodianAccount/custodianAccountLongName/
+    element_name=custodianAccountLongName
+    unescaped_element_name=custodianAccountLongName
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/custodianAccount/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/custodianAccount/custodianAccountName/
+    unescaped_xpath=/root/data/runTradeReport/records/custodianAccount/custodianAccountName/
+    element_name=custodianAccountName
+    unescaped_element_name=custodianAccountName
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/custodianAccount/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/custodianAccount/custodianAccountShortName/
+    unescaped_xpath=/root/data/runTradeReport/records/custodianAccount/custodianAccountShortName/
+    element_name=custodianAccountShortName
+    unescaped_element_name=custodianAccountShortName
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/custodianAccount/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/knowledgeEndTime/
+    unescaped_xpath=/root/data/runTradeReport/records/knowledgeEndTime/
+    element_name=knowledgeEndTime
+    unescaped_element_name=knowledgeEndTime
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/knowledgeTime/
+    unescaped_xpath=/root/data/runTradeReport/records/knowledgeTime/
+    element_name=knowledgeTime
+    unescaped_element_name=knowledgeTime
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/manager/
+    unescaped_xpath=/root/data/runTradeReport/records/manager/
+    element_name=manager
+    unescaped_element_name=manager
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/data/runTradeReport/records/
+    Children
+        xpath=/root/data/runTradeReport/records/manager/managerAexeoSId/
+        xpath=/root/data/runTradeReport/records/manager/managerName/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/manager/managerAexeoSId/
+    unescaped_xpath=/root/data/runTradeReport/records/manager/managerAexeoSId/
+    element_name=managerAexeoSId
+    unescaped_element_name=managerAexeoSId
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/manager/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/manager/managerName/
+    unescaped_xpath=/root/data/runTradeReport/records/manager/managerName/
+    element_name=managerName
+    unescaped_element_name=managerName
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/manager/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/portfolio/
+    unescaped_xpath=/root/data/runTradeReport/records/portfolio/
+    element_name=portfolio
+    unescaped_element_name=portfolio
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/data/runTradeReport/records/
+    Children
+        xpath=/root/data/runTradeReport/records/portfolio/portfolioAexeoSId/
+        xpath=/root/data/runTradeReport/records/portfolio/portfolioName/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/portfolio/portfolioAexeoSId/
+    unescaped_xpath=/root/data/runTradeReport/records/portfolio/portfolioAexeoSId/
+    element_name=portfolioAexeoSId
+    unescaped_element_name=portfolioAexeoSId
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/portfolio/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/portfolio/portfolioName/
+    unescaped_xpath=/root/data/runTradeReport/records/portfolio/portfolioName/
+    element_name=portfolioName
+    unescaped_element_name=portfolioName
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/portfolio/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/price/
+    unescaped_xpath=/root/data/runTradeReport/records/price/
+    element_name=price
+    unescaped_element_name=price
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/quantity/
+    unescaped_xpath=/root/data/runTradeReport/records/quantity/
+    element_name=quantity
+    unescaped_element_name=quantity
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/standardCommissions/
+    unescaped_xpath=/root/data/runTradeReport/records/standardCommissions/
+    element_name=standardCommissions
+    unescaped_element_name=standardCommissions
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/standardExpenses/
+    unescaped_xpath=/root/data/runTradeReport/records/standardExpenses/
+    element_name=standardExpenses
+    unescaped_element_name=standardExpenses
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/standardMiscellaneousExpenses/
+    unescaped_xpath=/root/data/runTradeReport/records/standardMiscellaneousExpenses/
+    element_name=standardMiscellaneousExpenses
+    unescaped_element_name=standardMiscellaneousExpenses
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/standardMiscellaneousFees/
+    unescaped_xpath=/root/data/runTradeReport/records/standardMiscellaneousFees/
+    element_name=standardMiscellaneousFees
+    unescaped_element_name=standardMiscellaneousFees
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/standardSECFees/
+    unescaped_xpath=/root/data/runTradeReport/records/standardSECFees/
+    element_name=standardSECFees
+    unescaped_element_name=standardSECFees
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/strategy/
+    unescaped_xpath=/root/data/runTradeReport/records/strategy/
+    element_name=strategy
+    unescaped_element_name=strategy
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DICT
+    depth=4
+    has_been_processed=False
+    num_of_children=2
+    parent=/root/data/runTradeReport/records/
+    Children
+        xpath=/root/data/runTradeReport/records/strategy/strategyAexeosId/
+        xpath=/root/data/runTradeReport/records/strategy/strategyName/
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/strategy/strategyAexeosId/
+    unescaped_xpath=/root/data/runTradeReport/records/strategy/strategyAexeosId/
+    element_name=strategyAexeosId
+    unescaped_element_name=strategyAexeosId
+    datatype=DataTypes.UNKNOWN
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/strategy/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/strategy/strategyName/
+    unescaped_xpath=/root/data/runTradeReport/records/strategy/strategyName/
+    element_name=strategyName
+    unescaped_element_name=strategyName
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=5
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/strategy/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/summa_id/
+    unescaped_xpath=/root/data/runTradeReport/records/summa_id/
+    element_name=summa_id
+    unescaped_element_name=summa_id
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/type/
+    unescaped_xpath=/root/data/runTradeReport/records/type/
+    element_name=type
+    unescaped_element_name=type
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None
+-------------------------------------
+/root/data/runTradeReport/records/validTime/
+    unescaped_xpath=/root/data/runTradeReport/records/validTime/
+    element_name=validTime
+    unescaped_element_name=validTime
+    datatype=DataTypes.STR
+    node_type=NodeTypes.DATA
+    depth=4
+    has_been_processed=False
+    num_of_children=0
+    parent=/root/data/runTradeReport/records/
+    Children
+        None
+    XML_attributes
+        None

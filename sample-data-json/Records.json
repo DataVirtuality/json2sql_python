@@ -1,0 +1,632 @@
+{
+  "data": {
+    "runTradeReport": {
+      "records": [
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:22:04.607530Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_USD_EQUITY",
+            "description": "DEV_USD_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:12:08.686033Z",
+          "validTime": "2022-02-01T12:00:00Z",
+          "type": "OPEN_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7941",
+          "quantity": "10000",
+          "price": "100",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-02-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": {
+            "strategyName": "DEV_ROUNDTRIP",
+            "strategyAexeosId": null
+          },
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        },
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:23:37.149238Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_JPY_EQUITY",
+            "description": "DEV_JPY_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:13:36.881665Z",
+          "validTime": "2022-02-01T12:00:00Z",
+          "type": "OPEN_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7942",
+          "quantity": "10000",
+          "price": "10000",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-02-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": {
+            "strategyName": "DEV_ROUNDTRIP",
+            "strategyAexeosId": null
+          },
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        },
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:23:37.149238Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_JPY_EQUITY",
+            "description": "DEV_JPY_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:13:48.171995Z",
+          "validTime": "2022-02-01T12:00:00Z",
+          "type": "OPEN_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7943",
+          "quantity": "10000",
+          "price": "10000",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-02-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": null,
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        },
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:22:04.607530Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_USD_EQUITY",
+            "description": "DEV_USD_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:14:02.157976Z",
+          "validTime": "2022-02-01T12:00:00Z",
+          "type": "OPEN_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7944",
+          "quantity": "10000",
+          "price": "100",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-02-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": null,
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        },
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:22:04.607530Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_USD_EQUITY",
+            "description": "DEV_USD_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:15:45.174085Z",
+          "validTime": "2022-04-01T12:00:00Z",
+          "type": "CLOSE_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7945",
+          "quantity": "2000",
+          "price": "102",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-04-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": {
+            "strategyName": "DEV_ROUNDTRIP",
+            "strategyAexeosId": null
+          },
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        },
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:22:04.607530Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_USD_EQUITY",
+            "description": "DEV_USD_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:15:45.174085Z",
+          "validTime": "2022-05-01T12:00:00Z",
+          "type": "CLOSE_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7946",
+          "quantity": "7000",
+          "price": "103",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-05-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": {
+            "strategyName": "DEV_ROUNDTRIP",
+            "strategyAexeosId": null
+          },
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        },
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:22:04.607530Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_USD_EQUITY",
+            "description": "DEV_USD_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:15:45.174085Z",
+          "validTime": "2022-03-01T12:00:00Z",
+          "type": "CLOSE_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7947",
+          "quantity": "1000",
+          "price": "101",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-03-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": {
+            "strategyName": "DEV_ROUNDTRIP",
+            "strategyAexeosId": null
+          },
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        },
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:23:37.149238Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_JPY_EQUITY",
+            "description": "DEV_JPY_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:16:35.932159Z",
+          "validTime": "2022-04-01T12:00:00Z",
+          "type": "CLOSE_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7948",
+          "quantity": "2000",
+          "price": "102",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-04-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": {
+            "strategyName": "DEV_ROUNDTRIP",
+            "strategyAexeosId": null
+          },
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        },
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:23:37.149238Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_JPY_EQUITY",
+            "description": "DEV_JPY_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:16:35.932159Z",
+          "validTime": "2022-05-01T12:00:00Z",
+          "type": "CLOSE_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7949",
+          "quantity": "7000",
+          "price": "103",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-05-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": {
+            "strategyName": "DEV_ROUNDTRIP",
+            "strategyAexeosId": null
+          },
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        },
+        {
+          "asset": {
+            "assetName": null,
+            "assetKnowledgeTime": "2023-04-25T20:23:37.149238Z",
+            "cusip": null,
+            "isin": null,
+            "sedol": null,
+            "priceFactor": "1",
+            "tradeQuantityFactor": "1",
+            "tid": null,
+            "symbol": "DEV_JPY_EQUITY",
+            "description": "DEV_JPY_EQUITY_DESCRIPTION",
+            "bloomberg_rt": null,
+            "assetAexeosId": null,
+            "option": {
+              "callPut": null,
+              "contractSize": null,
+              "expirationDate": null,
+              "strikePrice": null
+            }
+          },
+          "knowledgeTime": "2023-04-25T17:16:35.932159Z",
+          "validTime": "2022-03-01T12:00:00Z",
+          "type": "CLOSE_LONG",
+          "knowledgeEndTime": null,
+          "assetType": "EQUITY",
+          "clientOrderId": null,
+          "summa_id": "7950",
+          "quantity": "1000",
+          "price": "101",
+          "cost": null,
+          "actualSettleDate": null,
+          "contractualSettleDate": "2022-03-01",
+          "aexeosId": null,
+          "standardSECFees": null,
+          "standardMiscellaneousFees": null,
+          "standardMiscellaneousExpenses": null,
+          "standardExpenses": null,
+          "standardCommissions": null,
+          "broker": {
+            "brokerName": "DEV_BROKER",
+            "brokerAexeosId": null
+          },
+          "basket": null,
+          "strategy": {
+            "strategyName": "DEV_ROUNDTRIP",
+            "strategyAexeosId": null
+          },
+          "custodianAccount": {
+            "custodianAccountName": null,
+            "custodianAccountShortName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountLongName": "DEV_CUSTODIAN_ACCOUNT",
+            "custodianAccountAexeoSId": null
+          },
+          "manager": {
+            "managerName": "DEV_MANAGER",
+            "managerAexeoSId": null
+          },
+          "portfolio": {
+            "portfolioName": "PROXY_DEV",
+            "portfolioAexeoSId": null
+          }
+        }
+      ]
+    }
+  }
+}
